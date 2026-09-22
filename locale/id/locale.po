@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2026-09-22T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-09-22T00:00:00+00:00\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.themes.rumahJurnal.name"
+msgstr "Tema Rumah Jurnal"
+
+msgid "plugins.themes.rumahJurnal.description"
+msgstr "Tema portal modern khusus beranda indeks jurnal dengan Tailwind CSS, pencarian interaktif, dan tampilan elegan."
+
+msgid "plugins.themes.rumahJurnal.portalTitle"
+msgstr "Portal Rumah Jurnal"
+
+msgid "plugins.themes.rumahJurnal.searchPlaceholder"
+msgstr "Cari jurnal berdasarkan nama, fokus kajian, e-ISSN, atau kata kunci..."
+
+msgid "plugins.themes.rumahJurnal.viewJournal"
+msgstr "Kunjungi Jurnal"
+
+msgid "plugins.themes.rumahJurnal.currentIssue"
+msgstr "Terbitan Terkini"
+
+msgid "plugins.themes.rumahJurnal.submitArticle"
+msgstr "Kirim Naskah"
+
+msgid "plugins.themes.rumahJurnal.option.primaryColor.label"
+msgstr "Warna Primer (Primary Color)"
+
+msgid "plugins.themes.rumahJurnal.option.primaryColor.description"
+msgstr "Warna utama yang digunakan untuk bilah navigasi, judul, tombol utama, dan lencana (default: #2C366D)."
+
+msgid "plugins.themes.rumahJurnal.option.secondaryColor.label"
+msgstr "Warna Sekunder / Aksen (Secondary Color)"
+
+msgid "plugins.themes.rumahJurnal.option.secondaryColor.description"
+msgstr "Warna aksen/sorotan untuk efek hover, garis batas aktif, dan ikon sorotan (default: #D2AA2A)."
+

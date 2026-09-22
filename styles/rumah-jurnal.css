@@ -1,0 +1,149 @@
+/**
+ * Rumah Jurnal OJS 3.5 Theme Stylesheet
+ * Base Colors: Primary #2C366D | Secondary #D2AA2A
+ * Strictly Light Mode
+ */
+
+:root {
+  --rj-primary: #2C366D;
+  --rj-primary-dark: #1E254B;
+  --rj-primary-light: #3D4A8E;
+  --rj-primary-50: #F0F3F9;
+  --rj-primary-100: #E0E5F2;
+  --rj-gold: #D2AA2A;
+  --rj-gold-hover: #BF961C;
+  --rj-gold-light: #F9F4E4;
+  --rj-gold-50: #FCF9F0;
+  --rj-gold-border: #E8CA66;
+  --rj-bg: #F8FAFC;
+  --rj-card-bg: #FFFFFF;
+  --rj-text-main: #1E293B;
+  --rj-text-muted: #64748B;
+  --rj-border: #E2E8F0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--rj-bg);
+  color: var(--rj-text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Hero Background Pattern */
+.rj-hero-bg {
+  background: linear-gradient(135deg, var(--rj-primary-dark, #1E254B) 0%, var(--rj-primary, #2C366D) 55%, var(--rj-primary-light, #354284) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.rj-hero-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--rj-gold-border, rgba(210, 170, 42, 0.15)) 0%, rgba(210, 170, 42, 0) 70%);
+  pointer-events: none;
+}
+.rj-hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+/* Card Hover Elevation */
+.rj-journal-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+}
+.rj-journal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  border-color: #CBD5E1;
+}
+
+/* SINTA Badges */
+.badge-sinta-1 { background-color: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; }
+.badge-sinta-2 { background-color: #FEF9C3; color: #854D0E; border: 1px solid #FDE047; }
+.badge-sinta-3 { background-color: #E0E7FF; color: #3730A3; border: 1px solid #C7D2FE; }
+.badge-sinta-4 { background-color: #EDE9FE; color: #5B21B6; border: 1px solid #DDD6FE; }
+.badge-sinta-5 { background-color: #FCE7F3; color: #9D174D; border: 1px solid #FBCFE8; }
+.badge-sinta-6 { background-color: #F1F5F9; color: #475569; border: 1px solid #E2E8F0; }
+.badge-sinta-default { background-color: #FAF5E6; color: #94751A; border: 1px solid #E8CA66; }
+
+/* Filter Tabs */
+.rj-tab-active {
+  background-color: var(--rj-primary, #2C366D) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+}
+
+/* Search Box Glow */
+.rj-search-input:focus {
+  outline: none;
+  border-color: var(--rj-primary, #2C366D);
+  box-shadow: 0 0 0 3px var(--rj-primary-50, rgba(44, 54, 109, 0.15));
+}
+
+/* Glassmorphism Stat Cards */
+.rj-stat-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+}
+
+/* Tooltip animation */
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.has-tooltip:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Smooth Image Loading */
+.rj-cover-img {
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.rj-journal-card:hover .rj-cover-img {
+  transform: scale(1.03);
+}
+
+/* Button Pulse Animation */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+.rj-pulse {
+  animation: subtle-pulse 3s infinite;
+}

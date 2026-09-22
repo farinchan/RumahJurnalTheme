@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2026-09-22T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-09-22T00:00:00+00:00\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.themes.rumahJurnal.name"
+msgstr "Rumah Jurnal Theme"
+
+msgid "plugins.themes.rumahJurnal.description"
+msgstr "Modern portal theme specialized for journal index site with Tailwind CSS and advanced UI."
+
+msgid "plugins.themes.rumahJurnal.portalTitle"
+msgstr "Rumah Jurnal Portal"
+
+msgid "plugins.themes.rumahJurnal.searchPlaceholder"
+msgstr "Search journals by title, ISSN, discipline, or keywords..."
+
+msgid "plugins.themes.rumahJurnal.viewJournal"
+msgstr "View Journal"
+
+msgid "plugins.themes.rumahJurnal.currentIssue"
+msgstr "Current Issue"
+
+msgid "plugins.themes.rumahJurnal.submitArticle"
+msgstr "Submit Paper"
+
+msgid "plugins.themes.rumahJurnal.option.primaryColor.label"
+msgstr "Primary Color"
+
+msgid "plugins.themes.rumahJurnal.option.primaryColor.description"
+msgstr "Main brand color used for navigation bar, headings, buttons, and badges (default: #2C366D)."
+
+msgid "plugins.themes.rumahJurnal.option.secondaryColor.label"
+msgstr "Secondary / Accent Color"
+
+msgid "plugins.themes.rumahJurnal.option.secondaryColor.description"
+msgstr "Accent color used for highlights, borders, stars, and hover states (default: #D2AA2A)."
+
