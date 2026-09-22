@@ -247,10 +247,10 @@
 
 			<!-- MAIN HEADLINE -->
 			<h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
-				Portal Publikasi Ilmiah & Riset Terbuka
+				{$heroTitle|default:"Portal Publikasi Ilmiah & Riset Terbuka"|escape}
 			</h1>
 			<p class="text-base sm:text-lg text-slate-200 max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
-				Menyajikan akses terbuka (<span class="text-accent font-semibold">Open Access</span>) ke puluhan berkala ilmiah terindeks nasional (SINTA) dan internasional di lingkungan Universitas Islam Negeri Mahmud Yunus Batusangkar.
+				{$heroDescription|default:'Menyajikan akses terbuka (<span class="text-accent font-semibold">Open Access</span>) ke puluhan berkala ilmiah terindeks nasional (SINTA) dan internasional di lingkungan Universitas Islam Negeri Mahmud Yunus Batusangkar.'}
 			</p>
 
 			<!-- HERO SEARCH BAR (DIRECT BINDING) -->

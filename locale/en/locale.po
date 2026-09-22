@@ -43,3 +43,15 @@ msgstr "Secondary / Accent Color"
 msgid "plugins.themes.rumahJurnal.option.secondaryColor.description"
 msgstr "Accent color used for highlights, borders, stars, and hover states (default: #D2AA2A)."
 
+msgid "plugins.themes.rumahJurnal.option.heroTitle.label"
+msgstr "Main Hero Headline"
+
+msgid "plugins.themes.rumahJurnal.option.heroTitle.description"
+msgstr "Main headline title displayed in the homepage banner (default: Portal Publikasi Ilmiah & Riset Terbuka)."
+
+msgid "plugins.themes.rumahJurnal.option.heroDescription.label"
+msgstr "Hero Description"
+
+msgid "plugins.themes.rumahJurnal.option.heroDescription.description"
+msgstr "Introductory description text displayed below the main banner headline."
+

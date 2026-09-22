@@ -43,3 +43,15 @@ msgstr "Warna Sekunder / Aksen (Secondary Color)"
 msgid "plugins.themes.rumahJurnal.option.secondaryColor.description"
 msgstr "Warna aksen/sorotan untuk efek hover, garis batas aktif, dan ikon sorotan (default: #D2AA2A)."
 
+msgid "plugins.themes.rumahJurnal.option.heroTitle.label"
+msgstr "Judul Utama Banner (Hero Title)"
+
+msgid "plugins.themes.rumahJurnal.option.heroTitle.description"
+msgstr "Judul headline utama yang ditampilkan di banner beranda portal (default: Portal Publikasi Ilmiah & Riset Terbuka)."
+
+msgid "plugins.themes.rumahJurnal.option.heroDescription.label"
+msgstr "Deskripsi Banner (Hero Description)"
+
+msgid "plugins.themes.rumahJurnal.option.heroDescription.description"
+msgstr "Teks deskripsi pengantar di bawah judul banner beranda portal."
+

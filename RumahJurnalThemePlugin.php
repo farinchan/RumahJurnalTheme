@@ -41,6 +41,18 @@ class RumahJurnalThemePlugin extends ThemePlugin
             'default' => '#D2AA2A',
         ]);
 
+        $this->addOption('heroTitle', 'FieldText', [
+            'label' => __('plugins.themes.rumahJurnal.option.heroTitle.label'),
+            'description' => __('plugins.themes.rumahJurnal.option.heroTitle.description'),
+            'default' => 'Portal Publikasi Ilmiah & Riset Terbuka',
+        ]);
+
+        $this->addOption('heroDescription', 'FieldTextarea', [
+            'label' => __('plugins.themes.rumahJurnal.option.heroDescription.label'),
+            'description' => __('plugins.themes.rumahJurnal.option.heroDescription.description'),
+            'default' => 'Menyajikan akses terbuka (Open Access) ke puluhan berkala ilmiah terindeks nasional (SINTA) dan internasional di lingkungan Universitas Islam Negeri Mahmud Yunus Batusangkar.',
+        ]);
+
         // Add Google Fonts: Plus Jakarta Sans & Outfit
         $this->addStyle(
             'googleFonts',
@@ -100,13 +112,10 @@ class RumahJurnalThemePlugin extends ThemePlugin
     {
         $color = (string) $this->getOption('primaryColor');
         if (empty($color)) {
-            $context = Application::get()->getRequest()->getContext();
-            if ($context) {
-                /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
-                $pluginSettingsDao = \PKP\db\DAORegistry::getDAO('PluginSettingsDAO');
-                $siteSettings = $pluginSettingsDao->getPluginSettings(null, $this->getName());
-                $color = $siteSettings['primaryColor'] ?? '';
-            }
+            /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
+            $pluginSettingsDao = \PKP\db\DAORegistry::getDAO('PluginSettingsDAO');
+            $siteSettings = $pluginSettingsDao->getPluginSettings(null, $this->getName());
+            $color = $siteSettings['primaryColor'] ?? '';
         }
         if (empty($color)) {
             $color = '#2C366D';
@@ -121,18 +130,51 @@ class RumahJurnalThemePlugin extends ThemePlugin
     {
         $color = (string) $this->getOption('secondaryColor');
         if (empty($color)) {
-            $context = Application::get()->getRequest()->getContext();
-            if ($context) {
-                /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
-                $pluginSettingsDao = \PKP\db\DAORegistry::getDAO('PluginSettingsDAO');
-                $siteSettings = $pluginSettingsDao->getPluginSettings(null, $this->getName());
-                $color = $siteSettings['secondaryColor'] ?? '';
-            }
+            /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
+            $pluginSettingsDao = \PKP\db\DAORegistry::getDAO('PluginSettingsDAO');
+            $siteSettings = $pluginSettingsDao->getPluginSettings(null, $this->getName());
+            $color = $siteSettings['secondaryColor'] ?? '';
         }
         if (empty($color)) {
             $color = '#D2AA2A';
         }
         return '#' . ltrim($color, '#');
+    }
+
+    /**
+     * Get hero headline title with fallback
+     */
+    public function getHeroTitle(): string
+    {
+        $title = (string) $this->getOption('heroTitle');
+        if (empty($title)) {
+            /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
+            $pluginSettingsDao = \PKP\db\DAORegistry::getDAO('PluginSettingsDAO');
+            $siteSettings = $pluginSettingsDao->getPluginSettings(null, $this->getName());
+            $title = $siteSettings['heroTitle'] ?? '';
+        }
+        if (empty($title)) {
+            $title = 'Portal Publikasi Ilmiah & Riset Terbuka';
+        }
+        return $title;
+    }
+
+    /**
+     * Get hero description with fallback
+     */
+    public function getHeroDescription(): string
+    {
+        $desc = (string) $this->getOption('heroDescription');
+        if (empty($desc)) {
+            /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
+            $pluginSettingsDao = \PKP\db\DAORegistry::getDAO('PluginSettingsDAO');
+            $siteSettings = $pluginSettingsDao->getPluginSettings(null, $this->getName());
+            $desc = $siteSettings['heroDescription'] ?? '';
+        }
+        if (empty($desc)) {
+            $desc = 'Menyajikan akses terbuka (<span class="text-accent font-semibold">Open Access</span>) ke puluhan berkala ilmiah terindeks nasional (SINTA) dan internasional di lingkungan Universitas Islam Negeri Mahmud Yunus Batusangkar.';
+        }
+        return $desc;
     }
 
     /**
@@ -406,8 +448,12 @@ class RumahJurnalThemePlugin extends ThemePlugin
 
             $primary = $this->getPrimaryColor();
             $secondary = $this->getSecondaryColor();
+            $heroTitle = $this->getHeroTitle();
+            $heroDescription = $this->getHeroDescription();
 
             $templateMgr->assign([
+                'heroTitle' => $heroTitle,
+                'heroDescription' => $heroDescription,
                 'siteLogoUrl' => $siteLogoUrl,
                 'siteLogoAlt' => $siteLogoAlt,
                 'siteLogoIsWide' => $isWideLogo,
