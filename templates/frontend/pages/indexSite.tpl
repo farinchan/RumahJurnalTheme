@@ -740,23 +740,16 @@
 							</div>
 						{/if}
 					</div>
-					<p class="text-xs text-slate-300 leading-relaxed max-w-lg mb-5">
-						Rumah Jurnal adalah portal pengelolaan dan penerbitan berkala ilmiah terintegrasi yang memfasilitasi publikasi hasil riset dosen, peneliti, dan mahasiswa secara transparan, profesional, dan berstandar nasional maupun internasional.
-					</p>
-					<div class="flex items-center gap-3 text-sm">
-						<a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-accent hover:text-primary-900 flex items-center justify-center text-slate-200 transition">
-							<i class="fa-brands fa-facebook-f"></i>
-						</a>
-						<a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-accent hover:text-primary-900 flex items-center justify-center text-slate-200 transition">
-							<i class="fa-brands fa-youtube"></i>
-						</a>
-						<a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-accent hover:text-primary-900 flex items-center justify-center text-slate-200 transition">
-							<i class="fa-brands fa-instagram"></i>
-						</a>
-						<a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-accent hover:text-primary-900 flex items-center justify-center text-slate-200 transition">
-							<i class="fa-solid fa-envelope"></i>
-						</a>
-					</div>
+					{if $pageFooter}
+						<div class="text-xs text-slate-300 leading-relaxed max-w-lg mb-5 [&_p]:text-xs [&_p]:text-slate-300 [&_p]:leading-relaxed [&_p]:mb-2 [&_a]:text-accent hover:[&_a]:underline">
+							{$pageFooter}
+						</div>
+					{else}
+						<p class="text-xs text-slate-300 leading-relaxed max-w-lg mb-5">
+							Rumah Jurnal adalah portal pengelolaan dan penerbitan berkala ilmiah terintegrasi yang memfasilitasi publikasi hasil riset dosen, peneliti, dan mahasiswa secara transparan, profesional, dan berstandar nasional maupun internasional.
+						</p>
+					{/if}
+				
 				</div>
 
 				<!-- Col 2: Quick Links -->
@@ -802,12 +795,12 @@
 				<div>
 					&copy; {$smarty.now|date_format:"Y"} <strong>Rumah Jurnal</strong> UIN Mahmud Yunus Batusangkar. All rights reserved.
 				</div>
-				<div class="flex items-center gap-2 text-slate-400">
+				<!-- <div class="flex items-center gap-2 text-slate-400">
 					<span>Didukung oleh</span>
 					<a href="https://pkp.sfu.ca/ojs/" target="_blank" rel="noopener" class="text-white hover:text-accent font-semibold transition">
 						Open Journal Systems 3.5
 					</a>
-				</div>
+				</div>  -->
 			</div>
 		</div>
 	</footer>

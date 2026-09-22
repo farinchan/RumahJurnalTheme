@@ -451,7 +451,32 @@ class RumahJurnalThemePlugin extends ThemePlugin
             $heroTitle = $this->getHeroTitle();
             $heroDescription = $this->getHeroDescription();
 
+            // Resolve Page Footer from OJS Site Settings
+            $pageFooter = $templateMgr->getTemplateVars('pageFooter');
+            if (empty($pageFooter) && $site) {
+                $pageFooter = $site->getLocalizedData('pageFooter');
+                if (empty($pageFooter)) {
+                    $allFooters = $site->getData('pageFooter');
+                    if (is_array($allFooters)) {
+                        $primaryLocale = $site->getPrimaryLocale();
+                        $pageFooter = $allFooters[$primaryLocale] ?? reset($allFooters);
+                    } elseif (is_string($allFooters)) {
+                        $pageFooter = $allFooters;
+                    }
+                }
+            }
+            if (empty($pageFooter)) {
+                $footerRow = DB::table('site_settings')
+                    ->where('setting_name', 'pageFooter')
+                    ->whereNotNull('setting_value')
+                    ->first();
+                if ($footerRow && !empty($footerRow->setting_value)) {
+                    $pageFooter = $footerRow->setting_value;
+                }
+            }
+
             $templateMgr->assign([
+                'pageFooter' => $pageFooter,
                 'heroTitle' => $heroTitle,
                 'heroDescription' => $heroDescription,
                 'siteLogoUrl' => $siteLogoUrl,
