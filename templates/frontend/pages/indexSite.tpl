@@ -209,41 +209,17 @@
 			{/if}
 
 			<!-- BRAND LOGO -->
-			<div class="flex items-center gap-3.5">
+			<div class="flex items-center">
 				{if $activeLogoUrl}
-					{if ($activeSiteLogo.width && $activeSiteLogo.height && ($activeSiteLogo.width / $activeSiteLogo.height > 2)) || $siteLogoIsWide}
-						<a href="{url page="index"}" class="flex items-center group py-0.5">
-							<img src="{$activeLogoUrl}" 
-								alt="{$activeSiteLogo.altText|default:$displayPageHeaderTitle|default:'Rumah Jurnal'|escape}" 
-								class="h-10 sm:h-12 w-auto max-w-[260px] xs:max-w-[320px] sm:max-w-md object-contain transition duration-200 group-hover:opacity-90">
-						</a>
-					{else}
-						<a href="{url page="index"}" class="flex items-center gap-3 group">
-							<img src="{$activeLogoUrl}" 
-								alt="{$activeSiteLogo.altText|default:$displayPageHeaderTitle|default:'Rumah Jurnal'|escape}" 
-								class="w-11 h-11 object-contain rounded-xl bg-white p-1 border border-slate-200 shadow-sm flex-shrink-0 group-hover:scale-105 transition duration-200">
-							<div>
-								<div class="flex items-center gap-1.5">
-									<span class="font-extrabold text-xl sm:text-2xl text-primary tracking-tight group-hover:text-accent transition">RUMAH JURNAL</span>
-									<span class="w-2 h-2 rounded-full bg-accent"></span>
-								</div>
-								<p class="text-[11px] font-medium text-slate-500 tracking-wider uppercase -mt-0.5">{$displayPageHeaderTitle|default:$siteTitle|default:"UIN Mahmud Yunus Batusangkar"}</p>
-							</div>
-						</a>
-					{/if}
+					<a href="{url page="index"}" class="flex items-center group py-0.5">
+						<img src="{$activeLogoUrl}" 
+							alt="{$activeSiteLogo.altText|default:$displayPageHeaderTitle|default:'Rumah Jurnal'|escape}" 
+							class="h-10 sm:h-12 w-auto object-contain transition duration-200 group-hover:opacity-90">
+					</a>
 				{else}
-					<div class="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-primary-900 flex items-center justify-center text-white shadow-md shadow-primary/20 border border-accent/40 flex-shrink-0">
-						<i class="fa-solid fa-book-bookmark text-xl text-accent"></i>
-					</div>
-					<div>
-						<a href="{url page="index"}" class="group">
-							<div class="flex items-center gap-1.5">
-								<span class="font-extrabold text-xl sm:text-2xl text-primary tracking-tight group-hover:text-accent transition">RUMAH JURNAL</span>
-								<span class="w-2 h-2 rounded-full bg-accent"></span>
-							</div>
-							<p class="text-[11px] font-medium text-slate-500 tracking-wider uppercase -mt-0.5">{$displayPageHeaderTitle|default:$siteTitle|default:"UIN Mahmud Yunus Batusangkar"}</p>
-						</a>
-					</div>
+					<a href="{url page="index"}" class="flex items-center group py-0.5">
+						<span class="font-extrabold text-xl sm:text-2xl text-primary tracking-tight group-hover:text-accent transition">{$displayPageHeaderTitle|default:$siteTitle|default:"RUMAH JURNAL"}</span>
+					</a>
 				{/if}
 			</div>
 
