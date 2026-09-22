@@ -77,30 +77,6 @@ class RumahJurnalThemePlugin extends ThemePlugin
             ['inline' => true, 'priority' => PKPTemplateManager::STYLE_SEQUENCE_CORE]
         );
 
-        // Add Tailwind CSS CDN script
-        $this->addScript(
-            'tailwindCDN',
-            'https://cdn.tailwindcss.com',
-            ['baseUrl' => '', 'priority' => PKPTemplateManager::STYLE_SEQUENCE_CORE]
-        );
-
-        // Add Tailwind Config inline script
-        $this->addScript(
-            'tailwindConfig',
-            $this->getTailwindConfigJs(),
-            ['inline' => true, 'priority' => PKPTemplateManager::STYLE_SEQUENCE_CORE]
-        );
-
-        // Add Alpine.js for instantaneous client-side searching, filtering, and tab switching
-        $this->addScript(
-            'alpineJs',
-            'https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js',
-            ['baseUrl' => '', 'priority' => PKPTemplateManager::STYLE_SEQUENCE_LATE]
-        );
-
-        // Add theme main JS
-        $this->addScript('rumahJurnalJs', 'js/rumah-jurnal.js');
-
         // Hook into TemplateManager::display to supply enriched data for indexSite.tpl
         Hook::add('TemplateManager::display', [$this, 'enrichSiteIndexData']);
     }
@@ -239,10 +215,17 @@ class RumahJurnalThemePlugin extends ThemePlugin
 
         return ":root {
   --rj-primary: {$p};
-  --rj-primary-dark: {$pScale['800']};
-  --rj-primary-light: {$pScale['400']};
-  --rj-primary-50: {$pScale['50']};
+  --rj-primary-dark: {$pScale['900']};
+  --rj-primary-900: {$pScale['900']};
+  --rj-primary-800: {$pScale['800']};
+  --rj-primary-700: {$pScale['700']};
+  --rj-primary-600: {$pScale['600']};
+  --rj-primary-500: {$p};
+  --rj-primary-400: {$pScale['400']};
+  --rj-primary-300: {$pScale['300']};
+  --rj-primary-200: {$pScale['200']};
   --rj-primary-100: {$pScale['100']};
+  --rj-primary-50: {$pScale['50']};
   --rj-gold: {$s};
   --rj-gold-hover: {$sScale['600']};
   --rj-gold-light: {$sScale['100']};
@@ -261,8 +244,8 @@ class RumahJurnalThemePlugin extends ThemePlugin
         $pScale = $this->getColorScale($p);
         $sScale = $this->getColorScale($s);
 
-        $primaryJson = json_encode(array_merge(['DEFAULT' => $p], $pScale));
-        $accentJson = json_encode(array_merge(['DEFAULT' => $s], $sScale));
+        $primaryJson = json_encode(['DEFAULT' => $p] + $pScale);
+        $accentJson = json_encode(['DEFAULT' => $s] + $sScale);
 
         return '
         if (typeof tailwind !== "undefined") {
@@ -292,111 +275,16 @@ class RumahJurnalThemePlugin extends ThemePlugin
         $templateMgr = $args[0];
         $template = &$args[1];
 
-        if ($template !== 'frontend/pages/indexSite.tpl') {
+        // Only run for frontend templates
+        if (!is_string($template) || strpos($template, 'frontend/') !== 0) {
             return false;
         }
 
         try {
             $request = Application::get()->getRequest();
-            $journals = $templateMgr->getTemplateVars('journals');
-
-            if (!is_array($journals)) {
-                return false;
-            }
-
-            // Fetch counts for articles & issues efficiently in bulk
-            $articleCounts = DB::table('submissions')
-                ->select('context_id', DB::raw('count(*) as count'))
-                ->where('status', 3)
-                ->groupBy('context_id')
-                ->pluck('count', 'context_id');
-
-            $issueCounts = DB::table('issues')
-                ->select('journal_id', DB::raw('count(*) as count'))
-                ->where('published', 1)
-                ->groupBy('journal_id')
-                ->pluck('count', 'journal_id');
-
-            $journalFilesPath = $templateMgr->getTemplateVars('journalFilesPath');
-            $enrichedJournals = [];
-            $totalArticlesCount = 0;
-            $totalIssuesCount = 0;
-            $sintaCounts = 0;
-
-            foreach ($journals as $journal) {
-                $jId = $journal->getId();
-                $path = $journal->getPath();
-                $name = $journal->getLocalizedName();
-                $rawDesc = (string) $journal->getLocalizedDescription();
-                
-                // Clean up narrative text by removing tables and formatting tags
-                $narrativeDesc = preg_replace('/<table[\s\S]*?<\/table>/i', '', $rawDesc);
-                $cleanDesc = trim(strip_tags($narrativeDesc));
-                if (empty($cleanDesc)) {
-                    $cleanDesc = trim(strip_tags($rawDesc));
-                }
-                $cleanDesc = preg_replace('/\s+/', ' ', $cleanDesc);
-                if (mb_strlen($cleanDesc) > 175) {
-                    $cleanDesc = mb_substr($cleanDesc, 0, 175) . '...';
-                }
-
-                $thumb = $journal->getLocalizedData('journalThumbnail');
-                $thumbUrl = $thumb && !empty($thumb['uploadName'])
-                    ? $journalFilesPath . $jId . '/' . rawurlencode($thumb['uploadName'])
-                    : null;
-
-                $pIssn = (string) ($journal->getData('printIssn') ?? '');
-                $eIssn = (string) ($journal->getData('onlineIssn') ?? '');
-
-                if (trim($pIssn) === '-') $pIssn = '';
-                if (trim($eIssn) === '-') $eIssn = '';
-
-                // Detect Sinta from description or metadata
-                $sintaLevel = null;
-                if (preg_match('/sinta\s*([1-6])/i', $rawDesc, $matches)) {
-                    $sintaLevel = 'SINTA ' . $matches[1];
-                    $sintaCounts++;
-                } elseif (preg_match('/accredited\s*sinta|sinta\.png|sinta\.kemdikbud|sinta\.kemdiktisaintek|terakreditasi\s*sinta/i', $rawDesc)) {
-                    $sintaLevel = 'SINTA';
-                    $sintaCounts++;
-                }
-
-                // Detect Focus/Discipline Category
-                $category = $this->detectCategory($name, $rawDesc, $path);
-
-                $artCount = (int) ($articleCounts[$jId] ?? 0);
-                $issCount = (int) ($issueCounts[$jId] ?? 0);
-                $totalArticlesCount += $artCount;
-                $totalIssuesCount += $issCount;
-
-                $homeUrl = $request->getDispatcher()->url($request, \PKP\core\PKPApplication::ROUTE_PAGE, $path);
-                $currentIssueUrl = $request->getDispatcher()->url($request, \PKP\core\PKPApplication::ROUTE_PAGE, $path, 'issue', 'current');
-                $submitUrl = $request->getDispatcher()->url($request, \PKP\core\PKPApplication::ROUTE_PAGE, $path, 'about', 'submissions');
-
-                $cleanLetters = preg_replace('/[^a-zA-Z]/', '', $name);
-                $initial = strtoupper(substr($cleanLetters ?: $path, 0, 2));
-
-                $enrichedJournals[] = [
-                    'id' => $jId,
-                    'path' => $path,
-                    'name' => $name,
-                    'cleanDescription' => $cleanDesc,
-                    'thumbnailUrl' => $thumbUrl,
-                    'printIssn' => $pIssn,
-                    'onlineIssn' => $eIssn,
-                    'sintaLevel' => $sintaLevel,
-                    'category' => $category,
-                    'articleCount' => $artCount,
-                    'issueCount' => $issCount,
-                    'homeUrl' => $homeUrl,
-                    'currentIssueUrl' => $currentIssueUrl,
-                    'submitUrl' => $submitUrl,
-                    'initial' => $initial,
-                ];
-            }
+            $site = $request->getSite();
 
             // Resolve Brand Logo from Admin Site Settings (Site Settings -> Appearance -> Logo)
-            $site = $request->getSite();
             $siteLogo = null;
             if ($site) {
                 $allLogos = $site->getData('pageHeaderTitleImage');
@@ -475,7 +363,7 @@ class RumahJurnalThemePlugin extends ThemePlugin
                 }
             }
 
-            $templateMgr->assign([
+            $assignData = [
                 'pageFooter' => $pageFooter,
                 'heroTitle' => $heroTitle,
                 'heroDescription' => $heroDescription,
@@ -487,13 +375,114 @@ class RumahJurnalThemePlugin extends ThemePlugin
                 'themeSecondaryColor' => $secondary,
                 'themePrimaryScale' => $this->getColorScale($primary),
                 'themeSecondaryScale' => $this->getColorScale($secondary),
-                'enrichedJournals' => $enrichedJournals,
-                'journalsJson' => json_encode($enrichedJournals, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT),
-                'portalTotalJournals' => count($enrichedJournals),
-                'portalTotalArticles' => $totalArticlesCount,
-                'portalTotalIssues' => $totalIssuesCount,
-                'portalTotalSinta' => $sintaCounts,
-            ]);
+            ];
+
+            // Only query and enrich journals on the portal site index page
+            if ($template === 'frontend/pages/indexSite.tpl') {
+                $journals = $templateMgr->getTemplateVars('journals');
+
+                if (is_array($journals)) {
+                    // Fetch counts for articles & issues efficiently in bulk
+                    $articleCounts = DB::table('submissions')
+                        ->select('context_id', DB::raw('count(*) as count'))
+                        ->where('status', 3)
+                        ->groupBy('context_id')
+                        ->pluck('count', 'context_id');
+
+                    $issueCounts = DB::table('issues')
+                        ->select('journal_id', DB::raw('count(*) as count'))
+                        ->where('published', 1)
+                        ->groupBy('journal_id')
+                        ->pluck('count', 'journal_id');
+
+                    $journalFilesPath = $templateMgr->getTemplateVars('journalFilesPath');
+                    $enrichedJournals = [];
+                    $totalArticlesCount = 0;
+                    $totalIssuesCount = 0;
+                    $sintaCounts = 0;
+
+                    foreach ($journals as $journal) {
+                        $jId = $journal->getId();
+                        $path = $journal->getPath();
+                        $name = $journal->getLocalizedName();
+                        $rawDesc = (string) $journal->getLocalizedDescription();
+                        
+                        // Clean up narrative text by removing tables and formatting tags
+                        $narrativeDesc = preg_replace('/<table[\s\S]*?<\/table>/i', '', $rawDesc);
+                        $cleanDesc = trim(strip_tags($narrativeDesc));
+                        if (empty($cleanDesc)) {
+                            $cleanDesc = trim(strip_tags($rawDesc));
+                        }
+                        $cleanDesc = preg_replace('/\s+/', ' ', $cleanDesc);
+                        if (mb_strlen($cleanDesc) > 175) {
+                            $cleanDesc = mb_substr($cleanDesc, 0, 175) . '...';
+                        }
+
+                        $thumb = $journal->getLocalizedData('journalThumbnail');
+                        $thumbUrl = $thumb && !empty($thumb['uploadName'])
+                            ? $journalFilesPath . $jId . '/' . rawurlencode($thumb['uploadName'])
+                            : null;
+
+                        $pIssn = (string) ($journal->getData('printIssn') ?? '');
+                        $eIssn = (string) ($journal->getData('onlineIssn') ?? '');
+
+                        if (trim($pIssn) === '-') $pIssn = '';
+                        if (trim($eIssn) === '-') $eIssn = '';
+
+                        // Detect Sinta from description or metadata
+                        $sintaLevel = null;
+                        if (preg_match('/sinta\s*([1-6])/i', $rawDesc, $matches)) {
+                            $sintaLevel = 'SINTA ' . $matches[1];
+                            $sintaCounts++;
+                        } elseif (preg_match('/accredited\s*sinta|sinta\.png|sinta\.kemdikbud|sinta\.kemdiktisaintek|terakreditasi\s*sinta/i', $rawDesc)) {
+                            $sintaLevel = 'SINTA';
+                            $sintaCounts++;
+                        }
+
+                        // Detect Focus/Discipline Category
+                        $category = $this->detectCategory($name, $rawDesc, $path);
+
+                        $artCount = (int) ($articleCounts[$jId] ?? 0);
+                        $issCount = (int) ($issueCounts[$jId] ?? 0);
+                        $totalArticlesCount += $artCount;
+                        $totalIssuesCount += $issCount;
+
+                        $homeUrl = $request->getDispatcher()->url($request, \PKP\core\PKPApplication::ROUTE_PAGE, $path);
+                        $currentIssueUrl = $request->getDispatcher()->url($request, \PKP\core\PKPApplication::ROUTE_PAGE, $path, 'issue', 'current');
+                        $submitUrl = $request->getDispatcher()->url($request, \PKP\core\PKPApplication::ROUTE_PAGE, $path, 'about', 'submissions');
+
+                        $cleanLetters = preg_replace('/[^a-zA-Z]/', '', $name);
+                        $initial = strtoupper(substr($cleanLetters ?: $path, 0, 2));
+
+                        $enrichedJournals[] = [
+                            'id' => $jId,
+                            'path' => $path,
+                            'name' => $name,
+                            'cleanDescription' => $cleanDesc,
+                            'thumbnailUrl' => $thumbUrl,
+                            'printIssn' => $pIssn,
+                            'onlineIssn' => $eIssn,
+                            'sintaLevel' => $sintaLevel,
+                            'category' => $category,
+                            'articleCount' => $artCount,
+                            'issueCount' => $issCount,
+                            'homeUrl' => $homeUrl,
+                            'currentIssueUrl' => $currentIssueUrl,
+                            'submitUrl' => $submitUrl,
+                            'initial' => $initial,
+                        ];
+                    }
+
+                    $assignData['enrichedJournals'] = $enrichedJournals;
+                    $assignData['journalsJson'] = json_encode($enrichedJournals, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT);
+                    $assignData['portalTotalJournals'] = count($enrichedJournals);
+                    $assignData['portalTotalArticles'] = $totalArticlesCount;
+                    $assignData['portalTotalIssues'] = $totalIssuesCount;
+                    $assignData['portalTotalSinta'] = $sintaCounts;
+                }
+            }
+
+            $templateMgr->assign($assignData);
         } catch (\Throwable $e) {
             error_log('RumahJurnalThemePlugin::enrichSiteIndexData error: ' . $e->getMessage() . ' at line ' . $e->getLine());
         }

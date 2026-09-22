@@ -6,10 +6,18 @@
 
 :root {
   --rj-primary: #2C366D;
-  --rj-primary-dark: #1E254B;
-  --rj-primary-light: #3D4A8E;
-  --rj-primary-50: #F0F3F9;
+  --rj-primary-dark: #12162E;
+  --rj-primary-900: #12162E;
+  --rj-primary-800: #181E3E;
+  --rj-primary-700: #1F264E;
+  --rj-primary-600: #252E5E;
+  --rj-primary-500: #2C366D;
+  --rj-primary-400: #6980C8;
+  --rj-primary-300: #A5B2DE;
+  --rj-primary-200: #C3CCE9;
   --rj-primary-100: #E0E5F2;
+  --rj-primary-50: #F0F3F9;
+  --rj-primary-light: #3D4A8E;
   --rj-gold: #D2AA2A;
   --rj-gold-hover: #BF961C;
   --rj-gold-light: #F9F4E4;
@@ -20,6 +28,29 @@
   --rj-text-main: #1E293B;
   --rj-text-muted: #64748B;
   --rj-border: #E2E8F0;
+}
+
+/* Core Branding Utility Fallbacks (Guarantees top bar & footer background colors never fail) */
+.bg-primary-900 {
+  background-color: var(--rj-primary-900, #12162E) !important;
+}
+.bg-primary-800 {
+  background-color: var(--rj-primary-800, #181E3E) !important;
+}
+.bg-primary {
+  background-color: var(--rj-primary, #2C366D) !important;
+}
+.bg-accent {
+  background-color: var(--rj-gold, #D2AA2A) !important;
+}
+.text-primary {
+  color: var(--rj-primary, #2C366D) !important;
+}
+.text-accent {
+  color: var(--rj-gold, #D2AA2A) !important;
+}
+.border-accent {
+  border-color: var(--rj-gold, #D2AA2A) !important;
 }
 
 body {
