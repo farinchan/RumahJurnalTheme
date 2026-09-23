@@ -1,4 +1,4 @@
-# Rumah Jurnal Theme — OJS 3.5
+# Rumah Jurnal Theme - OJS 3.5
 
 Tema portal modern berstandar internasional yang dirancang khusus untuk halaman indeks institusi (*Site Index*) pada **Open Journal Systems (OJS) 3.5**. Dibangun dengan **Tailwind CSS**, **Alpine.js**, dan arsitektur *Strict Light Mode* yang elegan, bersih, dan responsif.
 
@@ -33,7 +33,7 @@ Tema portal modern berstandar internasional yang dirancang khusus untuk halaman 
    - Menghitung dan menampilkan total jurnal aktif, total artikel terbit, volume terbitan, dan jurnal terakreditasi SINTA secara akurat.
 7. **Pilihan Bahasa Berbendera (*Language Switcher*)**:
    - Terletak di **Top Institutional Bar** di sebelah kanan menu **About** (serta di drawer mobile).
-   - Menggunakan **ikon vektor SVG bendera negara tajam & beresolusi tinggi** (🇮🇩 Indonesia, 🇬🇧 Inggris, 🇸🇦 Arab, dsb.).
+   - Menggunakan **ikon vektor SVG bendera negara tajam & beresolusi tinggi** (🇮🇩 Indonesia, 🇬🇧 Inggris, 🇸🇦 Arab).
    - Dropdown interaktif lengkap dengan tanda centang aktif dan terintegrasi dengan endpoint resmi OJS `setLocale`.
 8. **Showcase Lembaga Akreditasi & Pengindeks**:
    - Menampilkan 16 logo resmi lembaga pengindeks (SINTA, Scopus, DOAJ, Garuda, Crossref, Dimensions, Google Scholar, dll.) berstandar 380 × 129 px tanpa distorsi.
@@ -42,6 +42,18 @@ Tema portal modern berstandar internasional yang dirancang khusus untuk halaman 
    - Otomatis beradaptasi dengan bahasa yang aktif.
    - Mengambil **Email of Principal Contact** dari pengaturan OJS.
    - Tautan Cepat (*Quick Links*) dan Alamat Kantor Sekretariat dapat disunting langsung di admin panel.
+
+---
+
+## 🌐 Dukungan Bahasa (Supported Languages)
+
+> [!IMPORTANT]
+> Tema Rumah Jurnal **hanya mendukung 3 bahasa**:
+> * 🇮🇩 **Bahasa Indonesia** (`id`)
+> * 🇬🇧 **English** (`en`)
+> * 🇸🇦 **العربية / Arabic** (`ar`)
+>
+> Seluruh antarmuka portal direktori jurnal, pencarian ilmiah, formulir autentikasi, footer, hingga panel opsi konfigurasi admin telah dilokalisasi secara penuh ke dalam ketiga bahasa tersebut.
 
 ---
 
@@ -77,7 +89,8 @@ plugins/themes/rumahJurnal/
 │   ├── sinta.png, scopus.png, garuda.png, crossref.png, doaj.png, scholar.png...
 ├── locale/
 │   ├── id/locale.po                 # Terjemahan Bahasa Indonesia & label pengaturan
-│   └── en/locale.po                 # Terjemahan English & label pengaturan
+│   ├── en/locale.po                 # Terjemahan English & label pengaturan
+│   └── ar/locale.po                 # Terjemahan Bahasa Arab (العربية) & label pengaturan
 ├── styles/
 │   └── rumah-jurnal.css             # CSS kustom, variabel tema, badge SINTA, efek interaktif
 ├── js/

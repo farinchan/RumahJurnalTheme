@@ -1,0 +1,502 @@
+# plugins/themes/rumahJurnal/locale/ar/locale.po
+#
+# Copyright (c) 2026 Fajri Rinaldi Chan
+# Theme Support: https://nagastra.org
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2026-09-22T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-09-22T00:00:00+00:00\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.themes.rumahJurnal.name"
+msgstr "قالب دار المجلات (Rumah Jurnal)"
+
+msgid "plugins.themes.rumahJurnal.description"
+msgstr "قالب بوابة حديث ومتطور مخصص للصفحة الرئيسية لفهرس المجلات مع Tailwind CSS، وبحث فوري وتصميم متجاوب. تطوير فجري رينالدي تشان (Fajri Rinaldi Chan). حقوق الطبع والنشر (c) 2026. دعم القالب: https://nagastra.org"
+
+msgid "plugins.themes.rumahJurnal.portalTitle"
+msgstr "بوابة دار المجلات العلمية"
+
+msgid "plugins.themes.rumahJurnal.searchPlaceholder"
+msgstr "ابحث في المجلات حسب العنوان، التخصص، رقم التقييس الدولي (ISSN)، أو الكلمات المفتاحية..."
+
+msgid "plugins.themes.rumahJurnal.viewJournal"
+msgstr "عرض المجلة"
+
+msgid "plugins.themes.rumahJurnal.currentIssue"
+msgstr "العدد الحالي"
+
+msgid "plugins.themes.rumahJurnal.submitArticle"
+msgstr "إرسال بحث"
+
+msgid "plugins.themes.rumahJurnal.option.primaryColor.label"
+msgstr "اللون الأساسي"
+
+msgid "plugins.themes.rumahJurnal.option.primaryColor.description"
+msgstr "اللون الرئيسي للقالب المستخدم في شريط التنقل، العناوين، الأزرار والشارات (الافتراضي: #2C366D)."
+
+msgid "plugins.themes.rumahJurnal.option.secondaryColor.label"
+msgstr "اللون الثانوي / لون التمييز"
+
+msgid "plugins.themes.rumahJurnal.option.secondaryColor.description"
+msgstr "لون التمييز المستخدم للإبراز، الحدود، النجوم وحالات التمرير (الافتراضي: #D2AA2A)."
+
+msgid "plugins.themes.rumahJurnal.option.heroTitle.label"
+msgstr "عنوان الواجهة الرئيسي (Hero Title)"
+
+msgid "plugins.themes.rumahJurnal.option.heroTitle.description"
+msgstr "العنوان الرئيسي المعروض في لافتة الصفحة الرئيسية (الافتراضي: بوابة النشر العلمي والبحوث المفتوحة)."
+
+msgid "plugins.themes.rumahJurnal.option.heroDescription.label"
+msgstr "وصف الواجهة (Hero Description)"
+
+msgid "plugins.themes.rumahJurnal.option.heroDescription.description"
+msgstr "النص التعريفي المعروض أسفل العنوان الرئيسي في لافتة الصفحة الرئيسية."
+
+msgid "plugins.themes.rumahJurnal.option.indexingLogos.label"
+msgstr "شعارات الاعتماد والفهرسة الافتراضية"
+
+msgid "plugins.themes.rumahJurnal.option.indexingLogos.description"
+msgstr "اختر شعارات جهات الفهرسة والاعتماد المراد إظهارها في الصفحة الرئيسية. يمكنك السحب لإعادة الترتيب."
+
+msgid "plugins.themes.rumahJurnal.option.customIndexingLogos.label"
+msgstr "شعارات فهرسة مخصصة / إضافية"
+
+msgid "plugins.themes.rumahJurnal.option.customIndexingLogos.description"
+msgstr "إضافة شعارات فهرسة مخصصة (شعار واحد لكل سطر). التنسيق: اسم الشعار | رابط الصورة (أو اسم الملف في مجلد images للقالب) | رابط الموقع (اختياري)."
+
+msgid "plugins.themes.rumahJurnal.option.footerQuickLinks.label"
+msgstr "روابط سريعة في التذييل"
+
+msgid "plugins.themes.rumahJurnal.option.footerQuickLinks.description"
+msgstr "إدارة الروابط السريعة في تذييل البوابة (رابط واحد لكل سطر). التنسيق: عنوان الرابط | الرابط. يمكن استخدام المتغير {$baseUrl}."
+
+msgid "plugins.themes.rumahJurnal.option.secretariatAddress.label"
+msgstr "عنوان مكتب السكرتارية"
+
+msgid "plugins.themes.rumahJurnal.option.secretariatAddress.description"
+msgstr "العنوان الفعلي الكامل لمكتب سكرتارية دار المجلات المعروض في قسم التواصل في التذييل."
+
+msgid "plugins.themes.rumahJurnal.option.themeCredits.label"
+msgstr "معلومات حقوق الطبع والنشر ودعم القالب"
+
+msgid "plugins.themes.rumahJurnal.option.themeCredits.description"
+msgstr "<strong>قالب دار المجلات (Rumah Jurnal Theme)</strong> تصميم وتطوير <strong>فجري رينالدي تشان (Fajri Rinaldi Chan)</strong>.<br>حقوق الطبع والنشر &copy; 2026 Fajri Rinaldi Chan. جميع الحقوق محفوظة.<br>الدعم الفني وموقع القالب: <a href=\"https://nagastra.org\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #2C366D; font-weight: bold;\">https://nagastra.org</a>"
+
+msgid "plugins.themes.rumahJurnal.footer.quickLinks"
+msgstr "روابط سريعة"
+
+msgid "plugins.themes.rumahJurnal.footer.secretariat"
+msgstr "السكرتارية"
+
+msgid "plugins.themes.rumahJurnal.footer.defaultAbout"
+msgstr "دار المجلات هي بوابة متكاملة لإدارة ونشر المجلات والدوريات العلمية، لتسهيل النشر والبحث العلمي لأعضاء هيئة التدريس والباحثين والطلاب وفق أعلى المعايير الدولية."
+
+msgid "plugins.themes.rumahJurnal.footer.defaultAddress"
+msgstr "مبنى مركز البحوث ودار المجلات، جامعة محمود يونس الإسلامية الحكومية باتوسنغكار، سومطرة الغربية، إندونيسيا"
+
+msgid "plugins.themes.rumahJurnal.footer.allRightsReserved"
+msgstr "جميع الحقوق محفوظة."
+
+msgid "plugins.themes.rumahJurnal.footer.backToTop"
+msgstr "الرجوع إلى الأعلى"
+
+msgid "plugins.themes.rumahJurnal.footer.home"
+msgstr "الرئيسية"
+
+msgid "plugins.themes.rumahJurnal.footer.indexedJournals"
+msgstr "المجلات المفهرسة"
+
+msgid "plugins.themes.rumahJurnal.footer.about"
+msgstr "عن البوابة وسياسات النشر"
+
+msgid "plugins.themes.rumahJurnal.footer.login"
+msgstr "تسجيل الدخول"
+
+msgid "plugins.themes.rumahJurnal.footer.register"
+msgstr "تسجيل مؤلف جديد"
+
+msgid "plugins.themes.rumahJurnal.auth.loginSubtitle"
+msgstr "يرجى إدخال اسم المستخدم أو البريد الإلكتروني وكلمة المرور."
+
+msgid "plugins.themes.rumahJurnal.auth.usernamePlaceholder"
+msgstr "اسم المستخدم أو البريد الإلكتروني..."
+
+msgid "plugins.themes.rumahJurnal.auth.passwordPlaceholder"
+msgstr "أدخل كلمة المرور..."
+
+msgid "plugins.themes.rumahJurnal.auth.hidePassword"
+msgstr "إخفاء كلمة المرور"
+
+msgid "plugins.themes.rumahJurnal.auth.showPassword"
+msgstr "إظهار كلمة المرور"
+
+msgid "plugins.themes.rumahJurnal.auth.noAccountPrompt"
+msgstr "ليس لديك حساب على هذه البوابة بعد؟"
+
+msgid "plugins.themes.rumahJurnal.auth.alreadyHaveAccount"
+msgstr "هل لديك حساب بالفعل؟"
+
+msgid "plugins.themes.rumahJurnal.auth.lostPasswordSubtitle"
+msgstr "استعادة الوصول إلى حسابك في بوابة المجلات."
+
+msgid "plugins.themes.rumahJurnal.auth.emailPlaceholder"
+msgstr "name@email.com"
+
+msgid "plugins.themes.rumahJurnal.auth.backToLogin"
+msgstr "العودة إلى صفحة الدخول"
+
+msgid "plugins.themes.rumahJurnal.auth.registerSubtitle"
+msgstr "يرجى ملء النموذج أدناه لإنشاء حساب جديد."
+
+msgid "plugins.themes.rumahJurnal.auth.givenNamePlaceholder"
+msgstr "الاسم الأول..."
+
+msgid "plugins.themes.rumahJurnal.auth.familyNamePlaceholder"
+msgstr "اسم العائلة / اللقب..."
+
+msgid "plugins.themes.rumahJurnal.auth.affiliationPlaceholder"
+msgstr "المؤسسة، الجامعة أو الجهة العلمية..."
+
+msgid "plugins.themes.rumahJurnal.auth.phonePlaceholder"
+msgstr "+1234567890"
+
+msgid "plugins.themes.rumahJurnal.auth.usernameRules"
+msgstr "يمكن أن يحتوي فقط على أحرف صغيرة، أرقام، شرطات (-)، وشرطات سفلية (_)."
+
+msgid "plugins.themes.rumahJurnal.auth.usernameNewPlaceholder"
+msgstr "اسم المستخدم (أحرف صغيرة وأرقام)"
+
+msgid "plugins.themes.rumahJurnal.auth.passwordNewPlaceholder"
+msgstr "6 أحرف على الأقل"
+
+msgid "plugins.themes.rumahJurnal.auth.repeatPasswordPlaceholder"
+msgstr "تأكيد كلمة المرور..."
+
+msgid "plugins.themes.rumahJurnal.auth.reviewerInterestsPlaceholder"
+msgstr "مثال: التعليم، علوم البيانات، الدراسات الإسلامية، القانون..."
+
+msgid "plugins.themes.rumahJurnal.auth.contextsPromptSubtitle"
+msgstr "اختر دورك (قارئ أو محكّم) في مجلات محددة (اختياري)"
+
+msgid "plugins.themes.rumahJurnal.exploreJournals"
+msgstr "استكشف المجلات"
+
+msgid "navigation.journalList"
+msgstr "قائمة المجلات"
+
+msgid "plugins.themes.rumahJurnal.nav.journalList"
+msgstr "دليل المجلات"
+
+msgid "plugins.themes.rumahJurnal.nav.indexing"
+msgstr "الفهرسة والاعتماد"
+
+msgid "plugins.themes.rumahJurnal.nav.statistics"
+msgstr "الإحصائيات"
+
+msgid "plugins.themes.rumahJurnal.nav.portalSubtitle"
+msgstr "مركز المنشورات العلمية والمجلات الإلكترونية"
+
+msgid "common.optional"
+msgstr "اختياري"
+
+msgid "plugins.themes.rumahJurnal.common.optional"
+msgstr "اختياري"
+
+msgid "plugins.themes.rumahJurnal.search.title"
+msgstr "البحث في المقالات العلمية"
+
+msgid "plugins.themes.rumahJurnal.search.subtitle"
+msgstr "ابحث في آلاف المقالات والأبحاث المحكمة المنشورة عبر جميع مجلات الجامعة"
+
+msgid "plugins.themes.rumahJurnal.search.inputPlaceholder"
+msgstr "اكتب عنوان المقال، الكلمات المفتاحية، أو اسم المؤلف..."
+
+msgid "plugins.themes.rumahJurnal.search.allJournals"
+msgstr "جميع المجلات"
+
+msgid "plugins.themes.rumahJurnal.search.filterByJournal"
+msgstr "اختر المجلة"
+
+msgid "plugins.themes.rumahJurnal.search.filterByAuthor"
+msgstr "اسم المؤلف"
+
+msgid "plugins.themes.rumahJurnal.search.authorPlaceholder"
+msgstr "مثال: أحمد، محمد..."
+
+msgid "plugins.themes.rumahJurnal.search.dateRange"
+msgstr "سنة النشر"
+
+msgid "plugins.themes.rumahJurnal.search.yearFrom"
+msgstr "من سنة"
+
+msgid "plugins.themes.rumahJurnal.search.yearTo"
+msgstr "إلى سنة"
+
+msgid "plugins.themes.rumahJurnal.search.allYears"
+msgstr "جميع السنوات"
+
+msgid "plugins.themes.rumahJurnal.search.toggleFilters"
+msgstr "تصفية متقدمة"
+
+msgid "plugins.themes.rumahJurnal.search.hideFilters"
+msgstr "إخفاء الفلاتر"
+
+msgid "plugins.themes.rumahJurnal.search.reset"
+msgstr "إعادة ضبط الفلاتر"
+
+msgid "plugins.themes.rumahJurnal.search.applyFilters"
+msgstr "تطبيق التصفية"
+
+msgid "plugins.themes.rumahJurnal.search.resultsFound"
+msgstr "تم العثور على {$total} مقال"
+
+msgid "plugins.themes.rumahJurnal.search.resultsFoundSingle"
+msgstr "تم العثور على مقال واحد"
+
+msgid "plugins.themes.rumahJurnal.search.showingFor"
+msgstr "عرض النتائج لـ"
+
+msgid "plugins.themes.rumahJurnal.search.noResultsTitle"
+msgstr "لم يتم العثور على مقالات"
+
+msgid "plugins.themes.rumahJurnal.search.noResultsDesc"
+msgstr "عذراً، لم نتمكن من العثور على مقالات تطابق معايير البحث أو الفلاتر المحددة."
+
+msgid "plugins.themes.rumahJurnal.search.searchTips"
+msgstr "نصائح للبحث"
+
+msgid "plugins.themes.rumahJurnal.search.tip1"
+msgstr "تأكد من صحة الكلمات الإملائية المدخلة."
+
+msgid "plugins.themes.rumahJurnal.search.tip2"
+msgstr "جرب استخدام كلمات مفتاحية أكثر عمومية أو مصطلحات بديلة."
+
+msgid "plugins.themes.rumahJurnal.search.tip3"
+msgstr "قم بتوسيع أو إعادة ضبط الفلاتر المتقدمة مثل اسم المؤلف أو النطاق الزمني."
+
+msgid "plugins.themes.rumahJurnal.search.tip4"
+msgstr "اختر 'جميع المجلات' للبحث في المستودع بأكمله."
+
+msgid "plugins.themes.rumahJurnal.search.viewPdf"
+msgstr "تحميل PDF"
+
+msgid "plugins.themes.rumahJurnal.search.viewArticle"
+msgstr "عرض المقال"
+
+msgid "plugins.themes.rumahJurnal.search.abstract"
+msgstr "المستخلص"
+
+msgid "plugins.themes.rumahJurnal.search.showAbstract"
+msgstr "عرض المستخلص"
+
+msgid "plugins.themes.rumahJurnal.search.hideAbstract"
+msgstr "إخفاء المستخلص"
+
+msgid "plugins.themes.rumahJurnal.search.pages"
+msgstr "الصفحات"
+
+msgid "plugins.themes.rumahJurnal.search.published"
+msgstr "تاريخ النشر"
+
+msgid "plugins.themes.rumahJurnal.search.initialGuideTitle"
+msgstr "دليل البحث في المقالات"
+
+msgid "plugins.themes.rumahJurnal.search.initialGuideDesc"
+msgstr "اكتب عنوان المقال، الموضوع، أو اسم المؤلف في شريط البحث أعلاه لبدء استكشاف الأبحاث العلمية."
+
+msgid "plugins.themes.rumahJurnal.search.guide1Title"
+msgstr "بحث سريع"
+
+msgid "plugins.themes.rumahJurnal.search.guide1Desc"
+msgstr "استخدم كلمات مفتاحية دقيقة مثل موضوع البحث، المنهجية، أو اسم الباحث."
+
+msgid "plugins.themes.rumahJurnal.search.guide2Title"
+msgstr "تصفية متقدمة"
+
+msgid "plugins.themes.rumahJurnal.search.guide2Desc"
+msgstr "حدد نطاق النتائج حسب مجلة محددة أو نطاق سنوات النشر."
+
+msgid "plugins.themes.rumahJurnal.search.guide3Title"
+msgstr "نصوص كاملة ومفتوحة"
+
+msgid "plugins.themes.rumahJurnal.search.guide3Desc"
+msgstr "تحميل الأبحاث بصيغة PDF مباشرة ومجاناً من كل نتيجة بحث."
+
+msgid "plugins.themes.rumahJurnal.popularSearches"
+msgstr "عمليات البحث الشائعة:"
+
+msgid "plugins.themes.rumahJurnal.tag.law"
+msgstr "القانون"
+
+msgid "plugins.themes.rumahJurnal.tag.sharia"
+msgstr "الشريعة"
+
+msgid "plugins.themes.rumahJurnal.tag.education"
+msgstr "التربية والتعليم"
+
+msgid "plugins.themes.rumahJurnal.tag.economics"
+msgstr "الاقتصاد"
+
+msgid "plugins.themes.rumahJurnal.tag.science"
+msgstr "العلوم والتقنية"
+
+msgid "plugins.themes.rumahJurnal.stats.registeredJournals"
+msgstr "المجلات المسجلة"
+
+msgid "plugins.themes.rumahJurnal.stats.publishedArticles"
+msgstr "المقالات المنشورة"
+
+msgid "plugins.themes.rumahJurnal.stats.volumesIssues"
+msgstr "المجلدات والأعداد"
+
+msgid "plugins.themes.rumahJurnal.stats.sintaAccreditation"
+msgstr "معتمدة في SINTA"
+
+msgid "plugins.themes.rumahJurnal.latestAnnouncements"
+msgstr "آخر الإعلانات"
+
+msgid "plugins.themes.rumahJurnal.directory.badge"
+msgstr "دليل المجلات"
+
+msgid "plugins.themes.rumahJurnal.directory.title"
+msgstr "دليل المجلات العلمية المحكمة"
+
+msgid "plugins.themes.rumahJurnal.directory.subtitle"
+msgstr "استكشف المجلات العلمية المحكمة الصادرة عن الكليات والأقسام بالجامعة."
+
+msgid "plugins.themes.rumahJurnal.directory.filterPlaceholder"
+msgstr "تصفية باسم المجلة..."
+
+msgid "plugins.themes.rumahJurnal.sort.nameAsc"
+msgstr "ترتيب: الاسم (أ - ي)"
+
+msgid "plugins.themes.rumahJurnal.sort.nameDesc"
+msgstr "ترتيب: الاسم (ي - أ)"
+
+msgid "plugins.themes.rumahJurnal.sort.articlesDesc"
+msgstr "ترتيب: الأكثر مقالات"
+
+msgid "plugins.themes.rumahJurnal.sort.issuesDesc"
+msgstr "ترتيب: الأكثر أعداداً"
+
+msgid "plugins.themes.rumahJurnal.view.grid"
+msgstr "شبكة"
+
+msgid "plugins.themes.rumahJurnal.view.list"
+msgstr "قائمة"
+
+msgid "plugins.themes.rumahJurnal.category.all"
+msgstr "جميع المجالات"
+
+msgid "plugins.themes.rumahJurnal.category.islamic"
+msgstr "الدراسات الإسلامية والمتعددة"
+
+msgid "plugins.themes.rumahJurnal.category.sharia"
+msgstr "الشريعة والقانون"
+
+msgid "plugins.themes.rumahJurnal.category.education"
+msgstr "التربية والتعليم"
+
+msgid "plugins.themes.rumahJurnal.category.economics"
+msgstr "الاقتصاد وإدارة الأعمال"
+
+msgid "plugins.themes.rumahJurnal.category.science"
+msgstr "العلوم والتكنولوجيا"
+
+msgid "plugins.themes.rumahJurnal.category.language"
+msgstr "اللغة والأدب"
+
+msgid "plugins.themes.rumahJurnal.category.social"
+msgstr "العلوم الاجتماعية والإنسانية"
+
+msgid "plugins.themes.rumahJurnal.directory.showing"
+msgstr "عرض"
+
+msgid "plugins.themes.rumahJurnal.directory.of"
+msgstr "من أصل"
+
+msgid "plugins.themes.rumahJurnal.directory.journals"
+msgstr "مجلات"
+
+msgid "plugins.themes.rumahJurnal.directory.resetFilter"
+msgstr "إعادة ضبط التصفية"
+
+msgid "plugins.themes.rumahJurnal.directory.resultsFor"
+msgstr "نتائج البحث عن:"
+
+msgid "plugins.themes.rumahJurnal.journal.clickCopy"
+msgstr "انقر للنسخ"
+
+msgid "plugins.themes.rumahJurnal.journal.defaultDesc"
+msgstr "مجلة علمية محكمة تنشر أبحاثاً ودراسات أكاديمية شاملة."
+
+msgid "plugins.themes.rumahJurnal.journal.issues"
+msgstr "أعداد"
+
+msgid "plugins.themes.rumahJurnal.journal.articles"
+msgstr "مقالات"
+
+msgid "plugins.themes.rumahJurnal.journal.visitJournal"
+msgstr "زيارة المجلة"
+
+msgid "plugins.themes.rumahJurnal.journal.currentIssue"
+msgstr "العدد الحالي"
+
+msgid "plugins.themes.rumahJurnal.journal.visit"
+msgstr "زيارة"
+
+msgid "plugins.themes.rumahJurnal.table.cover"
+msgstr "الغلاف"
+
+msgid "plugins.themes.rumahJurnal.table.journalName"
+msgstr "اسم المجلة والتخصص"
+
+msgid "plugins.themes.rumahJurnal.table.issn"
+msgstr "رقم ISSN"
+
+msgid "plugins.themes.rumahJurnal.table.publications"
+msgstr "المنشورات"
+
+msgid "plugins.themes.rumahJurnal.table.action"
+msgstr "الإجراء"
+
+msgid "plugins.themes.rumahJurnal.directory.noJournalsTitle"
+msgstr "لم يتم العثور على مجلات"
+
+msgid "plugins.themes.rumahJurnal.directory.noJournalsDescPrefix"
+msgstr "لا توجد مجلات تطابق كلمة البحث"
+
+msgid "plugins.themes.rumahJurnal.directory.noJournalsDescSuffix"
+msgstr "أو تصفية التخصص المحددة."
+
+msgid "plugins.themes.rumahJurnal.directory.showAllJournals"
+msgstr "عرض جميع المجلات"
+
+msgid "plugins.themes.rumahJurnal.indexing.badge"
+msgstr "الفهرسة والاعتماد"
+
+msgid "plugins.themes.rumahJurnal.indexing.title"
+msgstr "معايير الجودة والسمعة العلمية"
+
+msgid "plugins.themes.rumahJurnal.indexing.subtitle"
+msgstr "المجلات المنشورة في {$siteTitle} مفهرسة ومعتمدة في قواعد بيانات وفهارس علمية مرموقة محلياً ودولياً."
+
+msgid "plugins.themes.rumahJurnal.indexing.garudaDesc"
+msgstr "المستودع المرجعي الرقمي الوطني"
+
+msgid "plugins.themes.rumahJurnal.indexing.scholarDesc"
+msgstr "الفهرسة والاقتباسات العلمية"
+
+msgid "plugins.themes.rumahJurnal.loggedInAs"
+msgstr "تم الدخول باسم"
+
+msgid "plugins.themes.rumahJurnal.nav.selectLanguage"
+msgstr "اختيار اللغة"
