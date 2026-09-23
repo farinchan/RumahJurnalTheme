@@ -94,7 +94,7 @@
 			<!-- BOTTOM COPYRIGHT & OJS INFO -->
 			<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
 				<div>
-					&copy; {$smarty.now|date_format:"Y"} <strong>Rumah Jurnal</strong> {$siteTitle|default:"UIN Mahmud Yunus Batusangkar"}. All rights reserved.
+					&copy; {$smarty.now|date_format:"Y"} <strong> {$siteTitle|default:"UIN Mahmud Yunus Batusangkar"} </strong>. All rights reserved.
 				</div>
 				<!-- <div class="flex items-center gap-2 text-slate-400">
 					<span>Didukung oleh</span>
