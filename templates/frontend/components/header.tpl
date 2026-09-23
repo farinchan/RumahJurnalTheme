@@ -20,7 +20,7 @@
 	<meta charset="{$defaultCharset|escape}">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="csrf-token" content="{$smarty.session.token|default:''}">
-	<title>{$siteTitle|default:"UIN Mahmud Yunus Batusangkar"}</title>
+	<title>{if $pageTitleTranslated}{$pageTitleTranslated|escape} | {$siteTitle|default:"Rumah Jurnal"}{elseif $pageTitle}{translate key=$pageTitle} | {$siteTitle|default:"Rumah Jurnal"}{else}{$siteTitle|default:"Rumah Jurnal"}{/if}</title>
 
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -180,24 +180,24 @@
 			</div>
 			<div class="flex items-center gap-4 text-xs">
 				<a href="{url page="about" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="hover:text-white transition flex items-center gap-1">
-					<i class="fa-solid fa-circle-info text-accent"></i> Tentang Kami
+					<i class="fa-solid fa-circle-info text-accent"></i> {translate key="navigation.about"}
 				</a>
 				<span class="text-white/20">|</span>
 				{if $isUserLoggedIn}
 					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="dashboard"}" class="text-accent hover:text-white font-semibold transition flex items-center gap-1">
-						<i class="fa-solid fa-gauge-high"></i> Dashboard
+						<i class="fa-solid fa-gauge-high"></i> {translate key="navigation.dashboard"}
 					</a>
 					<span class="text-white/20">|</span>
 					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOut"}" class="hover:text-rose-400 transition flex items-center gap-1">
-						<i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar
+						<i class="fa-solid fa-arrow-right-from-bracket"></i> {translate key="user.logOut"}
 					</a>
 				{else}
 					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login"}" class="hover:text-white transition flex items-center gap-1">
-						<i class="fa-solid fa-user"></i> Masuk
+						<i class="fa-solid fa-user"></i> {translate key="user.login"}
 					</a>
 					<span class="text-white/20">|</span>
 					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="register"}" class="text-accent hover:text-white font-medium transition flex items-center gap-1">
-						<i class="fa-solid fa-user-plus"></i> Daftar
+						<i class="fa-solid fa-user-plus"></i> {translate key="user.register"}
 					</a>
 				{/if}
 			</div>
@@ -224,17 +224,17 @@
 
 			<!-- NAVBAR LINKS -->
 			<nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
-				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="{if !$requestedPage || $requestedPage == 'index'}text-primary font-bold border-b-2 border-accent pb-1{else}hover:text-primary transition{/if}">Beranda</a>
-				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#daftar-jurnal" class="hover:text-primary transition">Daftar Jurnal</a>
-				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#indeksasi" class="hover:text-primary transition">Indeksasi</a>
-				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#statistik" class="hover:text-primary transition">Statistik</a>
+				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="{if !$requestedPage || $requestedPage == 'index'}text-primary font-bold border-b-2 border-accent pb-1{else}hover:text-primary transition{/if}">{translate key="common.homepageNavigationLabel"}</a>
+				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#daftar-jurnal" class="hover:text-primary transition">{translate key="plugins.themes.rumahJurnal.nav.journalList"}</a>
+				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#indeksasi" class="hover:text-primary transition">{translate key="plugins.themes.rumahJurnal.nav.indexing"}</a>
+				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#statistik" class="hover:text-primary transition">{translate key="plugins.themes.rumahJurnal.nav.statistics"}</a>
 			</nav>
 
 			<!-- RIGHT BUTTON -->
 			<div class="flex items-center gap-3">
 				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#daftar-jurnal" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-primary text-white hover:bg-accent hover:text-primary-900 shadow-sm hover:shadow-md transition duration-200">
 					<i class="fa-solid fa-magnifying-glass text-xs"></i>
-					<span>Jelajahi Jurnal</span>
+					<span>{translate key="plugins.themes.rumahJurnal.exploreJournals"|default:"Jelajahi Jurnal"}</span>
 				</a>
 			</div>
 		</div>

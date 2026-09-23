@@ -55,3 +55,90 @@ msgstr "Hero Description"
 msgid "plugins.themes.rumahJurnal.option.heroDescription.description"
 msgstr "Introductory description text displayed below the main banner headline."
 
+msgid "plugins.themes.rumahJurnal.auth.loginSubtitle"
+msgstr "Please enter your username or email and password."
+
+msgid "plugins.themes.rumahJurnal.auth.usernamePlaceholder"
+msgstr "Username or email address..."
+
+msgid "plugins.themes.rumahJurnal.auth.passwordPlaceholder"
+msgstr "Enter your account password..."
+
+msgid "plugins.themes.rumahJurnal.auth.hidePassword"
+msgstr "Hide password"
+
+msgid "plugins.themes.rumahJurnal.auth.showPassword"
+msgstr "Show password"
+
+msgid "plugins.themes.rumahJurnal.auth.noAccountPrompt"
+msgstr "Don't have an account on this portal yet?"
+
+msgid "plugins.themes.rumahJurnal.auth.alreadyHaveAccount"
+msgstr "Already have an account?"
+
+msgid "plugins.themes.rumahJurnal.auth.lostPasswordSubtitle"
+msgstr "Recover access to your journal portal account."
+
+msgid "plugins.themes.rumahJurnal.auth.emailPlaceholder"
+msgstr "name@email.com"
+
+msgid "plugins.themes.rumahJurnal.auth.backToLogin"
+msgstr "Back to Login Page"
+
+msgid "plugins.themes.rumahJurnal.auth.registerSubtitle"
+msgstr "Fill out the form below to register a new account."
+
+msgid "plugins.themes.rumahJurnal.auth.givenNamePlaceholder"
+msgstr "First name..."
+
+msgid "plugins.themes.rumahJurnal.auth.familyNamePlaceholder"
+msgstr "Last name / family name..."
+
+msgid "plugins.themes.rumahJurnal.auth.affiliationPlaceholder"
+msgstr "Institution, University, or Organization..."
+
+msgid "plugins.themes.rumahJurnal.auth.phonePlaceholder"
+msgstr "+1234567890"
+
+msgid "plugins.themes.rumahJurnal.auth.usernameRules"
+msgstr "Can only contain lowercase letters, numbers, hyphens (-), and underscores (_)."
+
+msgid "plugins.themes.rumahJurnal.auth.usernameNewPlaceholder"
+msgstr "username (lowercase & numbers)"
+
+msgid "plugins.themes.rumahJurnal.auth.passwordNewPlaceholder"
+msgstr "Minimum 6 characters"
+
+msgid "plugins.themes.rumahJurnal.auth.repeatPasswordPlaceholder"
+msgstr "Repeat password..."
+
+msgid "plugins.themes.rumahJurnal.auth.reviewerInterestsPlaceholder"
+msgstr "e.g., Education, Data Science, Public Health, Islamic Studies..."
+
+msgid "plugins.themes.rumahJurnal.auth.contextsPromptSubtitle"
+msgstr "Select reader or reviewer roles in specific journals (optional)"
+
+msgid "plugins.themes.rumahJurnal.exploreJournals"
+msgstr "Explore Journals"
+
+msgid "navigation.journalList"
+msgstr "Journal List"
+
+msgid "plugins.themes.rumahJurnal.nav.journalList"
+msgstr "Journal List"
+
+msgid "plugins.themes.rumahJurnal.nav.indexing"
+msgstr "Indexing"
+
+msgid "plugins.themes.rumahJurnal.nav.statistics"
+msgstr "Statistics"
+
+msgid "plugins.themes.rumahJurnal.nav.portalSubtitle"
+msgstr "Center for Scientific Publications & Electronic Journals"
+
+msgid "common.optional"
+msgstr "optional"
+
+msgid "plugins.themes.rumahJurnal.common.optional"
+msgstr "optional"
+

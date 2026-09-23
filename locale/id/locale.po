@@ -55,3 +55,90 @@ msgstr "Deskripsi Banner (Hero Description)"
 msgid "plugins.themes.rumahJurnal.option.heroDescription.description"
 msgstr "Teks deskripsi pengantar di bawah judul banner beranda portal."
 
+msgid "plugins.themes.rumahJurnal.auth.loginSubtitle"
+msgstr "Silakan masukkan nama pengguna atau email dan kata sandi Anda."
+
+msgid "plugins.themes.rumahJurnal.auth.usernamePlaceholder"
+msgstr "Nama pengguna atau alamat email..."
+
+msgid "plugins.themes.rumahJurnal.auth.passwordPlaceholder"
+msgstr "Masukkan kata sandi akun..."
+
+msgid "plugins.themes.rumahJurnal.auth.hidePassword"
+msgstr "Sembunyikan kata sandi"
+
+msgid "plugins.themes.rumahJurnal.auth.showPassword"
+msgstr "Tampilkan kata sandi"
+
+msgid "plugins.themes.rumahJurnal.auth.noAccountPrompt"
+msgstr "Belum memiliki akun di Portal Rumah Jurnal?"
+
+msgid "plugins.themes.rumahJurnal.auth.alreadyHaveAccount"
+msgstr "Sudah memiliki akun terdaftar?"
+
+msgid "plugins.themes.rumahJurnal.auth.lostPasswordSubtitle"
+msgstr "Pulihkan akses ke akun portal jurnal Anda."
+
+msgid "plugins.themes.rumahJurnal.auth.emailPlaceholder"
+msgstr "nama@email.com"
+
+msgid "plugins.themes.rumahJurnal.auth.backToLogin"
+msgstr "Kembali ke Halaman Masuk"
+
+msgid "plugins.themes.rumahJurnal.auth.registerSubtitle"
+msgstr "Lengkapi formulir di bawah ini untuk mendaftarkan akun baru."
+
+msgid "plugins.themes.rumahJurnal.auth.givenNamePlaceholder"
+msgstr "Nama depan..."
+
+msgid "plugins.themes.rumahJurnal.auth.familyNamePlaceholder"
+msgstr "Nama belakang / marga..."
+
+msgid "plugins.themes.rumahJurnal.auth.affiliationPlaceholder"
+msgstr "Institusi, Universitas, atau Lembaga..."
+
+msgid "plugins.themes.rumahJurnal.auth.phonePlaceholder"
+msgstr "08123456789"
+
+msgid "plugins.themes.rumahJurnal.auth.usernameRules"
+msgstr "Hanya dapat memuat huruf kecil, angka, serta tanda hubung (-) atau garis bawah (_)."
+
+msgid "plugins.themes.rumahJurnal.auth.usernameNewPlaceholder"
+msgstr "username (huruf kecil & angka)"
+
+msgid "plugins.themes.rumahJurnal.auth.passwordNewPlaceholder"
+msgstr "Minimal 6 karakter"
+
+msgid "plugins.themes.rumahJurnal.auth.repeatPasswordPlaceholder"
+msgstr "Ulangi kata sandi..."
+
+msgid "plugins.themes.rumahJurnal.auth.reviewerInterestsPlaceholder"
+msgstr "Contoh: Pendidikan Islam, Manajemen Pendidikan, Hukum Ekonomi Syariah..."
+
+msgid "plugins.themes.rumahJurnal.auth.contextsPromptSubtitle"
+msgstr "Pilih peran pembaca atau reviewer pada jurnal spesifik (opsional)"
+
+msgid "plugins.themes.rumahJurnal.exploreJournals"
+msgstr "Jelajahi Jurnal"
+
+msgid "navigation.journalList"
+msgstr "Daftar Jurnal"
+
+msgid "plugins.themes.rumahJurnal.nav.journalList"
+msgstr "Daftar Jurnal"
+
+msgid "plugins.themes.rumahJurnal.nav.indexing"
+msgstr "Indeksasi"
+
+msgid "plugins.themes.rumahJurnal.nav.statistics"
+msgstr "Statistik"
+
+msgid "plugins.themes.rumahJurnal.nav.portalSubtitle"
+msgstr "Pusat Publikasi Ilmiah & Jurnal Elektronik"
+
+msgid "common.optional"
+msgstr "opsional"
+
+msgid "plugins.themes.rumahJurnal.common.optional"
+msgstr "opsional"
+
