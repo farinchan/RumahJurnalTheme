@@ -36,6 +36,12 @@ msgstr "العدد الحالي"
 msgid "plugins.themes.rumahJurnal.submitArticle"
 msgstr "إرسال بحث"
 
+msgid "plugins.themes.rumahJurnal.option.themeNotice.label"
+msgstr "تنبيه هام حول استخدام القالب"
+
+msgid "plugins.themes.rumahJurnal.option.themeNotice.description"
+msgstr "<div style=\"background-color: #FEF3C7; border-right: 4px solid #D97706; padding: 12px 16px; border-radius: 6px; color: #92400E; text-align: right;\"><strong>تنبيه هام:</strong> قالب <strong>دار المجلات (Rumah Jurnal)</strong> مصمم خصيصاً و<strong>مناسب فقط للاستخدام على مستوى فهرس الموقع العام (Site Index / البوابة الرئيسية)</strong> لنظام OJS، ولا يناسب المجلات الفردية المستقلة.</div>"
+
 msgid "plugins.themes.rumahJurnal.option.primaryColor.label"
 msgstr "اللون الأساسي"
 

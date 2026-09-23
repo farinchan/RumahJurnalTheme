@@ -134,6 +134,12 @@ class RumahJurnalThemePlugin extends ThemePlugin
      */
     public function init()
     {
+        // Theme usage important notice (placed at the top above primaryColor)
+        $this->addOption('themeNotice', 'FieldHTML', [
+            'label' => __('plugins.themes.rumahJurnal.option.themeNotice.label'),
+            'description' => __('plugins.themes.rumahJurnal.option.themeNotice.description'),
+        ]);
+
         // Register theme customizable color options for Admin Settings
         $this->addOption('primaryColor', 'FieldColor', [
             'label' => __('plugins.themes.rumahJurnal.option.primaryColor.label'),

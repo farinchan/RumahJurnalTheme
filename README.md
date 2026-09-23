@@ -65,6 +65,7 @@ Pengelola situs (*Site Administrator*) dapat mengatur tema melalui:
 ### Opsi yang Tersedia:
 | Opsi | Tipe Field | Keterangan |
 | :--- | :--- | :--- |
+| **Pemberitahuan Penting** (`themeNotice`) | `FieldHTML` | Peringatan resmi bahwa tema ini khusus dan hanya cocok untuk Site Index (Portal). |
 | **Warna Primer** (`primaryColor`) | `FieldColor` | Warna navbar, judul, tombol utama (Default: `#2C366D`). |
 | **Warna Sekunder** (`secondaryColor`) | `FieldColor` | Warna aksen/sorotan hover dan badge (Default: `#D2AA2A`). |
 | **Judul Utama Banner** (`heroTitle`) | `FieldText` | Headline utama pada banner beranda portal. |

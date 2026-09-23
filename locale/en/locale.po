@@ -36,6 +36,12 @@ msgstr "Current Issue"
 msgid "plugins.themes.rumahJurnal.submitArticle"
 msgstr "Submit Paper"
 
+msgid "plugins.themes.rumahJurnal.option.themeNotice.label"
+msgstr "Important Notice on Theme Usage"
+
+msgid "plugins.themes.rumahJurnal.option.themeNotice.description"
+msgstr "<div style=\"background-color: #FEF3C7; border-left: 4px solid #D97706; padding: 12px 16px; border-radius: 6px; color: #92400E;\"><strong>IMPORTANT:</strong> The <strong>Rumah Jurnal Theme</strong> is specifically designed and <strong>only suitable for use at the institutional Site Index (Portal Homepage)</strong> level of OJS. This theme is not intended for individual journal sites.</div>"
+
 msgid "plugins.themes.rumahJurnal.option.primaryColor.label"
 msgstr "Primary Color"
 
