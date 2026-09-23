@@ -27,6 +27,108 @@ class RumahJurnalThemePlugin extends ThemePlugin
 {
 
     /**
+     * Built-in accreditation & indexing logos catalog
+     */
+    public const BUILTIN_INDEXING_LOGOS = [
+        'sinta' => [
+            'name' => 'SINTA',
+            'title' => 'SINTA - Science and Technology Index',
+            'file' => 'sinta.png',
+            'url' => 'https://sinta.kemdikbud.go.id/',
+        ],
+        'scopus' => [
+            'name' => 'Scopus',
+            'title' => 'Scopus',
+            'file' => 'scopus.png',
+            'url' => 'https://www.scopus.com/',
+        ],
+        'garuda' => [
+            'name' => 'Garuda',
+            'title' => 'Garuda - Garba Rujukan Digital',
+            'file' => 'garuda.png',
+            'url' => 'https://garuda.kemdikbud.go.id/',
+        ],
+        'crossref' => [
+            'name' => 'Crossref',
+            'title' => 'Crossref - Digital Object Identifier',
+            'file' => 'crossref.png',
+            'url' => 'https://www.crossref.org/',
+        ],
+        'doaj' => [
+            'name' => 'DOAJ',
+            'title' => 'DOAJ - Directory of Open Access Journals',
+            'file' => 'doaj.png',
+            'url' => 'https://doaj.org/',
+        ],
+        'scholar' => [
+            'name' => 'Google Scholar',
+            'title' => 'Google Scholar',
+            'file' => 'scholar.png',
+            'url' => 'https://scholar.google.com/',
+        ],
+        'dimensions' => [
+            'name' => 'Dimensions',
+            'title' => 'Dimensions',
+            'file' => 'dimensions.png',
+            'url' => 'https://www.dimensions.ai/',
+        ],
+        'moraref' => [
+            'name' => 'Moraref',
+            'title' => 'Moraref - Kementerian Agama RI',
+            'file' => 'moraref.png',
+            'url' => 'https://moraref.kemenag.go.id/',
+        ],
+        'onesearch' => [
+            'name' => 'Indonesia OneSearch',
+            'title' => 'Indonesia OneSearch',
+            'file' => 'onesearch.png',
+            'url' => 'https://onesearch.id/',
+        ],
+        'road' => [
+            'name' => 'ROAD ISSN',
+            'title' => 'ROAD - Directory of Open Access Scholarly Resources',
+            'file' => 'road.png',
+            'url' => 'https://road.issn.org/',
+        ],
+        'copernicus' => [
+            'name' => 'Index Copernicus',
+            'title' => 'Index Copernicus International',
+            'file' => 'copernicus.png',
+            'url' => 'https://journals.indexcopernicus.com/',
+        ],
+        'ebsco' => [
+            'name' => 'EBSCO',
+            'title' => 'EBSCO',
+            'file' => 'ebsco.png',
+            'url' => 'https://www.ebsco.com/',
+        ],
+        'base' => [
+            'name' => 'BASE',
+            'title' => 'BASE - Bielefeld Academic Search Engine',
+            'file' => 'base.png',
+            'url' => 'https://www.base-search.net/',
+        ],
+        'neliti' => [
+            'name' => 'Neliti',
+            'title' => 'Neliti - Repositori Ilmiah Indonesia',
+            'file' => 'neliti.png',
+            'url' => 'https://www.neliti.com/',
+        ],
+        'researchgate' => [
+            'name' => 'ResearchGate',
+            'title' => 'ResearchGate',
+            'file' => 'researchgate.png',
+            'url' => 'https://www.researchgate.net/',
+        ],
+        'pkp' => [
+            'name' => 'PKP Index',
+            'title' => 'PKP Index',
+            'file' => 'pkp.png',
+            'url' => 'https://index.pkp.sfu.ca/',
+        ],
+    ];
+
+    /**
      * Initialize theme styles, scripts and template overrides
      */
     public function init()
@@ -54,6 +156,30 @@ class RumahJurnalThemePlugin extends ThemePlugin
             'label' => __('plugins.themes.rumahJurnal.option.heroDescription.label'),
             'description' => __('plugins.themes.rumahJurnal.option.heroDescription.description'),
             'default' => 'Menyajikan akses terbuka (Open Access) ke puluhan berkala ilmiah terindeks nasional (SINTA) dan internasional di lingkungan Universitas Islam Negeri Mahmud Yunus Batusangkar.',
+        ]);
+
+        // Built-in indexing logos option
+        $builtinOptions = [];
+        foreach (self::BUILTIN_INDEXING_LOGOS as $key => $logo) {
+            $builtinOptions[] = [
+                'value' => $key,
+                'label' => $logo['name'],
+            ];
+        }
+
+        $this->addOption('indexingLogos', 'FieldOptions', [
+            'label' => __('plugins.themes.rumahJurnal.option.indexingLogos.label'),
+            'description' => __('plugins.themes.rumahJurnal.option.indexingLogos.description'),
+            'isOrderable' => true,
+            'options' => $builtinOptions,
+            'default' => array_keys(self::BUILTIN_INDEXING_LOGOS),
+        ]);
+
+        // Custom additional indexing logos option
+        $this->addOption('customIndexingLogos', 'FieldTextarea', [
+            'label' => __('plugins.themes.rumahJurnal.option.customIndexingLogos.label'),
+            'description' => __('plugins.themes.rumahJurnal.option.customIndexingLogos.description'),
+            'default' => '',
         ]);
 
         // Add Google Fonts: Plus Jakarta Sans & Outfit
@@ -391,6 +517,7 @@ class RumahJurnalThemePlugin extends ThemePlugin
 
             // Only query and enrich journals on the portal site index page
             if ($template === 'frontend/pages/indexSite.tpl') {
+                $assignData['indexingLogos'] = $this->getActiveIndexingLogos($request->getBaseUrl());
                 $journals = $templateMgr->getTemplateVars('journals');
 
                 if (is_array($journals)) {
@@ -500,6 +627,87 @@ class RumahJurnalThemePlugin extends ThemePlugin
         }
 
         return false;
+    }
+
+    /**
+     * Get active accreditation & indexing logos for indexSite.tpl
+     */
+    public function getActiveIndexingLogos(string $baseUrl): array
+    {
+        $enabled = $this->getOption('indexingLogos');
+        if (!is_array($enabled)) {
+            /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
+            $pluginSettingsDao = \PKP\db\DAORegistry::getDAO('PluginSettingsDAO');
+            $siteSettings = $pluginSettingsDao->getPluginSettings(null, $this->getName());
+            if (isset($siteSettings['indexingLogos'])) {
+                $val = $siteSettings['indexingLogos'];
+                $enabled = is_array($val) ? $val : json_decode((string) $val, true);
+            }
+        }
+
+        // If never set before in DB, default to all built-in logos
+        if (!is_array($enabled)) {
+            $enabled = array_keys(self::BUILTIN_INDEXING_LOGOS);
+        }
+
+        $logos = [];
+        $imageBasePath = rtrim($baseUrl, '/') . '/plugins/themes/rumahJurnal/images/';
+
+        // Add enabled built-in logos in the order specified by $enabled
+        foreach ($enabled as $key) {
+            if (isset(self::BUILTIN_INDEXING_LOGOS[$key])) {
+                $item = self::BUILTIN_INDEXING_LOGOS[$key];
+                $logos[] = [
+                    'id' => $key,
+                    'name' => $item['name'],
+                    'title' => $item['title'] ?? $item['name'],
+                    'image' => $imageBasePath . $item['file'],
+                    'url' => $item['url'] ?? '',
+                ];
+            }
+        }
+
+        // Parse custom indexing logos
+        $customRaw = (string) $this->getOption('customIndexingLogos');
+        if (empty($customRaw)) {
+            /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
+            $pluginSettingsDao = \PKP\db\DAORegistry::getDAO('PluginSettingsDAO');
+            $siteSettings = $pluginSettingsDao->getPluginSettings(null, $this->getName());
+            $customRaw = $siteSettings['customIndexingLogos'] ?? '';
+        }
+
+        if (!empty($customRaw)) {
+            $lines = preg_split('/[\r\n]+/', (string) $customRaw);
+            foreach ($lines as $line) {
+                $line = trim($line);
+                if ($line === '' || str_starts_with($line, '#')) {
+                    continue;
+                }
+                $parts = array_map('trim', explode('|', $line));
+                $name = $parts[0] ?? '';
+                $image = $parts[1] ?? '';
+                $url = $parts[2] ?? '';
+
+                if ($name === '' || $image === '') {
+                    continue;
+                }
+
+                // If image is a local filename rather than full URL, prepend theme images directory
+                if (!preg_match('/^(https?:\/\/|\/\/|\/)/i', $image)) {
+                    $image = $imageBasePath . $image;
+                }
+
+                $logos[] = [
+                    'id' => 'custom_' . substr(md5($line), 0, 8),
+                    'name' => $name,
+                    'title' => $name,
+                    'image' => $image,
+                    'url' => $url,
+                ];
+            }
+        }
+
+        return $logos;
     }
 
     /**

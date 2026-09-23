@@ -55,6 +55,19 @@ msgstr "Deskripsi Banner (Hero Description)"
 msgid "plugins.themes.rumahJurnal.option.heroDescription.description"
 msgstr "Teks deskripsi pengantar di bawah judul banner beranda portal."
 
+msgid "plugins.themes.rumahJurnal.option.indexingLogos.label"
+msgstr "Logo Akreditasi & Pengindeks Bawaan"
+
+msgid "plugins.themes.rumahJurnal.option.indexingLogos.description"
+msgstr "Pilih logo lembaga pengindeks atau akreditasi yang ingin ditampilkan pada bagian Akreditasi & Indeksasi di beranda portal. Anda juga dapat menyeret (drag) untuk mengatur urutan tampil."
+
+msgid "plugins.themes.rumahJurnal.option.customIndexingLogos.label"
+msgstr "Logo Pengindeks Kustom / Tambahan"
+
+msgid "plugins.themes.rumahJurnal.option.customIndexingLogos.description"
+msgstr "Tambahkan logo pengindeks kustom/tambahan (satu baris per logo). Format: Nama Logo | URL Gambar (atau nama file gambar di folder images tema) | URL Tautan (opsional). Contoh: Web of Science | wos.png | https://clarivate.com"
+
+
 msgid "plugins.themes.rumahJurnal.auth.loginSubtitle"
 msgstr "Silakan masukkan nama pengguna atau email dan kata sandi Anda."
 

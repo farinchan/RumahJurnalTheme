@@ -55,6 +55,19 @@ msgstr "Hero Description"
 msgid "plugins.themes.rumahJurnal.option.heroDescription.description"
 msgstr "Introductory description text displayed below the main banner headline."
 
+msgid "plugins.themes.rumahJurnal.option.indexingLogos.label"
+msgstr "Default Accreditation & Indexing Logos"
+
+msgid "plugins.themes.rumahJurnal.option.indexingLogos.description"
+msgstr "Select which built-in indexing and accreditation logos to display on the portal homepage. You may also drag to reorder them."
+
+msgid "plugins.themes.rumahJurnal.option.customIndexingLogos.label"
+msgstr "Custom / Additional Indexing Logos"
+
+msgid "plugins.themes.rumahJurnal.option.customIndexingLogos.description"
+msgstr "Add additional indexing logos (one per line). Format: Logo Name | Image URL (or file name in theme images folder) | Link URL (optional). Example: Web of Science | wos.png | https://clarivate.com"
+
+
 msgid "plugins.themes.rumahJurnal.auth.loginSubtitle"
 msgstr "Please enter your username or email and password."
 

@@ -437,6 +437,7 @@
 	</main>
 
 	<!-- INDEXING & PARTNER LOGOS -->
+	{if !empty($indexingLogos)}
 	<section id="indeksasi" class="bg-white border-y border-slate-200 py-14">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 			<div class="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-accent mb-2">
@@ -452,25 +453,19 @@
 
 			<!-- INDEXING LOGOS -->
 			<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 items-center">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/sinta.png" alt="SINTA" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="SINTA - Science and Technology Index">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/scopus.png" alt="Scopus" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="Scopus">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/garuda.png" alt="Garuda" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="Garuda - Garba Rujukan Digital">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/crossref.png" alt="Crossref" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="Crossref - Digital Object Identifier">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/doaj.png" alt="DOAJ" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="DOAJ - Directory of Open Access Journals">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/scholar.png" alt="Google Scholar" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="Google Scholar">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/dimensions.png" alt="Dimensions" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="Dimensions">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/moraref.png" alt="Moraref" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="Moraref - Kementerian Agama RI">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/onesearch.png" alt="Indonesia OneSearch" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="Indonesia OneSearch">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/road.png" alt="ROAD ISSN" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="ROAD - Directory of Open Access Scholarly Resources">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/copernicus.png" alt="Index Copernicus" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="Index Copernicus International">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/ebsco.png" alt="EBSCO" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="EBSCO">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/base.png" alt="BASE" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="BASE - Bielefeld Academic Search Engine">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/neliti.png" alt="Neliti" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="Neliti - Repositori Ilmiah Indonesia">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/researchgate.png" alt="ResearchGate" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="ResearchGate">
-				<img src="{$baseUrl}/plugins/themes/rumahJurnal/images/pkp.png" alt="PKP Index" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="PKP Index">
+				{foreach from=$indexingLogos item=logo}
+					{if $logo.url}
+						<a href="{$logo.url|escape}" target="_blank" rel="noopener noreferrer" class="block group" title="{$logo.title|default:$logo.name|escape}">
+							<img src="{$logo.image|escape}" alt="{$logo.name|escape}" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy">
+						</a>
+					{else}
+						<img src="{$logo.image|escape}" alt="{$logo.name|escape}" width="380" height="129" class="w-full h-auto block hover:opacity-80 transition duration-200" loading="lazy" title="{$logo.title|default:$logo.name|escape}">
+					{/if}
+				{/foreach}
 			</div>
 		</div>
 	</section>
+	{/if}
 
 
 {include file="frontend/components/footer.tpl"}
