@@ -539,6 +539,7 @@ class RumahJurnalThemePlugin extends ThemePlugin
                 'footerQuickLinks' => $this->getFooterQuickLinks($request->getBaseUrl()),
                 'secretariatAddress' => $this->getSecretariatAddress(),
                 'siteUrl' => $request->getBaseUrl(),
+                'languageToggle' => $this->getLanguageToggleData(),
             ];
 
             // Only query and enrich journals on the portal site index page
@@ -874,6 +875,137 @@ class RumahJurnalThemePlugin extends ThemePlugin
         }
 
         return $address;
+    }
+
+    /**
+     * Get formatted language list for language switcher dropdown
+     */
+    public function getLanguageToggleData(): array
+    {
+        try {
+            $request = Application::get()->getRequest();
+            $context = $request->getContext();
+            $site = $request->getSite();
+
+            $supportedLocales = isset($context)
+                ? $context->getSupportedLocales()
+                : ($site ? $site->getSupportedLocales() : []);
+
+            if (empty($supportedLocales) || !is_array($supportedLocales)) {
+                $supportedLocales = ['id', 'en'];
+            }
+
+            $currentLocale = (string) Locale::getLocale();
+            $serverName = $_SERVER['SERVER_NAME'] ?? '';
+            $requestUri = $_SERVER['REQUEST_URI'] ?? '';
+            $source = $serverName . $requestUri;
+
+            try {
+                $nativeNames = Locale::getFormattedDisplayNames($supportedLocales, Locale::getLocales(), \PKP\i18n\LocaleMetadata::LANGUAGE_LOCALE_ONLY);
+            } catch (\Throwable $e) {
+                $nativeNames = [];
+            }
+
+            $flagSvgs = [
+                'id' => '<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 3 2"><rect width="3" height="1" fill="#E70011"/><rect y="1" width="3" height="1" fill="#FFFFFF"/></svg>',
+                'id_ID' => '<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 3 2"><rect width="3" height="1" fill="#E70011"/><rect y="1" width="3" height="1" fill="#FFFFFF"/></svg>',
+                'en' => '<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 600 300"><rect width="600" height="300" fill="#012169"/><path d="M0,0 L600,300 M600,0 L0,300" stroke="#ffffff" stroke-width="60"/><path d="M0,0 L300,150 M600,300 L300,150" stroke="#c8102e" stroke-width="40"/><path d="M600,0 L300,150 M0,300 L300,150" stroke="#c8102e" stroke-width="40"/><path d="M300,0 V300 M0,150 H600" stroke="#ffffff" stroke-width="100"/><path d="M300,0 V300 M0,150 H600" stroke="#c8102e" stroke-width="60"/></svg>',
+                'en_US' => '<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 600 300"><rect width="600" height="300" fill="#012169"/><path d="M0,0 L600,300 M600,0 L0,300" stroke="#ffffff" stroke-width="60"/><path d="M0,0 L300,150 M600,300 L300,150" stroke="#c8102e" stroke-width="40"/><path d="M600,0 L300,150 M0,300 L300,150" stroke="#c8102e" stroke-width="40"/><path d="M300,0 V300 M0,150 H600" stroke="#ffffff" stroke-width="100"/><path d="M300,0 V300 M0,150 H600" stroke="#c8102e" stroke-width="60"/></svg>',
+                'ar' => '<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 3 2"><rect width="3" height="2" fill="#006C35"/><path d="M1.0,0.6 A0.4,0.4 0 1 0 1.8,1.4 A0.32,0.32 0 1 1 1.0,0.6 Z" fill="#ffffff"/><polygon points="1.6,0.85 1.67,0.97 1.8,0.97 1.7,1.05 1.73,1.17 1.6,1.1 1.47,1.17 1.5,1.05 1.4,0.97 1.53,0.97" fill="#ffffff"/></svg>',
+                'ar_IQ' => '<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 3 2"><rect width="3" height="2" fill="#006C35"/><path d="M1.0,0.6 A0.4,0.4 0 1 0 1.8,1.4 A0.32,0.32 0 1 1 1.0,0.6 Z" fill="#ffffff"/><polygon points="1.6,0.85 1.67,0.97 1.8,0.97 1.7,1.05 1.73,1.17 1.6,1.1 1.47,1.17 1.5,1.05 1.4,0.97 1.53,0.97" fill="#ffffff"/></svg>',
+                'ms' => '<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 14 7"><rect width="14" height="7" fill="#cc0000"/><rect y="0.5" width="14" height="0.5" fill="#ffffff"/><rect y="1.5" width="14" height="0.5" fill="#ffffff"/><rect y="2.5" width="14" height="0.5" fill="#ffffff"/><rect y="3.5" width="14" height="0.5" fill="#ffffff"/><rect y="4.5" width="14" height="0.5" fill="#ffffff"/><rect y="5.5" width="14" height="0.5" fill="#ffffff"/><rect width="7" height="4" fill="#000066"/><circle cx="3" cy="2" r="1.3" fill="#ffcc00"/><circle cx="3.4" cy="2" r="1.1" fill="#000066"/><polygon points="4.6,2 4.0,2.2 4.4,2.7 3.8,2.5 3.8,3.2 3.4,2.7 3.0,3.1 3.2,2.5 2.6,2.5 3.0,2.1 2.7,1.6 3.2,1.8 3.5,1.2 3.7,1.8" fill="#ffcc00"/></svg>',
+                'fr' => '<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#ffffff"/><rect x="2" width="1" height="2" fill="#ed2939"/></svg>',
+                'es' => '<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 3 2"><rect width="3" height="2" fill="#AA151B"/><rect y="0.5" width="3" height="1" fill="#F1BF00"/></svg>',
+                'de' => '<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/></svg>',
+            ];
+
+            $names = [
+                'id' => 'Bahasa Indonesia',
+                'id_ID' => 'Bahasa Indonesia',
+                'en' => 'English',
+                'en_US' => 'English',
+                'ar' => 'العربية',
+                'ar_IQ' => 'العربية',
+                'ms' => 'Bahasa Melayu',
+                'fr' => 'Français',
+                'es' => 'Español',
+                'de' => 'Deutsch',
+            ];
+
+            $shortCodes = [
+                'id' => 'ID',
+                'id_ID' => 'ID',
+                'en' => 'EN',
+                'en_US' => 'EN',
+                'ar' => 'AR',
+                'ar_IQ' => 'AR',
+                'ms' => 'MS',
+                'fr' => 'FR',
+                'es' => 'ES',
+                'de' => 'DE',
+            ];
+
+            $languages = [];
+            $currentLanguage = null;
+
+            foreach ($supportedLocales as $locKey) {
+                $prefix = substr($locKey, 0, 2);
+                $name = $nativeNames[$locKey] ?? ($names[$locKey] ?? ($names[$prefix] ?? $locKey));
+                $code = $shortCodes[$locKey] ?? ($shortCodes[$prefix] ?? strtoupper($prefix));
+                $flag = $flagSvgs[$locKey] ?? ($flagSvgs[$prefix] ?? ('<svg class="w-5 h-3.5 rounded-xs shadow-xs inline-block object-cover flex-shrink-0 border border-black/10" viewBox="0 0 3 2"><rect width="3" height="2" fill="#2C366D"/><text x="1.5" y="1.4" font-size="0.9" font-weight="bold" fill="#ffffff" text-anchor="middle">' . htmlspecialchars($code) . '</text></svg>'));
+                $isCurrent = ($locKey === $currentLocale || $prefix === substr($currentLocale, 0, 2));
+
+                $url = '';
+                try {
+                    $dispatcher = $request->getDispatcher();
+                    if ($dispatcher) {
+                        $url = $dispatcher->url(
+                            $request,
+                            PKPApplication::ROUTE_PAGE,
+                            null,
+                            'user',
+                            'setLocale',
+                            [$locKey],
+                            !empty($source) ? ['source' => $source] : []
+                        );
+                    }
+                } catch (\Throwable $e) {
+                    $url = '';
+                }
+
+                $langItem = [
+                    'key' => $locKey,
+                    'name' => $name,
+                    'code' => $code,
+                    'flag' => $flag,
+                    'url' => $url,
+                    'isCurrent' => $isCurrent,
+                ];
+
+                $languages[] = $langItem;
+
+                if ($isCurrent) {
+                    $currentLanguage = $langItem;
+                }
+            }
+
+            if (!$currentLanguage && !empty($languages)) {
+                $currentLanguage = $languages[0];
+                $languages[0]['isCurrent'] = true;
+            }
+
+            return [
+                'languages' => $languages,
+                'currentLanguage' => $currentLanguage,
+                'hasMultipleLanguages' => count($languages) > 1,
+            ];
+        } catch (\Throwable $e) {
+            return [
+                'languages' => [],
+                'currentLanguage' => null,
+                'hasMultipleLanguages' => false,
+            ];
+        }
     }
 
     /**

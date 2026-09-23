@@ -173,15 +173,77 @@
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}"{if !$requestedPage || $requestedPage == 'index'} x-data="journalExplorer"{/if}>
 
 	<!-- TOP INSTITUTIONAL BAR -->
-	<div class="bg-primary-900 text-slate-300 text-xs py-2 border-b border-white/10">
+	<div class="bg-primary-900 text-slate-300 text-xs py-2 border-b border-white/10 relative z-50">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-row justify-between items-center gap-2">
-			<div class="flex items-center gap-2 text-left">
-				<span class="text-slate-300"> {$siteTitle|default:"UIN Mahmud Yunus Batusangkar"}</span>
+			<div class="flex items-center gap-2 text-left min-w-0">
+				<span class="text-slate-300 truncate"> {$siteTitle|default:"UIN Mahmud Yunus Batusangkar"}</span>
 			</div>
-			<div class="flex items-center text-xs">
-				<a href="{url page="about" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="hover:text-white transition flex items-center gap-1.5">
+			<div class="flex items-center gap-3 sm:gap-4 text-xs shrink-0">
+				<a href="{url page="about" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="hover:text-white transition flex items-center gap-1.5 text-slate-300">
 					<i class="fa-solid fa-circle-info text-accent"></i> <span>{translate key="navigation.about"}</span>
 				</a>
+
+				<!-- LANGUAGE SWITCHER DROPDOWN (TOP BAR - RIGHT OF ABOUT) -->
+				{if !empty($languageToggle.languages) && $languageToggle.hasMultipleLanguages}
+					<span class="w-px h-3.5 bg-white/20" aria-hidden="true"></span>
+					<div class="relative" x-data="{ langMenuOpen: false }">
+						<button 
+							type="button" 
+							@click="langMenuOpen = !langMenuOpen" 
+							@click.outside="langMenuOpen = false"
+							class="inline-flex items-center gap-1.5 px-2 py-1 rounded-lg text-xs font-semibold text-slate-200 hover:text-white  hover:bg-white/20 transition focus:outline-none focus:ring-1 focus:ring-accent  cursor-pointer shadow-2xs"
+							:aria-expanded="langMenuOpen.toString()"
+							title="{translate key="plugins.themes.rumahJurnal.nav.selectLanguage"|default:"Pilih Bahasa"}">
+							<span class="inline-flex items-center justify-center shrink-0">
+								{$languageToggle.currentLanguage.flag}
+							</span>
+							<span class="font-bold tracking-wide text-[11px] uppercase">
+								{$languageToggle.currentLanguage.code}
+							</span>
+							<i class="fa-solid fa-chevron-down text-[8px] text-slate-300 transition-transform duration-200" :class="{ 'rotate-180': langMenuOpen }"></i>
+						</button>
+
+						<!-- Dropdown Menu -->
+						<div 
+							x-show="langMenuOpen" 
+							x-cloak
+							x-transition:enter="transition ease-out duration-150"
+							x-transition:enter-start="opacity-0 scale-95 -translate-y-1"
+							x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+							x-transition:leave="transition ease-in duration-100"
+							x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+							x-transition:leave-end="opacity-0 scale-95 -translate-y-1"
+							class="absolute right-0 mt-2 w-44 sm:w-48 bg-white rounded-xl border border-slate-100 shadow-2xl py-1 z-50 overflow-hidden text-slate-800">
+							
+							<div class="px-3.5 py-1.5 border-b border-slate-100 bg-slate-50/80">
+								<p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{translate key="plugins.themes.rumahJurnal.nav.selectLanguage"|default:"Pilih Bahasa"}</p>
+							</div>
+
+							<div class="py-1">
+								{foreach from=$languageToggle.languages item=lang}
+									{assign var="targetLocaleUrl" value=$lang.url}
+									{if empty($targetLocaleUrl)}
+										{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="setLocale" path=$lang.key source=$smarty.server.SERVER_NAME|cat:$smarty.server.REQUEST_URI assign="targetLocaleUrl"}
+									{/if}
+									<a href="{$targetLocaleUrl|escape}" 
+									   class="flex items-center justify-between gap-2.5 px-3.5 py-2 text-xs transition {if $lang.isCurrent}bg-primary-50 text-primary font-bold{else}text-slate-700 hover:bg-slate-50 hover:text-primary font-medium{/if}">
+										<div class="flex items-center gap-2 min-w-0">
+											<span class="shrink-0 flex items-center">
+												{$lang.flag}
+											</span>
+											<span class="truncate">{$lang.name|escape}</span>
+										</div>
+										{if $lang.isCurrent}
+											<i class="fa-solid fa-check text-accent text-xs shrink-0"></i>
+										{else}
+											<span class="text-[10px] text-slate-400 font-bold uppercase shrink-0">{$lang.code}</span>
+										{/if}
+									</a>
+								{/foreach}
+							</div>
+						</div>
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -415,6 +477,33 @@
 							<i class="fa-solid fa-user-plus text-primary"></i>
 							<span>{translate key="user.register"}</span>
 						</a>
+					</div>
+				{/if}
+
+				<!-- Mobile Language Selector -->
+				{if !empty($languageToggle.languages) && $languageToggle.hasMultipleLanguages}
+					<div class="pt-3 border-t border-slate-100">
+						<p class="text-[10px] uppercase font-bold tracking-wider text-slate-400 px-1 mb-2 flex items-center gap-1.5">
+							<i class="fa-solid fa-globe text-accent text-xs"></i>
+							<span>{translate key="plugins.themes.rumahJurnal.nav.selectLanguage"|default:"Pilih Bahasa"}</span>
+						</p>
+						<div class="grid grid-cols-2 gap-2">
+							{foreach from=$languageToggle.languages item=lang}
+								{assign var="targetLocaleUrl" value=$lang.url}
+								{if empty($targetLocaleUrl)}
+									{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="setLocale" path=$lang.key source=$smarty.server.SERVER_NAME|cat:$smarty.server.REQUEST_URI assign="targetLocaleUrl"}
+								{/if}
+								<a href="{$targetLocaleUrl|escape}" 
+								   @click="mobileMenuOpen = false"
+								   class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition border {if $lang.isCurrent}bg-primary text-white border-primary shadow-xs{else}bg-slate-50 text-slate-700 border-slate-200/70 hover:bg-slate-100{/if}">
+									<span class="shrink-0 flex items-center">
+										{$lang.flag}
+									</span>
+									<span class="truncate font-bold">{$lang.code}</span>
+									<span class="truncate text-[11px] {if $lang.isCurrent}text-white/80{else}text-slate-500{/if}">{$lang.name}</span>
+								</a>
+							{/foreach}
+						</div>
 					</div>
 				{/if}
 			</div>

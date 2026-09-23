@@ -490,6 +490,5 @@ msgstr "Citations & Scientific Indexing"
 msgid "plugins.themes.rumahJurnal.loggedInAs"
 msgstr "Logged in as"
 
-
-
-
+msgid "plugins.themes.rumahJurnal.nav.selectLanguage"
+msgstr "Select Language"

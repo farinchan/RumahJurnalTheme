@@ -490,6 +490,5 @@ msgstr "Sitasi & Indeks Ilmiah"
 msgid "plugins.themes.rumahJurnal.loggedInAs"
 msgstr "Masuk sebagai"
 
-
-
-
+msgid "plugins.themes.rumahJurnal.nav.selectLanguage"
+msgstr "Pilih Bahasa"
