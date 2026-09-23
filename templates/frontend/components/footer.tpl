@@ -34,37 +34,31 @@
 						</div>
 					{else}
 						<p class="text-xs text-slate-300 leading-relaxed max-w-lg mb-5">
-							Rumah Jurnal adalah portal pengelolaan dan penerbitan berkala ilmiah terintegrasi yang memfasilitasi publikasi hasil riset dosen, peneliti, dan mahasiswa secara transparan, profesional, dan berstandar nasional maupun internasional.
+							{translate key="plugins.themes.rumahJurnal.footer.defaultAbout"}
 						</p>
 					{/if}
-					<!-- <div class="flex items-center gap-3 text-sm">
-						<a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-accent hover:text-primary-900 flex items-center justify-center text-slate-200 transition">
-							<i class="fa-brands fa-facebook-f"></i>
-						</a>
-						<a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-accent hover:text-primary-900 flex items-center justify-center text-slate-200 transition">
-							<i class="fa-brands fa-youtube"></i>
-						</a>
-						<a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-accent hover:text-primary-900 flex items-center justify-center text-slate-200 transition">
-							<i class="fa-brands fa-instagram"></i>
-						</a>
-						<a href="#" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-accent hover:text-primary-900 flex items-center justify-center text-slate-200 transition">
-							<i class="fa-solid fa-envelope"></i>
-						</a>
-					</div>  -->
 				</div>
 
 				<!-- Col 2: Quick Links -->
 				<div>
 					<h5 class="font-bold text-white text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
 						<span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-						<span>Tautan Cepat</span>
+						<span>{translate key="plugins.themes.rumahJurnal.footer.quickLinks"}</span>
 					</h5>
 					<ul class="space-y-2.5 text-xs text-slate-300">
-						<li><a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="hover:text-accent transition">Beranda Portal</a></li>
-						<li><a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#daftar-jurnal" class="hover:text-accent transition">Daftar Jurnal Terindeks</a></li>
-						<li><a href="{url page="about" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="hover:text-accent transition">Kebijakan Publikasi</a></li>
-						<li><a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login"}" class="hover:text-accent transition">Login Pengguna</a></li>
-						<li><a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="register"}" class="hover:text-accent transition">Pendaftaran Akun Penulis</a></li>
+						{if !empty($footerQuickLinks)}
+							{foreach from=$footerQuickLinks item=link}
+								<li><a href="{$link.url|escape}" class="hover:text-accent transition">{$link.title|escape}</a></li>
+							{/foreach}
+						{else}
+							<li><a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="hover:text-accent transition">{translate key="plugins.themes.rumahJurnal.footer.home"}</a></li>
+							<li><a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#daftar-jurnal" class="hover:text-accent transition">{translate key="plugins.themes.rumahJurnal.footer.indexedJournals"}</a></li>
+							<li><a href="{url page="about" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="hover:text-accent transition">{translate key="plugins.themes.rumahJurnal.footer.about"}</a></li>
+							<li><a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login"}" class="hover:text-accent transition">{translate key="plugins.themes.rumahJurnal.footer.login"}</a></li>
+							<li><a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="register"}" class="hover:text-accent transition">{translate key="plugins.themes.rumahJurnal.footer.register"}</a></li>
+						{/if}
+						<li><a href="https://nagastra.org" class="hover:text-accent transition">Theme Support</a></li>
+
 					</ul>
 				</div>
 
@@ -72,20 +66,28 @@
 				<div>
 					<h5 class="font-bold text-white text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
 						<span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
-						<span>Sekretariat</span>
+						<span>{translate key="plugins.themes.rumahJurnal.footer.secretariat"}</span>
 					</h5>
 					<ul class="space-y-3 text-xs text-slate-300">
 						<li class="flex items-start gap-2.5">
 							<i class="fa-solid fa-location-dot text-accent mt-1"></i>
-							<span>Gedung Pusat Kajian & Rumah Jurnal, UIN Mahmud Yunus Batusangkar, Sumatera Barat, Indonesia</span>
+							<span>{$secretariatAddress|escape|nl2br}</span>
 						</li>
 						<li class="flex items-center gap-2.5">
 							<i class="fa-solid fa-envelope text-accent"></i>
-							<span>rumahjurnal@uinmybatusangkar.ac.id</span>
+							<span>
+								<a href="mailto:{$principalContactEmail|escape}" class="hover:text-accent transition">
+									{$principalContactEmail|escape}
+								</a>
+							</span>
 						</li>
 						<li class="flex items-center gap-2.5">
 							<i class="fa-solid fa-globe text-accent"></i>
-							<span>https://uinmybatusangkar.ac.id</span>
+							<span>
+								<a href="{$siteUrl|default:$baseUrl|escape}" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">
+									{$siteUrl|default:$baseUrl|escape}
+								</a>
+							</span>
 						</li>
 					</ul>
 				</div>
@@ -94,14 +96,8 @@
 			<!-- BOTTOM COPYRIGHT & OJS INFO -->
 			<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
 				<div>
-					&copy; {$smarty.now|date_format:"Y"} <strong> {$siteTitle|default:"UIN Mahmud Yunus Batusangkar"} </strong>. All rights reserved.
+					&copy; {$smarty.now|date_format:"Y"} <strong>{$siteTitle|default:"UIN Mahmud Yunus Batusangkar"}</strong>. {translate key="plugins.themes.rumahJurnal.footer.allRightsReserved"}
 				</div>
-				<!-- <div class="flex items-center gap-2 text-slate-400">
-					<span>Didukung oleh</span>
-					<a href="https://pkp.sfu.ca/ojs/" target="_blank" rel="noopener" class="text-white hover:text-accent font-semibold transition">
-						Open Journal Systems 3.5
-					</a>
-				</div>  -->
 			</div>
 		</div>
 	</footer>
@@ -114,7 +110,7 @@
 		@click="window.scrollTo({ top: 0, behavior: 'smooth' })"
 		x-transition
 		class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-xl bg-primary text-white shadow-xl hover:bg-accent hover:text-primary-900 border border-accent/50 flex items-center justify-center transition duration-200"
-		title="Kembali ke atas">
+		title="{translate key="plugins.themes.rumahJurnal.footer.backToTop"}">
 		<i class="fa-solid fa-arrow-up text-sm"></i>
 	</button>
 

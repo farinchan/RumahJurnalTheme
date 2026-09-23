@@ -182,6 +182,28 @@ class RumahJurnalThemePlugin extends ThemePlugin
             'default' => '',
         ]);
 
+        // Footer quick links option
+        $defaultQuickLinks = "Beranda Portal | {\$baseUrl}\n"
+            . "Daftar Jurnal Terindeks | {\$baseUrl}#daftar-jurnal\n"
+            . "Kebijakan Publikasi | {\$baseUrl}/index.php/index/about\n"
+            . "Login Pengguna | {\$baseUrl}/index.php/index/login\n"
+            . "Pendaftaran Akun Penulis | {\$baseUrl}/index.php/index/user/register";
+
+        $this->addOption('footerQuickLinks', 'FieldTextarea', [
+            'label' => __('plugins.themes.rumahJurnal.option.footerQuickLinks.label'),
+            'description' => __('plugins.themes.rumahJurnal.option.footerQuickLinks.description'),
+            'default' => $defaultQuickLinks,
+        ]);
+
+        // Secretariat address option
+        $defaultAddress = 'Gedung Pusat Kajian & Rumah Jurnal, UIN Mahmud Yunus Batusangkar, Sumatera Barat, Indonesia';
+
+        $this->addOption('secretariatAddress', 'FieldTextarea', [
+            'label' => __('plugins.themes.rumahJurnal.option.secretariatAddress.label'),
+            'description' => __('plugins.themes.rumahJurnal.option.secretariatAddress.description'),
+            'default' => $defaultAddress,
+        ]);
+
         // Add Google Fonts: Plus Jakarta Sans & Outfit
         $this->addStyle(
             'googleFonts',
@@ -513,6 +535,10 @@ class RumahJurnalThemePlugin extends ThemePlugin
                 'themePrimaryScale' => $this->getColorScale($primary),
                 'themeSecondaryScale' => $this->getColorScale($secondary),
                 'isSiteAdmin' => $isSiteAdmin,
+                'principalContactEmail' => $this->getPrincipalContactEmail(),
+                'footerQuickLinks' => $this->getFooterQuickLinks($request->getBaseUrl()),
+                'secretariatAddress' => $this->getSecretariatAddress(),
+                'siteUrl' => $request->getBaseUrl(),
             ];
 
             // Only query and enrich journals on the portal site index page
@@ -708,6 +734,146 @@ class RumahJurnalThemePlugin extends ThemePlugin
         }
 
         return $logos;
+    }
+
+    /**
+     * Get Principal Contact Email with multi-level fallback
+     */
+    public function getPrincipalContactEmail(): string
+    {
+        try {
+            $request = Application::get()->getRequest();
+            $context = $request->getContext();
+            $site = $request->getSite();
+
+            $contactEmail = null;
+            if ($context) {
+                $contactEmail = $context->getLocalizedData('contactEmail') ?: $context->getData('contactEmail');
+            }
+            if (empty($contactEmail) && $site) {
+                $contactEmail = $site->getLocalizedData('contactEmail') ?: $site->getData('contactEmail');
+            }
+
+            // If multilingual array, resolve best locale
+            if (is_array($contactEmail)) {
+                $locale = Locale::getLocale();
+                if (!empty($contactEmail[$locale])) {
+                    $contactEmail = $contactEmail[$locale];
+                } elseif ($site && !empty($contactEmail[$site->getPrimaryLocale()])) {
+                    $contactEmail = $contactEmail[$site->getPrimaryLocale()];
+                } else {
+                    $contactEmail = reset($contactEmail);
+                }
+            }
+
+            if (empty($contactEmail)) {
+                $row = DB::table('site_settings')
+                    ->where('setting_name', 'contactEmail')
+                    ->whereNotNull('setting_value')
+                    ->where('setting_value', '<>', '')
+                    ->first();
+                if ($row) {
+                    $contactEmail = $row->setting_value;
+                }
+            }
+
+            if (empty($contactEmail) || !is_string($contactEmail)) {
+                $contactEmail = 'adminojs@uinmybatusangkar.ac.id';
+            }
+
+            return (string) $contactEmail;
+        } catch (\Throwable $e) {
+            return 'adminojs@uinmybatusangkar.ac.id';
+        }
+    }
+
+    /**
+     * Get active quick links for footer
+     */
+    public function getFooterQuickLinks(string $baseUrl): array
+    {
+        $raw = (string) $this->getOption('footerQuickLinks');
+        if (empty($raw)) {
+            /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
+            $pluginSettingsDao = \PKP\db\DAORegistry::getDAO('PluginSettingsDAO');
+            $siteSettings = $pluginSettingsDao->getPluginSettings(null, $this->getName());
+            $raw = $siteSettings['footerQuickLinks'] ?? '';
+        }
+
+        if (empty($raw)) {
+            $raw = "Beranda Portal | {\$baseUrl}\n"
+                . "Daftar Jurnal Terindeks | {\$baseUrl}#daftar-jurnal\n"
+                . "Kebijakan Publikasi | {\$baseUrl}/index.php/index/about\n"
+                . "Login Pengguna | {\$baseUrl}/index.php/index/login\n"
+                . "Pendaftaran Akun Penulis | {\$baseUrl}/index.php/index/user/register";
+        }
+
+        $lines = preg_split('/[\r\n]+/', (string) $raw);
+        $links = [];
+        $cleanBaseUrl = rtrim($baseUrl, '/');
+
+        // Mapping for translating the standard default titles when viewing in another language
+        $defaultTranslations = [
+            'Beranda Portal' => __('plugins.themes.rumahJurnal.footer.home'),
+            'Daftar Jurnal Terindeks' => __('plugins.themes.rumahJurnal.footer.indexedJournals'),
+            'Kebijakan Publikasi' => __('plugins.themes.rumahJurnal.footer.about'),
+            'Login Pengguna' => __('plugins.themes.rumahJurnal.footer.login'),
+            'Pendaftaran Akun Penulis' => __('plugins.themes.rumahJurnal.footer.register'),
+        ];
+
+        foreach ($lines as $line) {
+            $line = trim($line);
+            if ($line === '' || str_starts_with($line, '#')) {
+                continue;
+            }
+            $parts = array_map('trim', explode('|', $line, 2));
+            $title = $parts[0] ?? '';
+            $url = $parts[1] ?? '';
+            if ($title === '') {
+                continue;
+            }
+            if ($url === '') {
+                $url = '#';
+            }
+            // Support variable replacements like {$baseUrl} or {baseUrl}
+            $url = str_replace(['{$baseUrl}', '{baseUrl}'], $cleanBaseUrl, $url);
+
+            if (isset($defaultTranslations[$title])) {
+                $title = $defaultTranslations[$title];
+            }
+
+            $links[] = [
+                'title' => $title,
+                'url' => $url,
+            ];
+        }
+
+        return $links;
+    }
+
+    /**
+     * Get Secretariat Address with fallback
+     */
+    public function getSecretariatAddress(): string
+    {
+        $address = (string) $this->getOption('secretariatAddress');
+        if (empty($address)) {
+            /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
+            $pluginSettingsDao = \PKP\db\DAORegistry::getDAO('PluginSettingsDAO');
+            $siteSettings = $pluginSettingsDao->getPluginSettings(null, $this->getName());
+            $address = $siteSettings['secretariatAddress'] ?? '';
+        }
+
+        if (empty($address)) {
+            $address = 'Gedung Pusat Kajian & Rumah Jurnal, UIN Mahmud Yunus Batusangkar, Sumatera Barat, Indonesia';
+        }
+
+        // Translate default address if viewing in another language
+        if ($address === 'Gedung Pusat Kajian & Rumah Jurnal, UIN Mahmud Yunus Batusangkar, Sumatera Barat, Indonesia') {
+            $address = __('plugins.themes.rumahJurnal.footer.defaultAddress');
+        }
+
+        return $address;
     }
 
     /**

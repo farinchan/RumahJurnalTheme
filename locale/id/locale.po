@@ -67,6 +67,53 @@ msgstr "Logo Pengindeks Kustom / Tambahan"
 msgid "plugins.themes.rumahJurnal.option.customIndexingLogos.description"
 msgstr "Tambahkan logo pengindeks kustom/tambahan (satu baris per logo). Format: Nama Logo | URL Gambar (atau nama file gambar di folder images tema) | URL Tautan (opsional). Contoh: Web of Science | wos.png | https://clarivate.com"
 
+msgid "plugins.themes.rumahJurnal.option.footerQuickLinks.label"
+msgstr "Tautan Cepat Footer (Quick Links)"
+
+msgid "plugins.themes.rumahJurnal.option.footerQuickLinks.description"
+msgstr "Kelola daftar tautan cepat pada footer portal (satu baris per tautan). Format: Judul Tautan | URL Tautan. Variabel {$baseUrl} dapat digunakan untuk URL dasar portal. Contoh: Panduan Penulis | {$baseUrl}/index.php/index/about"
+
+msgid "plugins.themes.rumahJurnal.option.secretariatAddress.label"
+msgstr "Alamat Kantor Sekretariat"
+
+msgid "plugins.themes.rumahJurnal.option.secretariatAddress.description"
+msgstr "Alamat fisik lengkap kantor sekretariat Rumah Jurnal yang ditampilkan pada bagian kontak di footer portal."
+
+
+msgid "plugins.themes.rumahJurnal.footer.quickLinks"
+msgstr "Tautan Cepat"
+
+msgid "plugins.themes.rumahJurnal.footer.secretariat"
+msgstr "Sekretariat"
+
+msgid "plugins.themes.rumahJurnal.footer.defaultAbout"
+msgstr "Rumah Jurnal adalah portal pengelolaan dan penerbitan berkala ilmiah terintegrasi yang memfasilitasi publikasi hasil riset dosen, peneliti, dan mahasiswa secara transparan, profesional, dan berstandar nasional maupun internasional."
+
+msgid "plugins.themes.rumahJurnal.footer.defaultAddress"
+msgstr "Gedung Pusat Kajian & Rumah Jurnal, UIN Mahmud Yunus Batusangkar, Sumatera Barat, Indonesia"
+
+msgid "plugins.themes.rumahJurnal.footer.allRightsReserved"
+msgstr "Semua hak dilindungi undang-undang."
+
+msgid "plugins.themes.rumahJurnal.footer.backToTop"
+msgstr "Kembali ke atas"
+
+msgid "plugins.themes.rumahJurnal.footer.home"
+msgstr "Beranda Portal"
+
+msgid "plugins.themes.rumahJurnal.footer.indexedJournals"
+msgstr "Daftar Jurnal Terindeks"
+
+msgid "plugins.themes.rumahJurnal.footer.about"
+msgstr "Kebijakan Publikasi"
+
+msgid "plugins.themes.rumahJurnal.footer.login"
+msgstr "Login Pengguna"
+
+msgid "plugins.themes.rumahJurnal.footer.register"
+msgstr "Pendaftaran Akun Penulis"
+
+
 
 msgid "plugins.themes.rumahJurnal.auth.loginSubtitle"
 msgstr "Silakan masukkan nama pengguna atau email dan kata sandi Anda."

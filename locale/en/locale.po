@@ -67,6 +67,53 @@ msgstr "Custom / Additional Indexing Logos"
 msgid "plugins.themes.rumahJurnal.option.customIndexingLogos.description"
 msgstr "Add additional indexing logos (one per line). Format: Logo Name | Image URL (or file name in theme images folder) | Link URL (optional). Example: Web of Science | wos.png | https://clarivate.com"
 
+msgid "plugins.themes.rumahJurnal.option.footerQuickLinks.label"
+msgstr "Footer Quick Links"
+
+msgid "plugins.themes.rumahJurnal.option.footerQuickLinks.description"
+msgstr "Manage quick links in the portal footer (one link per line). Format: Link Title | Link URL. The {$baseUrl} variable can be used for the site base URL. Example: Author Guidelines | {$baseUrl}/index.php/index/about"
+
+msgid "plugins.themes.rumahJurnal.option.secretariatAddress.label"
+msgstr "Secretariat Office Address"
+
+msgid "plugins.themes.rumahJurnal.option.secretariatAddress.description"
+msgstr "Full physical address of the Rumah Jurnal secretariat office displayed in the footer contact section."
+
+
+msgid "plugins.themes.rumahJurnal.footer.quickLinks"
+msgstr "Quick Links"
+
+msgid "plugins.themes.rumahJurnal.footer.secretariat"
+msgstr "Secretariat"
+
+msgid "plugins.themes.rumahJurnal.footer.defaultAbout"
+msgstr "Rumah Jurnal is an integrated scientific journal management and publishing portal facilitating transparent, professional, and reputable dissemination of research by faculty, researchers, and students."
+
+msgid "plugins.themes.rumahJurnal.footer.defaultAddress"
+msgstr "Research Center & Rumah Jurnal Building, UIN Mahmud Yunus Batusangkar, West Sumatra, Indonesia"
+
+msgid "plugins.themes.rumahJurnal.footer.allRightsReserved"
+msgstr "All rights reserved."
+
+msgid "plugins.themes.rumahJurnal.footer.backToTop"
+msgstr "Back to top"
+
+msgid "plugins.themes.rumahJurnal.footer.home"
+msgstr "Portal Homepage"
+
+msgid "plugins.themes.rumahJurnal.footer.indexedJournals"
+msgstr "Indexed Journals Directory"
+
+msgid "plugins.themes.rumahJurnal.footer.about"
+msgstr "Publication Policies"
+
+msgid "plugins.themes.rumahJurnal.footer.login"
+msgstr "User Login"
+
+msgid "plugins.themes.rumahJurnal.footer.register"
+msgstr "Author Registration"
+
+
 
 msgid "plugins.themes.rumahJurnal.auth.loginSubtitle"
 msgstr "Please enter your username or email and password."
