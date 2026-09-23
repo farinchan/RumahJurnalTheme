@@ -288,7 +288,7 @@
 								</template>
 								<template x-if="!j.thumbnailUrl">
 									<a :href="j.homeUrl" class="h-full w-full bg-gradient-to-br from-primary to-primary-900 rounded-xl flex flex-col items-center justify-center p-4 text-center group-hover:scale-[1.02] transition duration-300">
-										<div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur border border-accent/40 flex items-center justify-center text-white font-extrabold text-xl shadow-inner mb-2" x-text="j.initial"></div>
+										<div class="w-14 h-14 rounded-xl  backdrop-blur border border-accent/40 flex items-center justify-center text-white font-extrabold text-xl shadow-inner mb-2" x-text="j.initial"></div>
 										<span class="text-xs font-bold text-white/90 line-clamp-1" x-text="j.name"></span>
 									</a>
 								</template>
