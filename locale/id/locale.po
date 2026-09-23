@@ -262,5 +262,171 @@ msgstr "Akses Bebas (Open Access)"
 msgid "plugins.themes.rumahJurnal.search.guide3Desc"
 msgstr "Unduh naskah lengkap PDF secara langsung dan gratis pada setiap hasil pencarian."
 
+msgid "plugins.themes.rumahJurnal.popularSearches"
+msgstr "Pencarian populer:"
+
+msgid "plugins.themes.rumahJurnal.tag.law"
+msgstr "Hukum"
+
+msgid "plugins.themes.rumahJurnal.tag.sharia"
+msgstr "Syariah"
+
+msgid "plugins.themes.rumahJurnal.tag.education"
+msgstr "Pendidikan"
+
+msgid "plugins.themes.rumahJurnal.tag.economics"
+msgstr "Ekonomi"
+
+msgid "plugins.themes.rumahJurnal.tag.science"
+msgstr "Sainstek"
+
+msgid "plugins.themes.rumahJurnal.stats.registeredJournals"
+msgstr "Jurnal Terdaftar"
+
+msgid "plugins.themes.rumahJurnal.stats.publishedArticles"
+msgstr "Artikel Terbit"
+
+msgid "plugins.themes.rumahJurnal.stats.volumesIssues"
+msgstr "Volume & Isu"
+
+msgid "plugins.themes.rumahJurnal.stats.sintaAccreditation"
+msgstr "Akreditasi SINTA"
+
+msgid "plugins.themes.rumahJurnal.latestAnnouncements"
+msgstr "Pengumuman Terbaru"
+
+msgid "plugins.themes.rumahJurnal.directory.badge"
+msgstr "Direktori Jurnal"
+
+msgid "plugins.themes.rumahJurnal.directory.title"
+msgstr "Daftar Jurnal Ilmiah"
+
+msgid "plugins.themes.rumahJurnal.directory.subtitle"
+msgstr "Telusuri seluruh jurnal berkala ilmiah yang dikelola oleh fakultas dan unit kerja di lingkungan kampus."
+
+msgid "plugins.themes.rumahJurnal.directory.filterPlaceholder"
+msgstr "Cari nama jurnal..."
+
+msgid "plugins.themes.rumahJurnal.sort.nameAsc"
+msgstr "Urutkan: Nama (A - Z)"
+
+msgid "plugins.themes.rumahJurnal.sort.nameDesc"
+msgstr "Urutkan: Nama (Z - A)"
+
+msgid "plugins.themes.rumahJurnal.sort.articlesDesc"
+msgstr "Urutkan: Terbanyak Artikel"
+
+msgid "plugins.themes.rumahJurnal.sort.issuesDesc"
+msgstr "Urutkan: Terbanyak Isu"
+
+msgid "plugins.themes.rumahJurnal.view.grid"
+msgstr "Grid"
+
+msgid "plugins.themes.rumahJurnal.view.list"
+msgstr "List"
+
+msgid "plugins.themes.rumahJurnal.category.all"
+msgstr "Semua Bidang"
+
+msgid "plugins.themes.rumahJurnal.category.islamic"
+msgstr "Keislaman & Multidisiplin"
+
+msgid "plugins.themes.rumahJurnal.category.sharia"
+msgstr "Syariah & Hukum"
+
+msgid "plugins.themes.rumahJurnal.category.education"
+msgstr "Pendidikan & Tarbiyah"
+
+msgid "plugins.themes.rumahJurnal.category.economics"
+msgstr "Ekonomi & Bisnis"
+
+msgid "plugins.themes.rumahJurnal.category.science"
+msgstr "Sains & Teknologi"
+
+msgid "plugins.themes.rumahJurnal.category.language"
+msgstr "Bahasa & Sastra"
+
+msgid "plugins.themes.rumahJurnal.category.social"
+msgstr "Sosial & Humaniora"
+
+msgid "plugins.themes.rumahJurnal.directory.showing"
+msgstr "Menampilkan"
+
+msgid "plugins.themes.rumahJurnal.directory.of"
+msgstr "dari"
+
+msgid "plugins.themes.rumahJurnal.directory.journals"
+msgstr "jurnal"
+
+msgid "plugins.themes.rumahJurnal.directory.resetFilter"
+msgstr "Reset Filter"
+
+msgid "plugins.themes.rumahJurnal.directory.resultsFor"
+msgstr "Hasil untuk:"
+
+msgid "plugins.themes.rumahJurnal.journal.clickCopy"
+msgstr "Klik untuk menyalin"
+
+msgid "plugins.themes.rumahJurnal.journal.defaultDesc"
+msgstr "Jurnal berkala ilmiah yang mempublikasikan hasil riset dan kajian komprehensif."
+
+msgid "plugins.themes.rumahJurnal.journal.issues"
+msgstr "Terbitan"
+
+msgid "plugins.themes.rumahJurnal.journal.articles"
+msgstr "Artikel"
+
+msgid "plugins.themes.rumahJurnal.journal.visitJournal"
+msgstr "Kunjungi Jurnal"
+
+msgid "plugins.themes.rumahJurnal.journal.currentIssue"
+msgstr "Isu Terkini"
+
+msgid "plugins.themes.rumahJurnal.journal.visit"
+msgstr "Kunjungi"
+
+msgid "plugins.themes.rumahJurnal.table.cover"
+msgstr "Sampul"
+
+msgid "plugins.themes.rumahJurnal.table.journalName"
+msgstr "Nama Jurnal & Bidang"
+
+msgid "plugins.themes.rumahJurnal.table.issn"
+msgstr "ISSN"
+
+msgid "plugins.themes.rumahJurnal.table.publications"
+msgstr "Publikasi"
+
+msgid "plugins.themes.rumahJurnal.table.action"
+msgstr "Aksi"
+
+msgid "plugins.themes.rumahJurnal.directory.noJournalsTitle"
+msgstr "Jurnal Tidak Ditemukan"
+
+msgid "plugins.themes.rumahJurnal.directory.noJournalsDescPrefix"
+msgstr "Tidak ada jurnal yang sesuai dengan kata kunci"
+
+msgid "plugins.themes.rumahJurnal.directory.noJournalsDescSuffix"
+msgstr "atau filter bidang yang dipilih."
+
+msgid "plugins.themes.rumahJurnal.directory.showAllJournals"
+msgstr "Tampilkan Semua Jurnal"
+
+msgid "plugins.themes.rumahJurnal.indexing.badge"
+msgstr "Akreditasi & Indeksasi"
+
+msgid "plugins.themes.rumahJurnal.indexing.title"
+msgstr "Standar Mutu & Reputasi Publikasi"
+
+msgid "plugins.themes.rumahJurnal.indexing.subtitle"
+msgstr "Jurnal-jurnal yang terhimpun di Rumah Jurnal terindeks pada berbagai lembaga pengindeks bereputasi nasional dan internasional."
+
+msgid "plugins.themes.rumahJurnal.indexing.garudaDesc"
+msgstr "Garba Rujukan Digital"
+
+msgid "plugins.themes.rumahJurnal.indexing.scholarDesc"
+msgstr "Sitasi & Indeks Ilmiah"
+
+
 
 

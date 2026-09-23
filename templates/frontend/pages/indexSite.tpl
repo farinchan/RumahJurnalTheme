@@ -18,10 +18,10 @@
 
 			<!-- MAIN HEADLINE -->
 			<h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
-				{$heroTitle|default:"Portal Publikasi Ilmiah & Riset Terbuka"|escape}
+				{$heroTitle|escape}
 			</h1>
 			<p class="text-base sm:text-lg text-slate-200 max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
-				{$heroDescription|default:'Menyajikan akses terbuka (<span class="text-accent font-semibold">Open Access</span>) ke puluhan berkala ilmiah terindeks nasional (SINTA) dan internasional di lingkungan Universitas Islam Negeri Mahmud Yunus Batusangkar.'}
+				{$heroDescription}
 			</p>
 
 			<!-- HERO SEARCH BAR (SUBMITS TO SEARCH PAGE) -->
@@ -33,7 +33,7 @@
 					<input
 						type="text"
 						name="query"
-						placeholder="{translate key="plugins.themes.rumahJurnal.search.inputPlaceholder"|default:"Ketik judul artikel, topik riset, kata kunci, atau nama penulis..."}"
+						placeholder="{translate key="plugins.themes.rumahJurnal.search.inputPlaceholder"}"
 						class="w-full py-3.5 px-4 text-sm sm:text-base font-medium text-slate-800 placeholder-slate-400 bg-transparent focus:outline-none"
 						required
 					>
@@ -46,12 +46,12 @@
 				</form>
 				<!-- Search hints -->
 				<div class="flex flex-wrap items-center justify-center gap-2 mt-3 text-xs text-slate-300">
-					<span class="text-slate-400">Pencarian populer:</span>
-					<a href="{url page="search" query="hukum"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-accent hover:text-primary-900 transition text-accent">#Hukum</a>
-					<a href="{url page="search" query="syariah"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Syariah</a>
-					<a href="{url page="search" query="pendidikan"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Pendidikan</a>
-					<a href="{url page="search" query="ekonomi"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Ekonomi</a>
-					<a href="{url page="search" query="sainstek"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Sainstek</a>
+					<span class="text-slate-400">{translate key="plugins.themes.rumahJurnal.popularSearches"}</span>
+					<a href="{url page="search" query="hukum"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-accent hover:text-primary-900 transition text-accent">#{translate key="plugins.themes.rumahJurnal.tag.law"}</a>
+					<a href="{url page="search" query="syariah"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#{translate key="plugins.themes.rumahJurnal.tag.sharia"}</a>
+					<a href="{url page="search" query="pendidikan"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#{translate key="plugins.themes.rumahJurnal.tag.education"}</a>
+					<a href="{url page="search" query="ekonomi"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#{translate key="plugins.themes.rumahJurnal.tag.economics"}</a>
+					<a href="{url page="search" query="sainstek"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#{translate key="plugins.themes.rumahJurnal.tag.science"}</a>
 				</div>
 			</div>
 
@@ -63,7 +63,7 @@
 						<i class="fa-solid fa-book text-lg"></i>
 					</div>
 					<div class="text-2xl sm:text-3xl font-extrabold text-white">{$portalTotalJournals|default:41}</div>
-					<div class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1">Jurnal Terdaftar</div>
+					<div class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1">{translate key="plugins.themes.rumahJurnal.stats.registeredJournals"}</div>
 				</div>
 				<!-- Stat 2 -->
 				<div class="rj-stat-card p-5 text-center transform hover:-translate-y-1 transition duration-200">
@@ -71,7 +71,7 @@
 						<i class="fa-solid fa-newspaper text-lg"></i>
 					</div>
 					<div class="text-2xl sm:text-3xl font-extrabold text-white">{$portalTotalArticles|number_format:0:',':'.'|default:'4.670'}+</div>
-					<div class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1">Artikel Terbit</div>
+					<div class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1">{translate key="plugins.themes.rumahJurnal.stats.publishedArticles"}</div>
 				</div>
 				<!-- Stat 3 -->
 				<div class="rj-stat-card p-5 text-center transform hover:-translate-y-1 transition duration-200">
@@ -79,7 +79,7 @@
 						<i class="fa-solid fa-layer-group text-lg"></i>
 					</div>
 					<div class="text-2xl sm:text-3xl font-extrabold text-white">{$portalTotalIssues|default:480}+</div>
-					<div class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1">Volume & Isu</div>
+					<div class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1">{translate key="plugins.themes.rumahJurnal.stats.volumesIssues"}</div>
 				</div>
 				<!-- Stat 4 -->
 				<div class="rj-stat-card p-5 text-center transform hover:-translate-y-1 transition duration-200">
@@ -87,7 +87,7 @@
 						<i class="fa-solid fa-certificate text-lg"></i>
 					</div>
 					<div class="text-2xl sm:text-3xl font-extrabold text-white">{$portalTotalSinta|default:15}+</div>
-					<div class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1">Akreditasi SINTA</div>
+					<div class="text-xs text-slate-300 font-medium uppercase tracking-wider mt-1">{translate key="plugins.themes.rumahJurnal.stats.sintaAccreditation"}</div>
 				</div>
 			</div>
 		</div>
@@ -99,7 +99,7 @@
 			<div class="bg-amber-50 border-l-4 border-accent p-4 rounded-xl shadow-md flex items-start gap-3">
 				<i class="fa-solid fa-bullhorn text-accent text-lg mt-0.5"></i>
 				<div class="flex-1">
-					<h3 class="text-sm font-bold text-slate-900">Pengumuman Terbaru</h3>
+					<h3 class="text-sm font-bold text-slate-900">{translate key="plugins.themes.rumahJurnal.latestAnnouncements"}</h3>
 					<div class="text-xs text-slate-700 mt-1">
 						{foreach from=$announcements item=announcement name=announcementsLoop}
 							{if $smarty.foreach.announcementsLoop.index < 1}
@@ -122,13 +122,13 @@
 				<div>
 					<div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent mb-1">
 						<i class="fa-solid fa-list-check"></i>
-						<span>Direktori Jurnal</span>
+						<span>{translate key="plugins.themes.rumahJurnal.directory.badge"}</span>
 					</div>
 					<h2 class="text-2xl sm:text-3xl font-extrabold text-primary tracking-tight">
-						Daftar Jurnal Ilmiah
+						{translate key="plugins.themes.rumahJurnal.directory.title"}
 					</h2>
 					<p class="text-sm text-slate-500 mt-1">
-						Telusuri seluruh jurnal berkala ilmiah yang dikelola oleh fakultas dan unit kerja di lingkungan kampus.
+						{translate key="plugins.themes.rumahJurnal.directory.subtitle"}
 					</p>
 				</div>
 
@@ -139,7 +139,7 @@
 						<input
 							type="text"
 							x-model="searchQuery"
-							placeholder="Cari nama jurnal..."
+							placeholder="{translate key="plugins.themes.rumahJurnal.directory.filterPlaceholder"}"
 							class="text-xs bg-white border border-slate-300 rounded-xl pl-8 pr-7 py-2 text-slate-700 placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 shadow-sm w-44 sm:w-56"
 						>
 						<div class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-slate-400">
@@ -150,7 +150,7 @@
 							x-show="searchQuery"
 							@click="searchQuery = ''"
 							class="absolute inset-y-0 right-0 pr-2 flex items-center text-slate-400 hover:text-slate-600 transition"
-							title="Hapus filter">
+							title="{translate key="plugins.themes.rumahJurnal.directory.resetFilter"}">
 							<i class="fa-solid fa-xmark text-xs"></i>
 						</button>
 					</div>
@@ -160,10 +160,10 @@
 						<select
 							x-model="sortBy"
 							class="text-xs font-semibold bg-white border border-slate-300 rounded-xl px-3 py-2 text-slate-700 focus:outline-none focus:border-primary shadow-sm cursor-pointer pr-8">
-							<option value="name_asc">Urutkan: Nama (A - Z)</option>
-							<option value="name_desc">Urutkan: Nama (Z - A)</option>
-							<option value="articles_desc">Urutkan: Terbanyak Artikel</option>
-							<option value="issues_desc">Urutkan: Terbanyak Isu</option>
+							<option value="name_asc">{translate key="plugins.themes.rumahJurnal.sort.nameAsc"}</option>
+							<option value="name_desc">{translate key="plugins.themes.rumahJurnal.sort.nameDesc"}</option>
+							<option value="articles_desc">{translate key="plugins.themes.rumahJurnal.sort.articlesDesc"}</option>
+							<option value="issues_desc">{translate key="plugins.themes.rumahJurnal.sort.issuesDesc"}</option>
 						</select>
 					</div>
 
@@ -173,17 +173,17 @@
 							@click="viewMode = 'grid'"
 							:class="viewMode === 'grid' ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900'"
 							class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5"
-							title="Tampilan Kartu (Grid)">
+							title="{translate key="plugins.themes.rumahJurnal.view.grid"}">
 							<i class="fa-solid fa-table-cells-large"></i>
-							<span class="hidden sm:inline">Grid</span>
+							<span class="hidden sm:inline">{translate key="plugins.themes.rumahJurnal.view.grid"}</span>
 						</button>
 						<button
 							@click="viewMode = 'list'"
 							:class="viewMode === 'list' ? 'bg-white text-primary shadow-sm' : 'text-slate-600 hover:text-slate-900'"
 							class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5"
-							title="Tampilan Tabel (List)">
+							title="{translate key="plugins.themes.rumahJurnal.view.list"}">
 							<i class="fa-solid fa-list-ul"></i>
-							<span class="hidden sm:inline">List</span>
+							<span class="hidden sm:inline">{translate key="plugins.themes.rumahJurnal.view.list"}</span>
 						</button>
 					</div>
 				</div>
@@ -196,66 +196,73 @@
 					:class="selectedCategory === 'all' ? 'rj-tab-active font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 font-medium'"
 					class="px-4 py-2 rounded-xl text-xs whitespace-nowrap transition duration-150 flex items-center gap-1.5 flex-shrink-0">
 					<i class="fa-solid fa-cubes text-xs"></i>
-					<span>Semua Bidang ({$portalTotalJournals|default:41})</span>
+					<span>{translate key="plugins.themes.rumahJurnal.category.all"} ({$portalTotalJournals|default:41})</span>
 				</button>
 				<button
 					@click="selectedCategory = 'Keislaman & Multidisiplin'"
 					:class="selectedCategory === 'Keislaman & Multidisiplin' ? 'rj-tab-active font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 font-medium'"
 					class="px-4 py-2 rounded-xl text-xs whitespace-nowrap transition duration-150 flex items-center gap-1.5 flex-shrink-0">
-					<span>Keislaman & Multidisiplin</span>
+					<span>{translate key="plugins.themes.rumahJurnal.category.islamic"}</span>
 				</button>
 				<button
 					@click="selectedCategory = 'Syariah & Hukum'"
 					:class="selectedCategory === 'Syariah & Hukum' ? 'rj-tab-active font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 font-medium'"
 					class="px-4 py-2 rounded-xl text-xs whitespace-nowrap transition duration-150 flex items-center gap-1.5 flex-shrink-0">
-					<span>Syariah & Hukum</span>
+					<span>{translate key="plugins.themes.rumahJurnal.category.sharia"}</span>
 				</button>
 				<button
 					@click="selectedCategory = 'Pendidikan & Tarbiyah'"
 					:class="selectedCategory === 'Pendidikan & Tarbiyah' ? 'rj-tab-active font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 font-medium'"
 					class="px-4 py-2 rounded-xl text-xs whitespace-nowrap transition duration-150 flex items-center gap-1.5 flex-shrink-0">
-					<span>Pendidikan & Tarbiyah</span>
+					<span>{translate key="plugins.themes.rumahJurnal.category.education"}</span>
 				</button>
 				<button
 					@click="selectedCategory = 'Ekonomi & Bisnis Islam'"
 					:class="selectedCategory === 'Ekonomi & Bisnis Islam' ? 'rj-tab-active font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 font-medium'"
 					class="px-4 py-2 rounded-xl text-xs whitespace-nowrap transition duration-150 flex items-center gap-1.5 flex-shrink-0">
-					<span>Ekonomi & Bisnis</span>
+					<span>{translate key="plugins.themes.rumahJurnal.category.economics"}</span>
 				</button>
 				<button
 					@click="selectedCategory = 'Sains & Teknologi'"
 					:class="selectedCategory === 'Sains & Teknologi' ? 'rj-tab-active font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 font-medium'"
 					class="px-4 py-2 rounded-xl text-xs whitespace-nowrap transition duration-150 flex items-center gap-1.5 flex-shrink-0">
-					<span>Sains & Teknologi</span>
+					<span>{translate key="plugins.themes.rumahJurnal.category.science"}</span>
 				</button>
 				<button
 					@click="selectedCategory = 'Bahasa & Sastra'"
 					:class="selectedCategory === 'Bahasa & Sastra' ? 'rj-tab-active font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 font-medium'"
 					class="px-4 py-2 rounded-xl text-xs whitespace-nowrap transition duration-150 flex items-center gap-1.5 flex-shrink-0">
-					<span>Bahasa & Sastra</span>
+					<span>{translate key="plugins.themes.rumahJurnal.category.language"}</span>
 				</button>
 				<button
 					@click="selectedCategory = 'Sosial & Humaniora'"
 					:class="selectedCategory === 'Sosial & Humaniora' ? 'rj-tab-active font-bold' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 font-medium'"
 					class="px-4 py-2 rounded-xl text-xs whitespace-nowrap transition duration-150 flex items-center gap-1.5 flex-shrink-0">
-					<span>Sosial & Humaniora</span>
+					<span>{translate key="plugins.themes.rumahJurnal.category.social"}</span>
 				</button>
 			</div>
 
 			<!-- RESULT COUNT & ACTIVE FILTER BADGES -->
 			<div class="flex flex-wrap items-center justify-between gap-2 pt-2 text-xs text-slate-500 font-medium">
 				<div class="flex items-center gap-2">
-					<span x-text="'Menampilkan ' + filteredJournals.length + ' dari ' + journals.length + ' jurnal'"></span>
+					<span>
+						{translate key="plugins.themes.rumahJurnal.directory.showing"} 
+						<strong class="text-slate-800" x-text="filteredJournals.length"></strong> 
+						{translate key="plugins.themes.rumahJurnal.directory.of"} 
+						<strong class="text-slate-800" x-text="journals.length"></strong> 
+						{translate key="plugins.themes.rumahJurnal.directory.journals"}
+					</span>
 					<span x-show="searchQuery || selectedCategory !== 'all'" class="text-slate-300">•</span>
 					<button
 						x-show="searchQuery || selectedCategory !== 'all'"
 						@click="resetFilters()"
 						class="text-primary hover:text-accent font-bold flex items-center gap-1">
-						<i class="fa-solid fa-rotate-left"></i> Reset Filter
+						<i class="fa-solid fa-rotate-left"></i> 
+						<span>{translate key="plugins.themes.rumahJurnal.directory.resetFilter"}</span>
 					</button>
 				</div>
 				<div x-show="searchQuery" class="text-slate-600">
-					Hasil untuk: "<span class="font-bold text-primary" x-text="searchQuery"></span>"
+					{translate key="plugins.themes.rumahJurnal.directory.resultsFor"} "<span class="font-bold text-primary" x-text="searchQuery"></span>"
 				</div>
 			</div>
 		</div>
@@ -300,7 +307,7 @@
 								<template x-if="j.onlineIssn">
 									<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200 font-mono font-medium cursor-pointer hover:bg-emerald-100 transition"
 										@click="copyToClipboard(j.onlineIssn, 'e-ISSN')"
-										:title="'Klik untuk menyalin e-ISSN: ' + j.onlineIssn">
+										:title="'{translate key="plugins.themes.rumahJurnal.journal.clickCopy"|escape:'javascript'} e-ISSN: ' + j.onlineIssn">
 										<span>e-ISSN: <strong x-text="j.onlineIssn"></strong></span>
 										<i class="fa-regular fa-copy text-[10px] text-emerald-600"></i>
 									</span>
@@ -308,7 +315,7 @@
 								<template x-if="j.printIssn">
 									<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200 font-mono font-medium cursor-pointer hover:bg-slate-200 transition"
 										@click="copyToClipboard(j.printIssn, 'p-ISSN')"
-										:title="'Klik untuk menyalin p-ISSN: ' + j.printIssn">
+										:title="'{translate key="plugins.themes.rumahJurnal.journal.clickCopy"|escape:'javascript'} p-ISSN: ' + j.printIssn">
 										<span>p-ISSN: <strong x-text="j.printIssn"></strong></span>
 										<i class="fa-regular fa-copy text-[10px] text-slate-500"></i>
 									</span>
@@ -316,17 +323,17 @@
 							</div>
 
 							<!-- DESCRIPTION -->
-							<p class="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4" x-text="j.cleanDescription || 'Jurnal berkala ilmiah yang mempublikasikan hasil riset dan kajian komprehensif.'"></p>
+							<p class="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4" x-text="j.cleanDescription || '{translate key="plugins.themes.rumahJurnal.journal.defaultDesc"|escape:'javascript'}'"></p>
 
 							<!-- METRICS BAR -->
 							<div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs text-slate-500">
-								<div class="flex items-center gap-1.5" title="Total terbitan atau volume">
+								<div class="flex items-center gap-1.5" title="{translate key="plugins.themes.rumahJurnal.journal.issues"}">
 									<i class="fa-regular fa-folder-open text-accent"></i>
-									<span><strong class="text-slate-800" x-text="j.issueCount"></strong> Terbitan</span>
+									<span><strong class="text-slate-800" x-text="j.issueCount"></strong> {translate key="plugins.themes.rumahJurnal.journal.issues"}</span>
 								</div>
-								<div class="flex items-center gap-1.5" title="Total artikel terpublikasi">
+								<div class="flex items-center gap-1.5" title="{translate key="plugins.themes.rumahJurnal.journal.articles"}">
 									<i class="fa-regular fa-file-lines text-primary"></i>
-									<span><strong class="text-slate-800" x-text="j.articleCount"></strong> Artikel</span>
+									<span><strong class="text-slate-800" x-text="j.articleCount"></strong> {translate key="plugins.themes.rumahJurnal.journal.articles"}</span>
 								</div>
 							</div>
 						</div>
@@ -336,12 +343,12 @@
 					<div class="p-5 pt-0 mt-auto">
 						<div class="flex items-center gap-2">
 							<a :href="j.homeUrl" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-bold bg-primary text-white hover:bg-accent hover:text-primary-900 transition duration-200 shadow-sm">
-								<span>Kunjungi Jurnal</span>
+								<span>{translate key="plugins.themes.rumahJurnal.journal.visitJournal"}</span>
 								<i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
 							</a>
-							<a :href="j.currentIssueUrl" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition duration-200" title="Buka Terbitan Terkini">
+							<a :href="j.currentIssueUrl" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition duration-200" title="{translate key="plugins.themes.rumahJurnal.journal.currentIssue"}">
 								<i class="fa-solid fa-book-open text-slate-500"></i>
-								<span class="hidden sm:inline">Isu Terkini</span>
+								<span class="hidden sm:inline">{translate key="plugins.themes.rumahJurnal.journal.currentIssue"}</span>
 							</a>
 						</div>
 					</div>
@@ -355,11 +362,11 @@
 				<table class="w-full text-left text-xs sm:text-sm">
 					<thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200 uppercase text-[11px] tracking-wider">
 						<tr>
-							<th class="py-3.5 px-4 w-16">Cover</th>
-							<th class="py-3.5 px-4">Nama Jurnal & Bidang</th>
-							<th class="py-3.5 px-4">ISSN</th>
-							<th class="py-3.5 px-4 text-center">Publikasi</th>
-							<th class="py-3.5 px-4 text-right">Aksi</th>
+							<th class="py-3.5 px-4 w-16">{translate key="plugins.themes.rumahJurnal.table.cover"}</th>
+							<th class="py-3.5 px-4">{translate key="plugins.themes.rumahJurnal.table.journalName"}</th>
+							<th class="py-3.5 px-4">{translate key="plugins.themes.rumahJurnal.table.issn"}</th>
+							<th class="py-3.5 px-4 text-center">{translate key="plugins.themes.rumahJurnal.table.publications"}</th>
+							<th class="py-3.5 px-4 text-right">{translate key="plugins.themes.rumahJurnal.table.action"}</th>
 						</tr>
 					</thead>
 					<tbody class="divide-y divide-slate-100">
@@ -390,16 +397,16 @@
 								</td>
 								<!-- STATS -->
 								<td class="py-3 px-4 text-center whitespace-nowrap text-xs">
-									<div><strong class="text-slate-900" x-text="j.articleCount"></strong> artikel</div>
-									<div class="text-slate-500"><span x-text="j.issueCount"></span> terbitan</div>
+									<div><strong class="text-slate-900" x-text="j.articleCount"></strong> {translate key="plugins.themes.rumahJurnal.journal.articles"}</div>
+									<div class="text-slate-500"><span x-text="j.issueCount"></span> {translate key="plugins.themes.rumahJurnal.journal.issues"}</div>
 								</td>
 								<!-- ACTION -->
 								<td class="py-3 px-4 text-right whitespace-nowrap">
 									<div class="inline-flex items-center gap-1.5">
 										<a :href="j.homeUrl" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-primary text-white hover:bg-accent hover:text-primary-900 transition">
-											Kunjungi
+											{translate key="plugins.themes.rumahJurnal.journal.visit"}
 										</a>
-										<a :href="j.currentIssueUrl" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition" title="Isu Terkini">
+										<a :href="j.currentIssueUrl" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition" title="{translate key="plugins.themes.rumahJurnal.journal.currentIssue"}">
 											<i class="fa-solid fa-book-open"></i>
 										</a>
 									</div>
@@ -416,15 +423,15 @@
 			<div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-amber-50 border border-accent/40 flex items-center justify-center text-accent">
 				<i class="fa-solid fa-magnifying-glass text-2xl"></i>
 			</div>
-			<h3 class="text-lg font-bold text-slate-900 mb-1">Jurnal Tidak Ditemukan</h3>
+			<h3 class="text-lg font-bold text-slate-900 mb-1">{translate key="plugins.themes.rumahJurnal.directory.noJournalsTitle"}</h3>
 			<p class="text-sm text-slate-500 max-w-md mx-auto mb-6">
-				Tidak ada jurnal yang sesuai dengan kata kunci "<span class="font-bold text-primary" x-text="searchQuery"></span>" atau filter bidang yang dipilih.
+				{translate key="plugins.themes.rumahJurnal.directory.noJournalsDescPrefix"} "<span class="font-bold text-primary" x-text="searchQuery"></span>" {translate key="plugins.themes.rumahJurnal.directory.noJournalsDescSuffix"}
 			</p>
 			<button
 				@click="resetFilters()"
 				class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-primary text-white hover:bg-accent hover:text-primary-900 transition shadow-sm">
 				<i class="fa-solid fa-rotate-left"></i>
-				<span>Tampilkan Semua Jurnal</span>
+				<span>{translate key="plugins.themes.rumahJurnal.directory.showAllJournals"}</span>
 			</button>
 		</div>
 	</main>
@@ -434,13 +441,13 @@
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 			<div class="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-accent mb-2">
 				<i class="fa-solid fa-shield-halved"></i>
-				<span>Akreditasi & Indeksasi</span>
+				<span>{translate key="plugins.themes.rumahJurnal.indexing.badge"}</span>
 			</div>
 			<h3 class="text-2xl font-extrabold text-primary tracking-tight mb-3">
-				Standar Mutu & Reputasi Publikasi
+				{translate key="plugins.themes.rumahJurnal.indexing.title"}
 			</h3>
 			<p class="text-sm text-slate-600 max-w-2xl mx-auto mb-10">
-				Jurnal-jurnal yang terhimpun di Rumah Jurnal terindeks pada berbagai lembaga pengindeks bereputasi nasional dan internasional.
+				{translate key="plugins.themes.rumahJurnal.indexing.subtitle"}
 			</p>
 
 			<!-- INDEXING PILLS / BADGES -->
@@ -456,7 +463,7 @@
 					<i class="fa-solid fa-globe text-primary text-xl"></i>
 					<div class="text-left">
 						<div class="font-extrabold text-slate-900 text-sm">GARUDA</div>
-						<div class="text-[10px] text-slate-500">Garba Rujukan Digital</div>
+						<div class="text-[10px] text-slate-500">{translate key="plugins.themes.rumahJurnal.indexing.garudaDesc"}</div>
 					</div>
 				</div>
 				<div class="px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 shadow-sm flex items-center gap-3 hover:border-accent transition">
@@ -470,7 +477,7 @@
 					<i class="fa-brands fa-google text-rose-500 text-xl"></i>
 					<div class="text-left">
 						<div class="font-extrabold text-slate-900 text-sm">GOOGLE SCHOLAR</div>
-						<div class="text-[10px] text-slate-500">Sitasi & Indeks Ilmiah</div>
+						<div class="text-[10px] text-slate-500">{translate key="plugins.themes.rumahJurnal.indexing.scholarDesc"}</div>
 					</div>
 				</div>
 				<div class="px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 shadow-sm flex items-center gap-3 hover:border-accent transition">

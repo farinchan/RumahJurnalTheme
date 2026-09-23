@@ -262,5 +262,171 @@ msgstr "Open Access Full-Text"
 msgid "plugins.themes.rumahJurnal.search.guide3Desc"
 msgstr "Download full-text PDF manuscripts directly and freely from each search result."
 
+msgid "plugins.themes.rumahJurnal.popularSearches"
+msgstr "Popular searches:"
+
+msgid "plugins.themes.rumahJurnal.tag.law"
+msgstr "Law"
+
+msgid "plugins.themes.rumahJurnal.tag.sharia"
+msgstr "Sharia"
+
+msgid "plugins.themes.rumahJurnal.tag.education"
+msgstr "Education"
+
+msgid "plugins.themes.rumahJurnal.tag.economics"
+msgstr "Economics"
+
+msgid "plugins.themes.rumahJurnal.tag.science"
+msgstr "Science"
+
+msgid "plugins.themes.rumahJurnal.stats.registeredJournals"
+msgstr "Registered Journals"
+
+msgid "plugins.themes.rumahJurnal.stats.publishedArticles"
+msgstr "Published Articles"
+
+msgid "plugins.themes.rumahJurnal.stats.volumesIssues"
+msgstr "Volumes & Issues"
+
+msgid "plugins.themes.rumahJurnal.stats.sintaAccreditation"
+msgstr "SINTA Accreditation"
+
+msgid "plugins.themes.rumahJurnal.latestAnnouncements"
+msgstr "Latest Announcements"
+
+msgid "plugins.themes.rumahJurnal.directory.badge"
+msgstr "Journal Directory"
+
+msgid "plugins.themes.rumahJurnal.directory.title"
+msgstr "Scientific Journals Directory"
+
+msgid "plugins.themes.rumahJurnal.directory.subtitle"
+msgstr "Explore all scholarly journals managed by faculties and departments within the university."
+
+msgid "plugins.themes.rumahJurnal.directory.filterPlaceholder"
+msgstr "Filter journal name..."
+
+msgid "plugins.themes.rumahJurnal.sort.nameAsc"
+msgstr "Sort: Name (A - Z)"
+
+msgid "plugins.themes.rumahJurnal.sort.nameDesc"
+msgstr "Sort: Name (Z - A)"
+
+msgid "plugins.themes.rumahJurnal.sort.articlesDesc"
+msgstr "Sort: Most Articles"
+
+msgid "plugins.themes.rumahJurnal.sort.issuesDesc"
+msgstr "Sort: Most Issues"
+
+msgid "plugins.themes.rumahJurnal.view.grid"
+msgstr "Grid"
+
+msgid "plugins.themes.rumahJurnal.view.list"
+msgstr "List"
+
+msgid "plugins.themes.rumahJurnal.category.all"
+msgstr "All Fields"
+
+msgid "plugins.themes.rumahJurnal.category.islamic"
+msgstr "Islamic & Multidisciplinary"
+
+msgid "plugins.themes.rumahJurnal.category.sharia"
+msgstr "Sharia & Law"
+
+msgid "plugins.themes.rumahJurnal.category.education"
+msgstr "Education & Tarbiyah"
+
+msgid "plugins.themes.rumahJurnal.category.economics"
+msgstr "Economics & Business"
+
+msgid "plugins.themes.rumahJurnal.category.science"
+msgstr "Science & Technology"
+
+msgid "plugins.themes.rumahJurnal.category.language"
+msgstr "Language & Literature"
+
+msgid "plugins.themes.rumahJurnal.category.social"
+msgstr "Social & Humanities"
+
+msgid "plugins.themes.rumahJurnal.directory.showing"
+msgstr "Showing"
+
+msgid "plugins.themes.rumahJurnal.directory.of"
+msgstr "of"
+
+msgid "plugins.themes.rumahJurnal.directory.journals"
+msgstr "journals"
+
+msgid "plugins.themes.rumahJurnal.directory.resetFilter"
+msgstr "Reset Filter"
+
+msgid "plugins.themes.rumahJurnal.directory.resultsFor"
+msgstr "Results for:"
+
+msgid "plugins.themes.rumahJurnal.journal.clickCopy"
+msgstr "Click to copy"
+
+msgid "plugins.themes.rumahJurnal.journal.defaultDesc"
+msgstr "Scholarly journal publishing comprehensive research and academic studies."
+
+msgid "plugins.themes.rumahJurnal.journal.issues"
+msgstr "Issues"
+
+msgid "plugins.themes.rumahJurnal.journal.articles"
+msgstr "Articles"
+
+msgid "plugins.themes.rumahJurnal.journal.visitJournal"
+msgstr "Visit Journal"
+
+msgid "plugins.themes.rumahJurnal.journal.currentIssue"
+msgstr "Current Issue"
+
+msgid "plugins.themes.rumahJurnal.journal.visit"
+msgstr "Visit"
+
+msgid "plugins.themes.rumahJurnal.table.cover"
+msgstr "Cover"
+
+msgid "plugins.themes.rumahJurnal.table.journalName"
+msgstr "Journal Name & Field"
+
+msgid "plugins.themes.rumahJurnal.table.issn"
+msgstr "ISSN"
+
+msgid "plugins.themes.rumahJurnal.table.publications"
+msgstr "Publications"
+
+msgid "plugins.themes.rumahJurnal.table.action"
+msgstr "Action"
+
+msgid "plugins.themes.rumahJurnal.directory.noJournalsTitle"
+msgstr "No Journals Found"
+
+msgid "plugins.themes.rumahJurnal.directory.noJournalsDescPrefix"
+msgstr "No journals match the keyword"
+
+msgid "plugins.themes.rumahJurnal.directory.noJournalsDescSuffix"
+msgstr "or the selected field filter."
+
+msgid "plugins.themes.rumahJurnal.directory.showAllJournals"
+msgstr "Show All Journals"
+
+msgid "plugins.themes.rumahJurnal.indexing.badge"
+msgstr "Accreditation & Indexing"
+
+msgid "plugins.themes.rumahJurnal.indexing.title"
+msgstr "Quality Standards & Publication Reputation"
+
+msgid "plugins.themes.rumahJurnal.indexing.subtitle"
+msgstr "Journals published in Rumah Jurnal are indexed in reputable national and international indexing databases."
+
+msgid "plugins.themes.rumahJurnal.indexing.garudaDesc"
+msgstr "Digital Reference Repository"
+
+msgid "plugins.themes.rumahJurnal.indexing.scholarDesc"
+msgstr "Citations & Scientific Indexing"
+
+
 
 
