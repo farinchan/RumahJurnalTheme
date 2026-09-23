@@ -142,3 +142,125 @@ msgstr "opsional"
 msgid "plugins.themes.rumahJurnal.common.optional"
 msgstr "opsional"
 
+msgid "plugins.themes.rumahJurnal.search.title"
+msgstr "Pencarian Artikel Ilmiah"
+
+msgid "plugins.themes.rumahJurnal.search.subtitle"
+msgstr "Telusuri ribuan artikel, riset ilmiah, dan publikasi terbuka dari seluruh jurnal di lingkungan UIN Mahmud Yunus Batusangkar"
+
+msgid "plugins.themes.rumahJurnal.search.inputPlaceholder"
+msgstr "Ketik judul artikel, topik, kata kunci, atau nama penulis..."
+
+msgid "plugins.themes.rumahJurnal.search.allJournals"
+msgstr "Semua Jurnal"
+
+msgid "plugins.themes.rumahJurnal.search.filterByJournal"
+msgstr "Pilih Jurnal"
+
+msgid "plugins.themes.rumahJurnal.search.filterByAuthor"
+msgstr "Nama Penulis"
+
+msgid "plugins.themes.rumahJurnal.search.authorPlaceholder"
+msgstr "Contoh: Ahmad, Suryadi..."
+
+msgid "plugins.themes.rumahJurnal.search.dateRange"
+msgstr "Tahun Publikasi"
+
+msgid "plugins.themes.rumahJurnal.search.yearFrom"
+msgstr "Dari Tahun"
+
+msgid "plugins.themes.rumahJurnal.search.yearTo"
+msgstr "Sampai Tahun"
+
+msgid "plugins.themes.rumahJurnal.search.allYears"
+msgstr "Semua Tahun"
+
+msgid "plugins.themes.rumahJurnal.search.toggleFilters"
+msgstr "Filter Lanjutan"
+
+msgid "plugins.themes.rumahJurnal.search.hideFilters"
+msgstr "Sembunyikan Filter"
+
+msgid "plugins.themes.rumahJurnal.search.reset"
+msgstr "Atur Ulang Filter"
+
+msgid "plugins.themes.rumahJurnal.search.applyFilters"
+msgstr "Terapkan Filter"
+
+msgid "plugins.themes.rumahJurnal.search.resultsFound"
+msgstr "Ditemukan {$total} artikel"
+
+msgid "plugins.themes.rumahJurnal.search.resultsFoundSingle"
+msgstr "Ditemukan 1 artikel"
+
+msgid "plugins.themes.rumahJurnal.search.showingFor"
+msgstr "Menampilkan hasil untuk"
+
+msgid "plugins.themes.rumahJurnal.search.noResultsTitle"
+msgstr "Tidak Ada Artikel Ditemukan"
+
+msgid "plugins.themes.rumahJurnal.search.noResultsDesc"
+msgstr "Maaf, kami tidak menemukan artikel yang sesuai dengan kata kunci atau filter pencarian Anda."
+
+msgid "plugins.themes.rumahJurnal.search.searchTips"
+msgstr "Tips Pencarian"
+
+msgid "plugins.themes.rumahJurnal.search.tip1"
+msgstr "Periksa kembali ejaan kata kunci pencarian Anda."
+
+msgid "plugins.themes.rumahJurnal.search.tip2"
+msgstr "Gunakan kata kunci yang lebih umum atau sinonim topik riset."
+
+msgid "plugins.themes.rumahJurnal.search.tip3"
+msgstr "Kurangi atau atur ulang batasan filter nama penulis atau tahun."
+
+msgid "plugins.themes.rumahJurnal.search.tip4"
+msgstr "Pilih opsi 'Semua Jurnal' untuk mencari ke seluruh berkala ilmiah."
+
+msgid "plugins.themes.rumahJurnal.search.viewPdf"
+msgstr "Unduh PDF"
+
+msgid "plugins.themes.rumahJurnal.search.viewArticle"
+msgstr "Lihat Artikel"
+
+msgid "plugins.themes.rumahJurnal.search.abstract"
+msgstr "Abstrak"
+
+msgid "plugins.themes.rumahJurnal.search.showAbstract"
+msgstr "Lihat Abstrak"
+
+msgid "plugins.themes.rumahJurnal.search.hideAbstract"
+msgstr "Tutup Abstrak"
+
+msgid "plugins.themes.rumahJurnal.search.pages"
+msgstr "Halaman"
+
+msgid "plugins.themes.rumahJurnal.search.published"
+msgstr "Diterbitkan"
+
+msgid "plugins.themes.rumahJurnal.search.initialGuideTitle"
+msgstr "Panduan Pencarian Artikel"
+
+msgid "plugins.themes.rumahJurnal.search.initialGuideDesc"
+msgstr "Ketik judul artikel, kata kunci riset, atau nama penulis pada bilah pencarian di atas untuk memulai penelusuran artikel ilmiah."
+
+msgid "plugins.themes.rumahJurnal.search.guide1Title"
+msgstr "Pencarian Cepat"
+
+msgid "plugins.themes.rumahJurnal.search.guide1Desc"
+msgstr "Gunakan kata kunci spesifik seperti topik penelitian, metode, atau nama penulis."
+
+msgid "plugins.themes.rumahJurnal.search.guide2Title"
+msgstr "Filter Lanjutan"
+
+msgid "plugins.themes.rumahJurnal.search.guide2Desc"
+msgstr "Saring berdasarkan berkala ilmiah tertentu atau rentang tahun penerbitan."
+
+msgid "plugins.themes.rumahJurnal.search.guide3Title"
+msgstr "Akses Bebas (Open Access)"
+
+msgid "plugins.themes.rumahJurnal.search.guide3Desc"
+msgstr "Unduh naskah lengkap PDF secara langsung dan gratis pada setiap hasil pencarian."
+
+
+

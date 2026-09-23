@@ -24,39 +24,34 @@
 				{$heroDescription|default:'Menyajikan akses terbuka (<span class="text-accent font-semibold">Open Access</span>) ke puluhan berkala ilmiah terindeks nasional (SINTA) dan internasional di lingkungan Universitas Islam Negeri Mahmud Yunus Batusangkar.'}
 			</p>
 
-			<!-- HERO SEARCH BAR (DIRECT BINDING) -->
+			<!-- HERO SEARCH BAR (SUBMITS TO SEARCH PAGE) -->
 			<div class="max-w-3xl mx-auto mb-12">
-				<div class="relative flex items-center shadow-2xl rounded-2xl overflow-hidden bg-white text-slate-800 p-2 border-2 border-white/80 focus-within:border-accent transition">
+				<form action="{url page="search"}" method="get" class="relative flex items-center shadow-2xl rounded-2xl overflow-hidden bg-white text-slate-800 p-2 border-2 border-white/80 focus-within:border-accent transition">
 					<div class="pl-4 text-slate-400">
 						<i class="fa-solid fa-magnifying-glass text-lg text-primary"></i>
 					</div>
 					<input
 						type="text"
-						x-model="searchQuery"
-						placeholder="Cari judul jurnal, fokus kajian, e-ISSN, akreditasi..."
+						name="query"
+						placeholder="{translate key="plugins.themes.rumahJurnal.search.inputPlaceholder"|default:"Ketik judul artikel, topik riset, kata kunci, atau nama penulis..."}"
 						class="w-full py-3.5 px-4 text-sm sm:text-base font-medium text-slate-800 placeholder-slate-400 bg-transparent focus:outline-none"
+						required
 					>
 					<button
-						x-show="searchQuery"
-						@click="searchQuery = ''"
-						class="px-3 text-slate-400 hover:text-slate-700 transition"
-						title="Hapus pencarian">
-						<i class="fa-solid fa-xmark text-base"></i>
-					</button>
-					<a href="#daftar-jurnal"
-						class="hidden sm:inline-flex items-center gap-2 bg-primary hover:bg-accent hover:text-primary-900 text-white px-6 py-3.5 rounded-xl font-bold text-sm transition duration-200">
-						<span>Cari</span>
+						type="submit"
+						class="inline-flex items-center gap-2 bg-primary hover:bg-accent hover:text-primary-900 text-white px-6 sm:px-8 py-3.5 rounded-xl font-bold text-sm transition duration-200 shadow-sm flex-shrink-0">
+						<span>{translate key="common.search"}</span>
 						<i class="fa-solid fa-arrow-right text-xs"></i>
-					</a>
-				</div>
+					</button>
+				</form>
 				<!-- Search hints -->
 				<div class="flex flex-wrap items-center justify-center gap-2 mt-3 text-xs text-slate-300">
 					<span class="text-slate-400">Pencarian populer:</span>
-					<button @click="searchQuery = 'hukum'; selectedCategory = 'all'" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-accent hover:text-primary-900 transition text-accent">#Hukum</button>
-					<button @click="searchQuery = 'syariah'; selectedCategory = 'all'" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Syariah</button>
-					<button @click="searchQuery = 'pendidikan'; selectedCategory = 'all'" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Pendidikan</button>
-					<button @click="searchQuery = 'ekonomi'; selectedCategory = 'all'" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Ekonomi</button>
-					<button @click="searchQuery = 'sainstek'; selectedCategory = 'all'" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Sainstek</button>
+					<a href="{url page="search" query="hukum"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-accent hover:text-primary-900 transition text-accent">#Hukum</a>
+					<a href="{url page="search" query="syariah"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Syariah</a>
+					<a href="{url page="search" query="pendidikan"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Pendidikan</a>
+					<a href="{url page="search" query="ekonomi"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Ekonomi</a>
+					<a href="{url page="search" query="sainstek"}" class="px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 transition">#Sainstek</a>
 				</div>
 			</div>
 
@@ -139,6 +134,27 @@
 
 				<!-- RIGHT CONTROLS: SORT & VIEW SWITCHER -->
 				<div class="flex flex-wrap items-center gap-3">
+					<!-- QUICK JOURNAL FILTER -->
+					<div class="relative">
+						<input
+							type="text"
+							x-model="searchQuery"
+							placeholder="Cari nama jurnal..."
+							class="text-xs bg-white border border-slate-300 rounded-xl pl-8 pr-7 py-2 text-slate-700 placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 shadow-sm w-44 sm:w-56"
+						>
+						<div class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-slate-400">
+							<i class="fa-solid fa-magnifying-glass text-[11px]"></i>
+						</div>
+						<button
+							type="button"
+							x-show="searchQuery"
+							@click="searchQuery = ''"
+							class="absolute inset-y-0 right-0 pr-2 flex items-center text-slate-400 hover:text-slate-600 transition"
+							title="Hapus filter">
+							<i class="fa-solid fa-xmark text-xs"></i>
+						</button>
+					</div>
+
 					<!-- SORT DROPDOWN -->
 					<div class="relative inline-block">
 						<select

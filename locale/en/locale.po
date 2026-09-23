@@ -142,3 +142,125 @@ msgstr "optional"
 msgid "plugins.themes.rumahJurnal.common.optional"
 msgstr "optional"
 
+msgid "plugins.themes.rumahJurnal.search.title"
+msgstr "Scientific Article Search"
+
+msgid "plugins.themes.rumahJurnal.search.subtitle"
+msgstr "Search thousands of articles, scientific research, and open publications across all journals at UIN Mahmud Yunus Batusangkar"
+
+msgid "plugins.themes.rumahJurnal.search.inputPlaceholder"
+msgstr "Type article title, topic keywords, or author name..."
+
+msgid "plugins.themes.rumahJurnal.search.allJournals"
+msgstr "All Journals"
+
+msgid "plugins.themes.rumahJurnal.search.filterByJournal"
+msgstr "Select Journal"
+
+msgid "plugins.themes.rumahJurnal.search.filterByAuthor"
+msgstr "Author Name"
+
+msgid "plugins.themes.rumahJurnal.search.authorPlaceholder"
+msgstr "e.g., Ahmad, Suryadi..."
+
+msgid "plugins.themes.rumahJurnal.search.dateRange"
+msgstr "Publication Year"
+
+msgid "plugins.themes.rumahJurnal.search.yearFrom"
+msgstr "From Year"
+
+msgid "plugins.themes.rumahJurnal.search.yearTo"
+msgstr "To Year"
+
+msgid "plugins.themes.rumahJurnal.search.allYears"
+msgstr "All Years"
+
+msgid "plugins.themes.rumahJurnal.search.toggleFilters"
+msgstr "Advanced Filters"
+
+msgid "plugins.themes.rumahJurnal.search.hideFilters"
+msgstr "Hide Filters"
+
+msgid "plugins.themes.rumahJurnal.search.reset"
+msgstr "Reset Filters"
+
+msgid "plugins.themes.rumahJurnal.search.applyFilters"
+msgstr "Apply Filters"
+
+msgid "plugins.themes.rumahJurnal.search.resultsFound"
+msgstr "Found {$total} articles"
+
+msgid "plugins.themes.rumahJurnal.search.resultsFoundSingle"
+msgstr "Found 1 article"
+
+msgid "plugins.themes.rumahJurnal.search.showingFor"
+msgstr "Showing results for"
+
+msgid "plugins.themes.rumahJurnal.search.noResultsTitle"
+msgstr "No Articles Found"
+
+msgid "plugins.themes.rumahJurnal.search.noResultsDesc"
+msgstr "Sorry, we could not find any articles matching your search query or filters."
+
+msgid "plugins.themes.rumahJurnal.search.searchTips"
+msgstr "Search Tips"
+
+msgid "plugins.themes.rumahJurnal.search.tip1"
+msgstr "Check your search keywords for any spelling errors."
+
+msgid "plugins.themes.rumahJurnal.search.tip2"
+msgstr "Try using broader keywords or alternative terminology."
+
+msgid "plugins.themes.rumahJurnal.search.tip3"
+msgstr "Loosen or reset advanced filters like author name or date range."
+
+msgid "plugins.themes.rumahJurnal.search.tip4"
+msgstr "Select 'All Journals' to search across the entire repository."
+
+msgid "plugins.themes.rumahJurnal.search.viewPdf"
+msgstr "Download PDF"
+
+msgid "plugins.themes.rumahJurnal.search.viewArticle"
+msgstr "View Article"
+
+msgid "plugins.themes.rumahJurnal.search.abstract"
+msgstr "Abstract"
+
+msgid "plugins.themes.rumahJurnal.search.showAbstract"
+msgstr "View Abstract"
+
+msgid "plugins.themes.rumahJurnal.search.hideAbstract"
+msgstr "Hide Abstract"
+
+msgid "plugins.themes.rumahJurnal.search.pages"
+msgstr "Pages"
+
+msgid "plugins.themes.rumahJurnal.search.published"
+msgstr "Published"
+
+msgid "plugins.themes.rumahJurnal.search.initialGuideTitle"
+msgstr "Article Search Guide"
+
+msgid "plugins.themes.rumahJurnal.search.initialGuideDesc"
+msgstr "Type an article title, research keywords, or author name in the search bar above to begin searching scientific articles."
+
+msgid "plugins.themes.rumahJurnal.search.guide1Title"
+msgstr "Quick Search"
+
+msgid "plugins.themes.rumahJurnal.search.guide1Desc"
+msgstr "Use specific keywords such as research topic, methodology, or author name."
+
+msgid "plugins.themes.rumahJurnal.search.guide2Title"
+msgstr "Advanced Filtering"
+
+msgid "plugins.themes.rumahJurnal.search.guide2Desc"
+msgstr "Narrow down results by specific journal publication or publication year range."
+
+msgid "plugins.themes.rumahJurnal.search.guide3Title"
+msgstr "Open Access Full-Text"
+
+msgid "plugins.themes.rumahJurnal.search.guide3Desc"
+msgstr "Download full-text PDF manuscripts directly and freely from each search result."
+
+
+
