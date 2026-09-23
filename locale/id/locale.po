@@ -419,7 +419,7 @@ msgid "plugins.themes.rumahJurnal.indexing.title"
 msgstr "Standar Mutu & Reputasi Publikasi"
 
 msgid "plugins.themes.rumahJurnal.indexing.subtitle"
-msgstr "Jurnal-jurnal yang terhimpun di Rumah Jurnal terindeks pada berbagai lembaga pengindeks bereputasi nasional dan internasional."
+msgstr "Jurnal-jurnal yang terhimpun di {$siteTitle} terindeks pada berbagai lembaga pengindeks bereputasi nasional dan internasional."
 
 msgid "plugins.themes.rumahJurnal.indexing.garudaDesc"
 msgstr "Garba Rujukan Digital"

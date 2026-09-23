@@ -447,7 +447,7 @@
 				{translate key="plugins.themes.rumahJurnal.indexing.title"}
 			</h3>
 			<p class="text-sm text-slate-600 max-w-2xl mx-auto mb-10">
-				{translate key="plugins.themes.rumahJurnal.indexing.subtitle"}
+				{translate key="plugins.themes.rumahJurnal.indexing.subtitle" siteTitle=$siteTitle|default:"UIN Mahmud Yunus Batusangkar"}
 			</p>
 
 			<!-- INDEXING LOGOS -->

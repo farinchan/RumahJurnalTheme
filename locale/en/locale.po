@@ -419,7 +419,7 @@ msgid "plugins.themes.rumahJurnal.indexing.title"
 msgstr "Quality Standards & Publication Reputation"
 
 msgid "plugins.themes.rumahJurnal.indexing.subtitle"
-msgstr "Journals published in Rumah Jurnal are indexed in reputable national and international indexing databases."
+msgstr "Journals published in {$siteTitle} are indexed in reputable national and international indexing databases."
 
 msgid "plugins.themes.rumahJurnal.indexing.garudaDesc"
 msgstr "Digital Reference Repository"
