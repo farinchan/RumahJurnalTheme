@@ -19,6 +19,9 @@ use PKP\plugins\Hook;
 use PKP\plugins\ThemePlugin;
 use PKP\template\PKPTemplateManager;
 use Illuminate\Support\Facades\DB;
+use PKP\core\PKPApplication;
+use PKP\security\Role;
+use PKP\security\Validation;
 
 class RumahJurnalThemePlugin extends ThemePlugin
 {
@@ -363,6 +366,14 @@ class RumahJurnalThemePlugin extends ThemePlugin
                 }
             }
 
+            // Determine if logged in user is Site Administrator
+            $currentUser = $request->getUser();
+            $isSiteAdmin = false;
+            if ($currentUser) {
+                $isSiteAdmin = Validation::isSiteAdmin()
+                    || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
+            }
+
             $assignData = [
                 'pageFooter' => $pageFooter,
                 'heroTitle' => $heroTitle,
@@ -375,6 +386,7 @@ class RumahJurnalThemePlugin extends ThemePlugin
                 'themeSecondaryColor' => $secondary,
                 'themePrimaryScale' => $this->getColorScale($primary),
                 'themeSecondaryScale' => $this->getColorScale($secondary),
+                'isSiteAdmin' => $isSiteAdmin,
             ];
 
             // Only query and enrich journals on the portal site index page

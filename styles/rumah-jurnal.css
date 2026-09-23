@@ -178,3 +178,8 @@ body {
 .rj-pulse {
   animation: subtle-pulse 3s infinite;
 }
+
+/* Alpine x-cloak utility */
+[x-cloak] {
+  display: none !important;
+}

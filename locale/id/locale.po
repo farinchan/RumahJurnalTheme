@@ -427,6 +427,9 @@ msgstr "Garba Rujukan Digital"
 msgid "plugins.themes.rumahJurnal.indexing.scholarDesc"
 msgstr "Sitasi & Indeks Ilmiah"
 
+msgid "plugins.themes.rumahJurnal.loggedInAs"
+msgstr "Masuk sebagai"
+
 
 
 

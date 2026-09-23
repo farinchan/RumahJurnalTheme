@@ -427,6 +427,9 @@ msgstr "Digital Reference Repository"
 msgid "plugins.themes.rumahJurnal.indexing.scholarDesc"
 msgstr "Citations & Scientific Indexing"
 
+msgid "plugins.themes.rumahJurnal.loggedInAs"
+msgstr "Logged in as"
+
 
 
 

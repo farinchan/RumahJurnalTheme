@@ -174,46 +174,28 @@
 
 	<!-- TOP INSTITUTIONAL BAR -->
 	<div class="bg-primary-900 text-slate-300 text-xs py-2 border-b border-white/10">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
-			<div class="flex items-center gap-2 text-center sm:text-left">
-				<span class="text-slate-300 hidden sm:inline"> {$siteTitle|default:"UIN Mahmud Yunus Batusangkar"}</span>
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-row justify-between items-center gap-2">
+			<div class="flex items-center gap-2 text-left">
+				<span class="text-slate-300"> {$siteTitle|default:"UIN Mahmud Yunus Batusangkar"}</span>
 			</div>
-			<div class="flex items-center gap-4 text-xs">
-				<a href="{url page="about" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="hover:text-white transition flex items-center gap-1">
-					<i class="fa-solid fa-circle-info text-accent"></i> {translate key="navigation.about"}
+			<div class="flex items-center text-xs">
+				<a href="{url page="about" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="hover:text-white transition flex items-center gap-1.5">
+					<i class="fa-solid fa-circle-info text-accent"></i> <span>{translate key="navigation.about"}</span>
 				</a>
-				<span class="text-white/20">|</span>
-				{if $isUserLoggedIn}
-					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="dashboard"}" class="text-accent hover:text-white font-semibold transition flex items-center gap-1">
-						<i class="fa-solid fa-gauge-high"></i> {translate key="navigation.dashboard"}
-					</a>
-					<span class="text-white/20">|</span>
-					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOut"}" class="hover:text-rose-400 transition flex items-center gap-1">
-						<i class="fa-solid fa-arrow-right-from-bracket"></i> {translate key="user.logOut"}
-					</a>
-				{else}
-					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login"}" class="hover:text-white transition flex items-center gap-1">
-						<i class="fa-solid fa-user"></i> {translate key="user.login"}
-					</a>
-					<span class="text-white/20">|</span>
-					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="register"}" class="text-accent hover:text-white font-medium transition flex items-center gap-1">
-						<i class="fa-solid fa-user-plus"></i> {translate key="user.register"}
-					</a>
-				{/if}
 			</div>
 		</div>
 	</div>
 
 	<!-- MAIN NAVIGATION HEADER -->
-	<header class="bg-white sticky top-0 z-40 shadow-sm border-b border-slate-200/80 backdrop-blur-md bg-white/95">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+	<header class="bg-white sticky top-0 z-40 shadow-sm border-b border-slate-200/80 backdrop-blur-md bg-white/95" x-data="{ mobileMenuOpen: false }">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 flex items-center justify-between">
 			<!-- BRAND LOGO -->
 			<div class="flex items-center">
 				{if $activeLogoUrl}
 					<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="flex items-center group py-0.5">
 						<img src="{$activeLogoUrl}" 
 							alt="{$activeSiteLogo.altText|default:$displayPageHeaderTitle|default:$siteTitle|default:'Rumah Jurnal'|escape}" 
-							class="h-10 sm:h-12 w-auto object-contain transition duration-200 group-hover:opacity-90">
+							class="h-9 sm:h-12 w-auto object-contain transition duration-200 group-hover:opacity-90">
 					</a>
 				{else}
 					<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="flex items-center group py-0.5">
@@ -222,20 +204,219 @@
 				{/if}
 			</div>
 
-			<!-- NAVBAR LINKS -->
+			<!-- NAVBAR LINKS (DESKTOP) -->
 			<nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
 				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}" class="{if !$requestedPage || $requestedPage == 'index'}text-primary font-bold border-b-2 border-accent pb-1{else}hover:text-primary transition{/if}">{translate key="common.homepageNavigationLabel"}</a>
 				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#daftar-jurnal" class="hover:text-primary transition">{translate key="plugins.themes.rumahJurnal.nav.journalList"}</a>
 				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#indeksasi" class="hover:text-primary transition">{translate key="plugins.themes.rumahJurnal.nav.indexing"}</a>
-				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#statistik" class="hover:text-primary transition">{translate key="plugins.themes.rumahJurnal.nav.statistics"}</a>
 			</nav>
 
-			<!-- RIGHT BUTTON -->
-			<div class="flex items-center gap-3">
-				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#daftar-jurnal" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-primary text-white hover:bg-accent hover:text-primary-900 shadow-sm hover:shadow-md transition duration-200">
-					<i class="fa-solid fa-magnifying-glass text-xs"></i>
-					<span>{translate key="plugins.themes.rumahJurnal.exploreJournals"|default:"Jelajahi Jurnal"}</span>
+			<!-- RIGHT CONTROLS: AUTH BUTTONS & MOBILE TOGGLE -->
+			<div class="flex items-center gap-2 sm:gap-3">
+				{if $isUserLoggedIn}
+					<!-- Desktop User Dropdown Menu -->
+					<div class="relative hidden md:block" x-data="{ userMenuOpen: false }">
+						<button 
+							type="button" 
+							@click="userMenuOpen = !userMenuOpen" 
+							@click.outside="userMenuOpen = false"
+							class="inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 transition focus:outline-none focus:ring-2 focus:ring-primary/20 border border-slate-200/70"
+							:aria-expanded="userMenuOpen.toString()">
+							<span class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shadow-xs">
+								{$loggedInUsername|truncate:1:""|upper|default:"U"}
+							</span>
+							<span class="max-w-[120px] truncate font-medium">{$loggedInUsername|escape}</span>
+							<i class="fa-solid fa-chevron-down text-[10px] text-slate-500 transition-transform duration-200" :class="{ 'rotate-180': userMenuOpen }"></i>
+						</button>
+
+						<!-- Dropdown Menu -->
+						<div 
+							x-show="userMenuOpen" 
+							x-cloak
+							x-transition:enter="transition ease-out duration-150"
+							x-transition:enter-start="opacity-0 scale-95 -translate-y-1"
+							x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+							x-transition:leave="transition ease-in duration-100"
+							x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+							x-transition:leave-end="opacity-0 scale-95 -translate-y-1"
+							class="absolute right-0 mt-2 w-56 bg-white rounded-2xl border border-slate-100 shadow-xl py-1.5 z-50">
+							
+							<div class="px-4 py-2.5 border-b border-slate-100">
+								<p class="text-[11px] text-slate-400 font-medium">{translate key="plugins.themes.rumahJurnal.loggedInAs"|default:"Masuk sebagai"}</p>
+								<p class="text-sm font-bold text-slate-800 truncate">{$loggedInUsername|escape}</p>
+							</div>
+
+							<div class="py-1">
+								<!-- Dashboard -->
+								<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="dashboard"}" 
+								   class="flex items-center gap-3 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary transition">
+									<i class="fa-solid fa-gauge-high text-accent w-4 text-center"></i>
+									<span>{translate key="navigation.dashboard"}</span>
+								</a>
+
+								<!-- View Profile -->
+								<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}" 
+								   class="flex items-center gap-3 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-primary-50 hover:text-primary transition">
+									<i class="fa-solid fa-id-badge text-accent w-4 text-center"></i>
+									<span>{translate key="common.viewProfile"|default:"Lihat Profil"}</span>
+								</a>
+
+								<!-- Administration (if admin) -->
+								{if $isSiteAdmin || ($currentUser && $currentUser->hasRole(1, 0))}
+								<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE context="index" page="admin" op="index"}" 
+								   class="flex items-center gap-3 px-4 py-2 text-xs font-semibold text-amber-700 hover:bg-amber-50 transition">
+									<i class="fa-solid fa-screwdriver-wrench text-amber-500 w-4 text-center"></i>
+									<span>{translate key="navigation.admin"|default:"Administrasi"}</span>
+								</a>
+								{/if}
+							</div>
+
+							<div class="pt-1 border-t border-slate-100">
+								<!-- Logout -->
+								<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOut"}" 
+								   class="flex items-center gap-3 px-4 py-2 text-xs font-semibold text-rose-600 hover:bg-rose-50 transition">
+									<i class="fa-solid fa-arrow-right-from-bracket w-4 text-center"></i>
+									<span>{translate key="user.logOut"}</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				{else}
+					<!-- Desktop Auth Buttons (Login & Register) -->
+					<div class="hidden md:flex items-center gap-1.5">
+						<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login"}" 
+						   class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 hover:text-primary hover:bg-slate-100 transition">
+							<i class="fa-solid fa-user text-xs text-slate-400"></i>
+							<span>{translate key="user.login"}</span>
+						</a>
+						<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="register"}" 
+						   class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-primary bg-primary-50 hover:bg-primary-100 hover:text-primary-800 transition">
+							<i class="fa-solid fa-user-plus text-xs text-accent"></i>
+							<span>{translate key="user.register"}</span>
+						</a>
+					</div>
+				{/if}
+
+				<!-- Mobile Hamburger Button -->
+				<button 
+					type="button" 
+					@click="mobileMenuOpen = !mobileMenuOpen" 
+					class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100 text-slate-700 hover:text-primary hover:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-primary/20"
+					:aria-expanded="mobileMenuOpen.toString()"
+					aria-label="Menu navigasi">
+					<i class="fa-solid text-base transition-transform duration-200" :class="mobileMenuOpen ? 'fa-xmark rotate-90 text-primary' : 'fa-bars'"></i>
+				</button>
+			</div>
+		</div>
+
+		<!-- MOBILE NAVIGATION DRAWER / DROPDOWN -->
+		<div 
+			x-show="mobileMenuOpen" 
+			x-cloak
+			x-transition:enter="transition ease-out duration-200"
+			x-transition:enter-start="opacity-0 -translate-y-2"
+			x-transition:enter-end="opacity-100 translate-y-0"
+			x-transition:leave="transition ease-in duration-150"
+			x-transition:leave-start="opacity-100 translate-y-0"
+			x-transition:leave-end="opacity-0 -translate-y-2"
+			@click.outside="mobileMenuOpen = false"
+			class="md:hidden border-t border-slate-200/80 bg-white/98 backdrop-blur-md px-4 pt-3 pb-6 shadow-xl space-y-3">
+			
+			<!-- Mobile Nav Links -->
+			<nav class="space-y-1">
+				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}" 
+				   @click="mobileMenuOpen = false"
+				   class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold {if !$requestedPage || $requestedPage == 'index'}bg-primary-50 text-primary{else}text-slate-700 hover:bg-slate-50 hover:text-primary{/if} transition">
+					<i class="fa-solid fa-house text-accent w-5 text-center"></i>
+					<span>{translate key="common.homepageNavigationLabel"}</span>
 				</a>
+				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#daftar-jurnal" 
+				   @click="mobileMenuOpen = false"
+				   class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition">
+					<i class="fa-solid fa-book-bookmark text-accent w-5 text-center"></i>
+					<span>{translate key="plugins.themes.rumahJurnal.nav.journalList"}</span>
+				</a>
+				<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}#indeksasi" 
+				   @click="mobileMenuOpen = false"
+				   class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-primary transition">
+					<i class="fa-solid fa-shield-halved text-accent w-5 text-center"></i>
+					<span>{translate key="plugins.themes.rumahJurnal.nav.indexing"}</span>
+				</a>
+				<a href="{url page="search" router=PKP\core\PKPApplication::ROUTE_PAGE}" 
+				   @click="mobileMenuOpen = false"
+				   class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold {if $requestedPage == 'search'}bg-primary-50 text-primary{else}text-slate-700 hover:bg-slate-50 hover:text-primary{/if} transition">
+					<i class="fa-solid fa-magnifying-glass text-accent w-5 text-center"></i>
+					<span>{translate key="common.search"}</span>
+				</a>
+				<a href="{url page="about" router=PKP\core\PKPApplication::ROUTE_PAGE}" 
+				   @click="mobileMenuOpen = false"
+				   class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold {if $requestedPage == 'about'}bg-primary-50 text-primary{else}text-slate-700 hover:bg-slate-50 hover:text-primary{/if} transition">
+					<i class="fa-solid fa-circle-info text-accent w-5 text-center"></i>
+					<span>{translate key="navigation.about"}</span>
+				</a>
+			</nav>
+
+			<!-- Mobile Auth Links -->
+			<div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+				{if $isUserLoggedIn}
+					<!-- User Info Card -->
+					<div class="px-3.5 py-2.5 bg-slate-50 rounded-xl flex items-center gap-3 border border-slate-100 mb-1">
+						<span class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shadow-xs">
+							{$loggedInUsername|truncate:1:""|upper|default:"U"}
+						</span>
+						<div class="flex-1 min-w-0">
+							<p class="text-[10px] uppercase font-bold tracking-wider text-slate-400">{translate key="plugins.themes.rumahJurnal.loggedInAs"|default:"Masuk sebagai"}</p>
+							<p class="text-xs font-bold text-slate-800 truncate">{$loggedInUsername|escape}</p>
+						</div>
+					</div>
+
+					<!-- Dashboard -->
+					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="dashboard"}" 
+					   @click="mobileMenuOpen = false"
+					   class="flex items-center gap-3 w-full py-2.5 px-3.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 transition">
+						<i class="fa-solid fa-gauge-high text-accent w-4 text-center"></i>
+						<span>{translate key="navigation.dashboard"}</span>
+					</a>
+
+					<!-- View Profile -->
+					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}" 
+					   @click="mobileMenuOpen = false"
+					   class="flex items-center gap-3 w-full py-2.5 px-3.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 transition">
+						<i class="fa-solid fa-id-badge text-accent w-4 text-center"></i>
+						<span>{translate key="common.viewProfile"|default:"Lihat Profil"}</span>
+					</a>
+
+					<!-- Administration (if admin) -->
+					{if $isSiteAdmin || ($currentUser && $currentUser->hasRole(1, 0))}
+						<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE context="index" page="admin" op="index"}" 
+						   @click="mobileMenuOpen = false"
+						   class="flex items-center gap-3 w-full py-2.5 px-3.5 rounded-xl text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200/60 transition">
+							<i class="fa-solid fa-screwdriver-wrench text-amber-600 w-4 text-center"></i>
+							<span>{translate key="navigation.admin"|default:"Administrasi"}</span>
+						</a>
+					{/if}
+
+					<!-- Logout -->
+					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOut"}" 
+					   @click="mobileMenuOpen = false"
+					   class="flex items-center justify-center gap-2 w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold text-rose-600 bg-rose-50 hover:bg-rose-100 transition mt-1">
+						<i class="fa-solid fa-arrow-right-from-bracket"></i>
+						<span>{translate key="user.logOut"}</span>
+					</a>
+				{else}
+					<div class="grid grid-cols-2 gap-2">
+						<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login"}" 
+						   class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+							<i class="fa-solid fa-user text-slate-500"></i>
+							<span>{translate key="user.login"}</span>
+						</a>
+						<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="register"}" 
+						   class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs font-bold bg-accent/20 hover:bg-accent text-primary-900 transition">
+							<i class="fa-solid fa-user-plus text-primary"></i>
+							<span>{translate key="user.register"}</span>
+						</a>
+					</div>
+				{/if}
 			</div>
 		</div>
 	</header>
