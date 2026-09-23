@@ -3,7 +3,8 @@
 /**
  * @file plugins/themes/rumahJurnal/RumahJurnalThemePlugin.php
  *
- * Copyright (c) 2026 Rumah Jurnal
+ * Copyright (c) 2026 Fajri Rinaldi Chan
+ * Theme Support: https://nagastra.org
  *
  * @class RumahJurnalThemePlugin
  *
@@ -202,6 +203,12 @@ class RumahJurnalThemePlugin extends ThemePlugin
             'label' => __('plugins.themes.rumahJurnal.option.secretariatAddress.label'),
             'description' => __('plugins.themes.rumahJurnal.option.secretariatAddress.description'),
             'default' => $defaultAddress,
+        ]);
+
+        // Theme copyright & support information
+        $this->addOption('themeCredits', 'FieldHTML', [
+            'label' => __('plugins.themes.rumahJurnal.option.themeCredits.label'),
+            'description' => __('plugins.themes.rumahJurnal.option.themeCredits.description'),
         ]);
 
         // Add Google Fonts: Plus Jakarta Sans & Outfit

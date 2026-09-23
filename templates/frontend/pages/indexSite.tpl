@@ -1,7 +1,8 @@
 {**
  * plugins/themes/rumahJurnal/templates/frontend/pages/indexSite.tpl
  *
- * Copyright (c) 2026 Rumah Jurnal
+ * Copyright (c) 2026 Fajri Rinaldi Chan
+ * Theme Support: https://nagastra.org
  *
  * Portal Homepage / Site Index for Rumah Jurnal (OJS 3.5)
  *}

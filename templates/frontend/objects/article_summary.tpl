@@ -1,6 +1,9 @@
 {**
  * plugins/themes/rumahJurnal/templates/frontend/objects/article_summary.tpl
  *
+ * Copyright (c) 2026 Fajri Rinaldi Chan
+ * Theme Support: https://nagastra.org
+ *
  * Modern Article Summary Card for Rumah Jurnal Theme
  * Displays article metadata, authors, abstract preview, and galley action buttons.
  *}

@@ -1,7 +1,8 @@
 {**
  * plugins/themes/rumahJurnal/templates/frontend/components/footer.tpl
  *
- * Copyright (c) 2026 Rumah Jurnal
+ * Copyright (c) 2026 Fajri Rinaldi Chan
+ * Theme Support: https://nagastra.org
  *
  * Common site frontend footer for Rumah Jurnal theme.
  *}

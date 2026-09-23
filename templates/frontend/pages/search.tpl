@@ -1,6 +1,9 @@
 {**
  * plugins/themes/rumahJurnal/templates/frontend/pages/search.tpl
  *
+ * Copyright (c) 2026 Fajri Rinaldi Chan
+ * Theme Support: https://nagastra.org
+ *
  * Modern Scientific Search Page for Rumah Jurnal Theme
  * Compatible with OJS 3.5 multi-journal and single-journal search workflows.
  *}

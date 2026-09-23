@@ -1,7 +1,8 @@
 {**
  * plugins/themes/rumahJurnal/templates/frontend/pages/userRegisterComplete.tpl
  *
- * Copyright (c) 2026 Rumah Jurnal
+ * Copyright (c) 2026 Fajri Rinaldi Chan
+ * Theme Support: https://nagastra.org
  *
  * Modern registration complete page for Rumah Jurnal theme.
  *}

@@ -1,4 +1,9 @@
 /**
+ * plugins/themes/rumahJurnal/js/rumah-jurnal.js
+ *
+ * Copyright (c) 2026 Fajri Rinaldi Chan
+ * Theme Support: https://nagastra.org
+ *
  * Rumah Jurnal OJS 3.5 Interactive Features
  */
 

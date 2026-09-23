@@ -1,3 +1,8 @@
+# plugins/themes/rumahJurnal/locale/id/locale.po
+#
+# Copyright (c) 2026 Fajri Rinaldi Chan
+# Theme Support: https://nagastra.org
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -14,7 +19,7 @@ msgid "plugins.themes.rumahJurnal.name"
 msgstr "Tema Rumah Jurnal"
 
 msgid "plugins.themes.rumahJurnal.description"
-msgstr "Tema portal modern khusus beranda indeks jurnal dengan Tailwind CSS, pencarian interaktif, dan tampilan elegan."
+msgstr "Tema portal modern khusus beranda indeks jurnal dengan Tailwind CSS, pencarian interaktif, dan tampilan elegan. Dikembangkan oleh Fajri Rinaldi Chan. Hak Cipta (c) 2026 Fajri Rinaldi Chan. Theme Support: https://nagastra.org"
 
 msgid "plugins.themes.rumahJurnal.portalTitle"
 msgstr "Portal Rumah Jurnal"
@@ -78,6 +83,12 @@ msgstr "Alamat Kantor Sekretariat"
 
 msgid "plugins.themes.rumahJurnal.option.secretariatAddress.description"
 msgstr "Alamat fisik lengkap kantor sekretariat Rumah Jurnal yang ditampilkan pada bagian kontak di footer portal."
+
+msgid "plugins.themes.rumahJurnal.option.themeCredits.label"
+msgstr "Informasi Hak Cipta & Dukungan Tema"
+
+msgid "plugins.themes.rumahJurnal.option.themeCredits.description"
+msgstr "<strong>Rumah Jurnal Theme</strong> dirancang dan dikembangkan oleh <strong>Fajri Rinaldi Chan</strong>.<br>Hak Cipta &copy; 2026 Fajri Rinaldi Chan. Seluruh hak cipta dilindungi.<br>Bantuan Teknis & Informasi Tema: <a href=\"https://nagastra.org\" target=\"_blank\" rel=\"noopener noreferrer\">https://nagastra.org</a>"
 
 
 msgid "plugins.themes.rumahJurnal.footer.quickLinks"
